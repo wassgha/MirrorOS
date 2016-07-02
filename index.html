@@ -1,0 +1,113 @@
+<html>
+<head>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="Leap.js"></script>
+  <style>
+  body {
+    background: url('images/dots.png') black;
+  }
+  *{
+    z-index: 0;
+  }
+  .highlight {
+    border: 5px red solid !important;
+  }
+
+  #slide {
+    background-color:white;
+    float: left;
+    width: 100%;
+    height: 100%;
+  }
+
+  .grid div {
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 5px black solid;
+  }
+  #draggable {
+    position: absolute;
+    top:100px;
+    left:calc(50% - 150px);
+    display: none;
+  }
+  .circle {
+    position: absolute;
+    border-radius: 200px;
+    width:100px;
+    height: 100px;
+    background:rgba(44, 62, 80,0.4);
+    border:15px solid #3498db;
+    //display: none;
+    z-index: 10;
+  }
+  .test {
+    color:white;
+  }
+  </style>
+</head>
+<body>
+<div class="test"></div>
+<img id="draggable" src="images/notif.png"/>
+  <script>
+    localStorage.clear();
+    var myController = new Leap.Controller("ws://localhost:6437/"),
+        myListener = new Leap.Listener(),
+        isCalibrated = !myController.calibratedScreens().empty();
+
+    myListener.onFrame = function(controller){
+        if(!isCalibrated) return;
+        $('#draggable').fadeIn();
+        var frame = controller.frame(),
+            pointables = frame.pointables(),
+            screens = controller.calibratedScreens(),
+            arr = [];
+        if(pointables.length>0){
+            $.each(pointables,function(index, value) {
+              if(value.extended)
+                arr.push("#" + value.id());
+            });
+
+            $('.circle').not(arr.join(',')).remove();
+
+            for (i = 0; i < pointables.length; i++) {
+              pointable = pointables[i];
+              if(!pointable.extended) { continue; }
+
+              if(!$('#' + pointable.id()).length) {
+                $('body').append('<div class="circle" id="' + pointable.id() + '"></div>');
+              }
+              var screen = screens.closestScreenHit(pointable);
+              var normalizedCoords = screen.intersect(pointable, true);
+              var dist = Math.abs(normalizedCoords.distance);
+              $('#' + pointable.id()).css({'left':normalizedCoords.position.x, 'top':normalizedCoords.position.y});
+              if(dist <5) {
+                $('#' + pointable.id()).fadeIn();
+                $('#' + pointable.id()).css({'background':'rgba(44, 62, 80,0.8)'});
+              } else {
+                $('#' + pointable.id()).fadeOut();
+              }
+            }
+       
+        } else {
+          $('.circle').fadeOut().remove();
+        }
+
+    }
+
+    myController.addListener(myListener);
+    myListener.onConnect = function(controller){
+        if(controller.calibratedScreens().empty()){
+            var calibrate = new Leap.Calibrate(controller);
+            calibrate.onComplete = function(screen){
+                isCalibrated = true;
+            }
+        }
+        else{
+            isCalibrated = true;
+        }
+    }
+  </script>
+</body>
+</html>
