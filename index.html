@@ -54,7 +54,12 @@
     localStorage.clear();
     var myController = new Leap.Controller("ws://localhost:6437/"),
         myListener = new Leap.Listener(),
-        isCalibrated = !myController.calibratedScreens().empty();
+        isCalibrated = !myController.calibratedScreens().empty(),
+        x,
+        y,
+        firstExtended = 0,
+        dragging = false,
+        touch = false;
 
     myListener.onFrame = function(controller){
         if(!isCalibrated) return;
@@ -71,9 +76,9 @@
 
             $('.circle').not(arr.join(',')).remove();
 
-            for (i = 0; i < pointables.length; i++) {
-              pointable = pointables[i];
-              if(!pointable.extended) { continue; }
+            //for (i = 0; i < pointables.length; i++) {
+              pointable = pointables[firstExtended];
+              while(!pointable.extended && firstExtended<pointables.length) { firstExtended++; pointable = pointables[firstExtended]; }
 
               if(!$('#' + pointable.id()).length) {
                 $('body').append('<div class="circle" id="' + pointable.id() + '"></div>');
@@ -81,14 +86,19 @@
               var screen = screens.closestScreenHit(pointable);
               var normalizedCoords = screen.intersect(pointable, true);
               var dist = Math.abs(normalizedCoords.distance);
-              $('#' + pointable.id()).css({'left':normalizedCoords.position.x, 'top':normalizedCoords.position.y});
+              x = normalizedCoords.position.x;
+              y = normalizedCoords.position.y;
+              $('#' + pointable.id()).css({'left':x-($('#' + pointable.id()).width()/2), 'top':y-($('#' + pointable.id()).height()/2)});
               if(dist <5) {
+                touch = true;
                 $('#' + pointable.id()).fadeIn();
                 $('#' + pointable.id()).css({'background':'rgba(44, 62, 80,0.8)'});
               } else {
+                touch = false;
+                dragging = false
                 $('#' + pointable.id()).fadeOut();
               }
-            }
+            //}
        
         } else {
           $('.circle').fadeOut().remove();
@@ -108,6 +118,14 @@
             isCalibrated = true;
         }
     }
+
+
+    setInterval(function() { if (touch && (dragging || ($('#draggable').offset().left<x && ($('#draggable').offset().left + $('#draggable').width()) > x && $('#draggable').offset().top<y && ($('#draggable').offset().top + $('#draggable').height()) > y))) {
+        dragging = true
+        $('#draggable').offset({'left':x-($('#draggable').width()/2), 'top':y-($('#draggable').height()/2)});
+      }
+    }, 30);
+
   </script>
 </body>
 </html>
