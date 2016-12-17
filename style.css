@@ -1,0 +1,36 @@
+  body {
+    background: url('images/dots.png') black;
+  }
+  *{
+    z-index: 0;
+  }
+  .highlight {
+    border: 5px red solid !important;
+  }
+
+  #slide {
+    background-color:white;
+    float: left;
+    width: 100%;
+    height: 100%;
+  }
+
+  .grid div {
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 5px black solid;
+  }
+  .circle {
+    position: absolute;
+    border-radius: 200px;
+    width:100px;
+    height: 100px;
+    background:rgba(44, 62, 80,0.4);
+    border:15px solid #3498db;
+    //display: none;
+    z-index: 10;
+  }
+  .test {
+    color:white;
+  }

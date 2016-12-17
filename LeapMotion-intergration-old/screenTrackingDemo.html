@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<body background="#000" style="margin:none">
+        <canvas id="testCanvas"></canvas>
+		<script src="Leap.js"></script>
+		<script>
+            localStorage.clear();
+            var myController = new Leap.Controller("ws://localhost:6437/"),
+                myListener = new Leap.Listener(),
+                isCalibrated = !myController.calibratedScreens().empty(),
+                canvas = document.getElementById('testCanvas'),
+                context = canvas.getContext('2d');
+            window.addEventListener('resize', resizeCanvas, false);
+            function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+
+            }
+            resizeCanvas();
+
+
+            myListener.onFrame = function(controller){
+                if(!isCalibrated) return;
+
+                var frame = controller.frame(),
+                    pointables = frame.pointables(),
+					screens = controller.calibratedScreens();
+
+                if(pointables.length>0){
+                    var pointable = pointables[0],
+                        screen = screens.closestScreenHit(pointable),
+                        i=0;
+
+					while(!pointable.extended && i<pointables.length) {
+                        pointable=pointables[i++];
+                    }
+                    if(screen.isValid()){
+						var normalizedCoords = screen.intersect(pointable, true);
+
+						context.beginPath();
+						context.arc(normalizedCoords.position.x, normalizedCoords.position.y, 5, 0, 2 * Math.PI, false);
+						context.fillStyle = '#00f';
+						context.fill();
+						context.lineWidth = 5;
+						context.strokeStyle = '#003300';
+					}
+                }
+
+            }
+
+            myController.addListener(myListener);
+            myListener.onConnect = function(controller){
+                if(controller.calibratedScreens().empty()){
+                    var calibrate = new Leap.Calibrate(controller);
+                    calibrate.onComplete = function(screen){
+                        isCalibrated = true;
+                    }
+                }
+                else{
+                    isCalibrated = true;
+                }
+            }
+        </script>
+	</body>
+</html>
