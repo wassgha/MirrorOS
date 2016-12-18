@@ -3,27 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Hello World!</title>
+    <script src="app.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-    <div id="draggable">
-    <script type="text/javascript">
-      const ipc = require('electron').ipcRenderer;
-      const draggable = document.getElementById('draggable')
+    <div id="box">
 
-      let t = false
-      draggable.addEventListener("mouseenter", () => {
-        t = true
-      })
-
-      document.addEventListener("mousemove", (event) => {
-        if(t){
-          console.log(event.screenX, event.screenY, draggable.style);
-          draggable.style.left = (event.screenX - draggable.style.width/2) + 'px'
-          draggable.style.top = (event.screenY - draggable.style.height/2) + 'px'
-          ipc.send('drag', 'lets play')
-        }
-      })
-    </script>
   </body>
 </html>
