@@ -1,0 +1,22 @@
+{
+  "name": "MirrorOS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/app.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wassgha/MirrorOS.git"
+  },
+  "keywords": [
+  ],
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/wassgha/MirrorOS/issues"
+  },
+  "homepage": "https://github.com/wassgha/MirrorOS#readme"
+}
