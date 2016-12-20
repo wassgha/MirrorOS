@@ -2,9 +2,14 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+body {
+  background: url('../images/dots.png') black;
+}
+
 #box{
+  background: url('../images/notif.png');
+  border-radius: 4px;
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  width: 303px;
+  height: 270px;
 }

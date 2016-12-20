@@ -6,9 +6,8 @@ let win
 
 const createWindow = () => {
   win = new BrowserWindow({
-    width: 600,
-    height: 600,
-    resizable: false
+    fullscreen: true,
+    //resizable: false
   })
 
   win.loadURL(url.format({
