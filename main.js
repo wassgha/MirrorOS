@@ -11,7 +11,7 @@ const createWindow = () => {
   })
 
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'login.html'),
+    pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -36,20 +36,4 @@ app.on('activate', () => {
   if(win == null){
     createWindow()
   }
-})
-
-ipcMain.on('new_win', function(event, data){
-  let new_win = new BrowserWindow(data)
-
-  new_win.loadURL(url.format({
-    pathname: path.join(__dirname, 'alarm.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
-
-  new_win.on('closed', () => {
-    new_win = null
-  })
-
-  new_win.show()
 })

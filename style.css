@@ -3,7 +3,7 @@
 }
 
 body {
-	background: url('../images/dots.png') black;
+	background: url('images/dots.png') black;
 }
 
 .widget {
@@ -55,11 +55,22 @@ body {
 	Dummy Widget
 */
 
-.dummy {
-	background: url('../images/notif.png');
+.dummy.widget {
+	background: url('images/notif.png');
 	width: 303px;
 	height: 270px;
+	margin:auto;
 }
+
+/*
+	Date and time
+*/
+
+.datetime {
+	color:white;
+	font-size:24px;
+}
+
 
 /*
 	Login loading screen
