@@ -26,10 +26,18 @@ $(function(){
   // If face recognized then login
   $(".login.widget").on("click", function () {
     $(".login.widget").fadeOut(500);
-    $(".loader").fadeIn(1000);
-    setTimeout(function() {
-      window.location.href = "index.html";
-    }, 3000);
+    $(".loader").fadeIn(1000, function() {
+      setTimeout(function() {
+        $(".notification").fadeIn(1000);
+        setTimeout(function() { 
+          $(".loader").fadeOut();
+          $(".notification").fadeOut();
+          setTimeout(function() { 
+            window.location.href = "index.html";
+          }, 1000);
+        }, 3000);
+      }, 1000);
+    });
   });
    
 

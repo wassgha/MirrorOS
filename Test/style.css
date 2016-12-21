@@ -1,5 +1,5 @@
 *{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -124,4 +124,27 @@ body {
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
 	}
+}
+
+/*
+	Notification alert
+*/
+
+.notification {
+	font-size: 24px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	bottom: 30px;
+	display: none;
+}
+
+.notification #text {
+	padding: 10px;
+	background: rgb(52, 152, 219);
+	border-radius: 3px;
+	color:white;
+	text-align: center;
+	display: inline-block;
 }
