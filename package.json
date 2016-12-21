@@ -1,22 +1,13 @@
 {
-  "name": "MirrorOS",
-  "version": "1.0.0",
-  "description": "",
-  "main": "js/app.js",
+  "name": "Foo",
+  "version": "0.1.0",
+  "main": "main.js",
   "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "jsdom": "^9.8.3"
   },
   "devDependencies": {
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wassgha/MirrorOS.git"
-  },
-  "keywords": [
-  ],
-  "author": "",
-  "license": "",
-  "bugs": {
-    "url": "https://github.com/wassgha/MirrorOS/issues"
-  },
-  "homepage": "https://github.com/wassgha/MirrorOS#readme"
+    "devtron": "^1.4.0"
+  }
 }
