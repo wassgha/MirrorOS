@@ -25,8 +25,8 @@ $(function(){
 
   // If face recognized then login
   $(".login.widget").on("click", function () {
-    $(".login.widget").fadeOut(1000, function() {
-      $(".loader").fadeIn(1000);
+    $(".login.widget").fadeOut(500, function() {
+      $(".loader").fadeIn(500);
     });
     setTimeout(function() {
       window.location.href = "index.html";
