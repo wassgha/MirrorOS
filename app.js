@@ -2,10 +2,16 @@ const $ = jQuery = require('jquery')
 // require('jquery-ui')
 const ipc = require('electron').ipcRenderer
 
-
-
 $(document).ready(function () {
+    // Make widgets draggable
     $('.widget').draggable();
+
+    // Put the current window on the front
+    $('.widget').on('mousedown', function() {
+      $('.widget').css('z-index', 0);;
+      $(this).css('z-index', 1);;
+    });
+
     $("#content").load("login.html", function() {
       // Show camera feed in login widget
       var video = document.querySelector(".login.widget #cam");

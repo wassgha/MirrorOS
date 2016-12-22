@@ -62,6 +62,27 @@ body {
 
 
 /*
+	Video Widget
+*/
+
+.video.widget {
+	height: 270px;
+	min-width: 400px;
+	top:30px;
+	left:100px;
+	overflow: hidden;
+	background-image: url(http://codeworksmedia.com/wp-content/uploads/2016/10/placeholder-vid.png);
+	background-size: cover;
+	background-position: top;
+}
+
+.video.widget video {
+	height:100%;
+	object-fit:cover;
+}
+
+
+/*
 	Message Widget
 */
 
@@ -130,6 +151,45 @@ body {
 .message.widget .head {
     margin-bottom: 15px;
 }
+
+/*
+	Message Widget (Dark theme)
+*/
+
+
+.message.widget.dark {
+	background: rgb(41, 41, 41);
+	top: 60%;
+	left: 20%;
+}
+
+.message.widget.dark .content {
+    color: #ffffff;
+}
+
+.message.widget.dark .actions {
+    background: #515151;
+    border-top: 1px solid #888888;
+}
+
+.message.widget.dark .action {
+    color: #909090;
+}
+
+.message.widget.dark .action.highlight {
+    background: #717171;
+    border-left: 1px solid #888888;
+    color: rgb(255, 255, 255);
+}
+
+.message.widget.dark .head .title {
+    color: #ffffff;
+}
+
+.message.widget.dark .head .time {
+    color: rgb(255, 255, 255);
+}
+
 
 /*
 	Corner (Date and time)
