@@ -1,8 +1,5 @@
-*{
-	font-family: "Montserrat", Helvetica, Arial, sans-serif;
-}
-
 body {
+	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 	background: url('images/dots.png') black;
 }
 
@@ -66,9 +63,34 @@ body {
 	Date and time
 */
 
-.datetime {
-	color:white;
-	font-size:24px;
+#corner {
+	color: white;
+	text-align: right;
+	font-family: "Lato", sans-serif !important;
+	font-weight: 300;
+	background: black;
+	display: inline-block;
+	padding: 20px;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+}
+
+#corner #date {
+	font-size: 48px;
+}
+
+#corner #time {
+	font-size: 42px;
+}
+
+#corner #weather {
+	font-size: 34px;
+}
+
+#corner #weather .material-icons {
+	font-size: 48px;
+	vertical-align: middle;
 }
 
 
