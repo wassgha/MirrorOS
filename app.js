@@ -7,7 +7,7 @@ $(document).ready(function () {
     $('.widget').draggable();
 
     // Put the current window on the front
-    $('.widget').on('mousedown', function() {
+    $(document).on('mousedown', '.widget', function() {
       $('.widget').css('z-index', 0);;
       $(this).css('z-index', 1);;
     });
