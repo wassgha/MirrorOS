@@ -45,5 +45,11 @@
   $(document).ready(function () {
     updateDate();
     setInterval('updateClock()', 1000);
+    $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places where text="NYC")&format=json', function (data) {
+      if (data.query.results !== null) {
+        console.log(data.query.results.channel);
+        $('#weather').html('<i class="icon-' + data.query.results.channel.item.condition.code + '"></i> &nbsp; ' + data.query.results.channel.item.condition.text);
+      }
+    });
   })
 </script>

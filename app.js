@@ -9,6 +9,7 @@ $(document).ready(function () {
     $("#content").load("login.html", function() {
       // Show camera feed in login widget
       var video = document.querySelector(".login.widget #cam");
+      var localstream;
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
        
       if (navigator.getUserMedia) {       
@@ -16,6 +17,7 @@ $(document).ready(function () {
       }
        
       function handleVideo(stream) {
+        localstream = stream;
         video.src = window.URL.createObjectURL(stream);
       }
 
@@ -31,12 +33,14 @@ $(document).ready(function () {
             $(".notification").fadeIn(1000);
             setTimeout(function() { 
               $(".loader").fadeOut();
-              $(".notification").fadeOut();
               setTimeout(function() { 
-                $("#content").load("home.html");
-              }, 1000);
-            }, 3000);
-          }, 1000);
+                $("#content").load("home.html", function () {
+                  $(".notification").fadeOut(1000);
+                  localstream.getTracks()[0].stop();
+                });
+              }, 500);
+            }, 1000);
+          }, 500);
         });
       });
     });
