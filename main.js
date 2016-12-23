@@ -1,17 +1,20 @@
 
-const {app, BrowserWindow, ipcMain} = require('electron')
+const electron = require('electron')
 const path = require('path')
 const url = require('url')
+
+const {app, BrowserWindow, ipcMain} = electron
 let win
+
 
 const createWindow = () => {
   win = new BrowserWindow({
-    fullscreen: true,
-    //resizable: false
+    width: 800,
+    height: 600
   })
 
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'build/index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -33,7 +36,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  if(win == null){
+  if(win === null){
     createWindow()
   }
 })
