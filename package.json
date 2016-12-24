@@ -27,7 +27,7 @@
   },
   "scripts": {
     "babel": "babel --presets es2015 ./main.js -o build/main.bundle.js",
-    "electron": "./node_modules/.bin/electron .",
+    "electron": "electron .",
     "build": "webpack",
     "start": "npm run build && npm run electron"
   }

@@ -6,6 +6,7 @@
   "asi": true,
   "node": true,
   "globals": {
-    "jQuery": true
+    "jQuery": true,
+		"$": true
   }
 }

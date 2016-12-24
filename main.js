@@ -8,7 +8,7 @@ let win
 
 
 const createWindow = () => {
-  win = new BrowserWindow({
+	win = new BrowserWindow({
     width: 800,
     height: 600
   })

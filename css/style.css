@@ -1,3 +1,9 @@
 * {
 	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
+
+#box{
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}

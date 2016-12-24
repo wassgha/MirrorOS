@@ -43,6 +43,24 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.css', {
       allChunks: true,
+    }),
+    new webpack.ProvidePlugin({
+      "$": "jquery",
+      "jQuery": "jquery",
+      "window.jQuery": "jquery"
     })
-  ]
+  ],
+
+  resolve: {
+		extensions: ['', '.js', '.jsx', '.json'],
+    alias: {
+      "jquery": "jquery/src/jquery"
+    }
+  },
+
+	stats: {
+		colors: true,
+		reasons: true,
+		chunks: false
+	}
 }
