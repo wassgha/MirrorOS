@@ -68,10 +68,10 @@
         success: function(data){
           if (data.detected == false) {
             $(".login.widget #text").html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
-          } else if (data.identity != 16) {
+          } else if (data.identity == 0) {
             $(".login.widget #text").html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
           } else {
-            $(".login.widget #text").html('<i class="material-icons">sentiment_very_satisfied</i><br>Hello Wassim. Smile to login!');
+            $(".login.widget #text").html('<i class="material-icons">sentiment_very_satisfied</i><br>Hello ' + data.user.first_name + '. Smile to login!');
             if (data.smiling) {
               login();
             }
