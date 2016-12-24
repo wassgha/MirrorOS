@@ -61,7 +61,7 @@
     var image = document.getElementById("canvas").toDataURL("image/jpeg", 0.85);
     $.ajax({
         type: "POST",
-        url: "http://localhost:8000/face_detection/detect/",
+        url: "http://localhost:8000/face_detection/recognize/",
         data: {
           imageBase64 : image.split(',')[1]
         },
