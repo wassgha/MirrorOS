@@ -9,7 +9,16 @@ body {
 	display: block;
 	position: absolute;
 	cursor: move;
+	z-index: 0;
 }
+
+.widget.top {
+	z-index: 2;
+}
+.widget.bottom {
+	z-index: 1;
+}
+
 
 /*
 	Login Widget

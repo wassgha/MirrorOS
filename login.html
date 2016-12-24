@@ -54,7 +54,6 @@
 
   function detectFace() {
     if (done) return;
-    console.log("Trying to identify face...");
     document.getElementById("canvas").getContext("2d").drawImage(video, 0, 0, 640, 480);
 
     var formData = new FormData();
