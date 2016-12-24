@@ -6,8 +6,11 @@ var curZIndex = 3;
 
 $(document).ready(function () {
     // Make widgets draggable
-    $('.widget').draggable({   start: function(event, ui) { $(this).css("z-index", curZIndex++); }
-});
+    $('.widget').draggable({
+		start: function(event, ui) {
+			$(this).css("z-index", curZIndex++);
+		}
+	});
 
     // Put the current window on the front
     $(document).on('mousedown', '.widget', function() {
