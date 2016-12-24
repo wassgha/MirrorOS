@@ -2,10 +2,11 @@
     <div id="cam-container">
         <video autoplay="true" id="cam">
         </video>
+        <canvas id="canvas" width="640px" height="480px"></canvas>
     </div>
     <div id="text">
-      <i class="material-icons">tag_faces</i><br>
-      Hello. Smile to login!
+      <i class="material-icons">sentiment_neutral</i><br>
+      <span id="instructions">I don't see you.</span>
     </div>
 </div>
 <div class="loader">
@@ -14,6 +15,7 @@
 
 <script type="text/javascript">
   // Show camera feed in login widget
+  var done = false;
   var video = document.querySelector(".login.widget #cam");
   var localstream;
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -31,8 +33,7 @@
       // do something
   }
 
-  // If face recognized then login
-  $(".login.widget").on("click", function () {
+  function login() {
     $(".login.widget").fadeOut(500);
     $(".loader").fadeIn(1000, function() {
       setTimeout(function() {
@@ -43,10 +44,44 @@
             $("#content").load("home.html", function () {
               $(".notification").fadeOut(1000);
               localstream.getTracks()[0].stop();
+              done = true;
             });
           }, 500);
         }, 1000);
       }, 500);
     });
-  });
+  }
+
+  function detectFace() {
+    if (done) return;
+    console.log("Trying to identify face...");
+    document.getElementById("canvas").getContext("2d").drawImage(video, 0, 0, 640, 480);
+
+    var formData = new FormData();
+
+    var image = document.getElementById("canvas").toDataURL("image/jpeg", 0.85);
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8000/face_detection/detect/",
+        data: {
+          imageBase64 : image.split(',')[1]
+        },
+        success: function(data){
+          if (data.detected == false) {
+            $(".login.widget #text").html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
+          } else if (data.identity != 16) {
+            $(".login.widget #text").html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+          } else {
+            $(".login.widget #text").html('<i class="material-icons">sentiment_very_satisfied</i><br>Hello Wassim. Smile to login!');
+            if (data.smiling) {
+              login();
+            }
+          }
+          console.log(data);
+        }
+      })
+        setTimeout(function() { detectFace(); }, 1000);
+  }
+
+  setTimeout(function() { detectFace(); }, 1000);
 </script>

@@ -41,13 +41,17 @@ body {
 	color: white;
 	text-align: center;
 	padding: 20px;
-	font-size: 24px;
+	font-size: 22px;
 }
 
 .login.widget #text .material-icons {
 	color : rgb(52, 73, 94);
 	font-size: 40px !important;
 	margin-bottom: 10px;
+}
+
+.login.widget #canvas {
+	display: none;
 }
 
 /*
