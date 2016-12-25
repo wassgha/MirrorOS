@@ -2,6 +2,16 @@
   width: 300px;
   height: 300px;
 }
+
+.input-number{
+	width: 40px;
+	margin-left: 3px;
+	font-size: 14pt;
+}
+
+#am-pm{
+	cursor: pointer;
+}
 * {
 	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
