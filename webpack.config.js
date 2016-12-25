@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: [
-    './js/app.js',
+    './js/app.jsx',
     './css/style.css'
   ],
 
@@ -14,6 +14,13 @@ module.exports = {
   },
 
   module: {
+	// 	preLoaders: [
+	// 		{
+	// 			test: /\.jsx?$/,
+	// 			loader: 'eslint-loader',
+	// 			exclude: /node_modules/
+	// 		}
+	// 	],
 		loaders: [
 			{
 				test: /\.jsx?$/,
@@ -47,7 +54,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       "$": "jquery",
       "jQuery": "jquery",
-      "window.jQuery": "jquery"
+      "window.jQuery": "jquery",
+			"React": "react",
+			"ReactDOM": "react-dom"
     })
   ],
 

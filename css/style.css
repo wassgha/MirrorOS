@@ -2,8 +2,16 @@
 	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
-#box{
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+body {
+	background: url('../images/dots.png') black;
 }
+
+.window {
+	background-color: #34495e;
+	border-radius: 11px;
+	padding: 3px;
+	opacity: 0.9;
+	border: 3px solid #2c3e50;
+}
+
+@import "alarm.css";
