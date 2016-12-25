@@ -18,6 +18,8 @@ const createWindow = () => {
 
   win.webContents.openDevTools()
 
+  win.webContents.setMenu(null)
+
   win.on('closed', () => {
     win = null
   })
