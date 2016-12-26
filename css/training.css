@@ -1,0 +1,8 @@
+.training.widget {
+	top:50px;
+	left: 50px;
+	width: 200px;
+	background: white;
+	padding: 10px;
+	display: none;
+}

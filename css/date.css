@@ -1,0 +1,22 @@
+#corner {
+	color: white;
+	text-align: right;
+	font-family: "Lato", sans-serif !important;
+	font-weight: 300;
+	display: inline-block;
+	padding: 21px;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+}
+#corner span {
+	background: black;
+}
+
+#corner #date {
+	font-size: 48px;
+}
+
+#corner #time {
+	font-size: 42px;
+}
