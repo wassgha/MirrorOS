@@ -1,0 +1,29 @@
+.widget {
+	border-radius: 3px;
+	display: block;
+	position: absolute;
+	cursor: move;
+	z-index: 0;
+}
+
+.widget.top {
+	z-index: 2;
+}
+
+.widget.bottom {
+	z-index: 1;
+}
+
+.tray {
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+    color: white;
+    background: black;
+    padding: 10px;
+    text-decoration: none
+}
+
+.tray i.material-icons {
+	vertical-align: middle;
+}

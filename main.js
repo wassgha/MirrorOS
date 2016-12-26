@@ -1,22 +1,25 @@
 
-const {app, BrowserWindow, ipcMain} = require('electron')
+const electron = require('electron')
 const path = require('path')
 const url = require('url')
+
+const {app, BrowserWindow, ipcMain} = electron
 let win
 
+
 const createWindow = () => {
-  win = new BrowserWindow({
-    fullscreen: true,
-    //resizable: false
+	win = new BrowserWindow({
+    fullscreen: true
   })
 
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'build/index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   win.webContents.openDevTools()
+  win.webContents.setMenu(null)
 
   win.on('closed', () => {
     win = null
@@ -33,7 +36,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  if(win == null){
+  if(win === null){
     createWindow()
   }
 })

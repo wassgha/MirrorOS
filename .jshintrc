@@ -1,0 +1,14 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "undef": true,
+  "esnext": true,
+  "asi": true,
+  "node": true,
+  "globals": {
+    "jQuery": true,
+		"$": true,
+		"React": true,
+		"ReactDOM": true
+  }
+}

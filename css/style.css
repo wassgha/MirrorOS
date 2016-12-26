@@ -1,0 +1,21 @@
+* {
+	font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: url('../images/dots.png') black;
+  cursor: none;
+}
+
+
+@import "alarm.css";
+@import 'date.css';
+@import 'dummy.css';
+@import 'login.css';
+@import 'message-dark.css';
+@import 'message-light.css';
+@import 'notification.css';
+@import 'training.css';
+@import 'video.css';
+@import 'weather.css';
+@import 'widget.css';
