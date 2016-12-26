@@ -7,7 +7,7 @@ import Alarm from './alarm.jsx'
 const App = () => (
 	<div className="app-container">
 		<Alarm />
-	</div>
+  </div>
 )
 
 ReactDOM.render(<App />, document.getElementById("app"))
