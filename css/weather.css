@@ -57,16 +57,16 @@
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
 
-#corner #weather {
+.corner #weather {
 	font-size: 34px;
 }
 
-#corner #weather .material-icons {
+.corner #weather .material-icons {
 	font-size: 48px;
 	vertical-align: middle;
 }
 
-#corner #weather i {
+.corner #weather i {
 	font-size: 48px;
 	vertical-align: middle;
 	font-family: weather;

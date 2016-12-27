@@ -52,7 +52,7 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 
 	var _react = __webpack_require__(102);
 
@@ -88,22 +88,7 @@
 	    };
 	  },
 
-	  componentDidMount: function componentDidMount() {
-	    var widgets = document.getElementsByClassName('widget');
-	    var widgetQueue = this.widgetQueue;
-	    Array.prototype.forEach.call(widgets, function (widget, index) {
-	      widgetQueue.enqueue(widget);
-	      $(widget).on('click', function (event) {
-	        widgetQueue.enqueue(widget);
-	        console.log(widgetQueue);
-	      });
-	      $(widget).draggable({
-	        start: function start(event, ui) {
-	          widgetQueue.enqueue(widget);
-	        }
-	      });
-	    });
-	  },
+	  componentDidMount: function componentDidMount() {},
 
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -115,7 +100,6 @@
 	});
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById("app"));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 2 */
@@ -33407,7 +33391,7 @@
 /* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -33421,170 +33405,39 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _message = __webpack_require__(298);
+
+	var _message2 = _interopRequireDefault(_message);
+
+	var _forecast = __webpack_require__(299);
+
+	var _forecast2 = _interopRequireDefault(_forecast);
+
+	var _player = __webpack_require__(300);
+
+	var _player2 = _interopRequireDefault(_player);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Home = _react2.default.createClass({
 	  displayName: 'Home',
 
 
-	  updateClock: function updateClock() {
-	    var currentTime = new Date();
-	    var currentHours = currentTime.getHours();
-	    var currentMinutes = currentTime.getMinutes();
-	    var currentSeconds = currentTime.getSeconds();
-
-	    // Pad the minutes and seconds with leading zeros, if required
-	    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-	    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
-	    // Choose either "AM" or "PM" as appropriate
-	    var timeOfDay = currentHours < 12 ? "AM" : "PM";
-	    // Convert the hours component to 12-hour format if needed
-	    currentHours = currentHours > 12 ? currentHours - 12 : currentHours;
-	    // Convert an hours component of "0" to "12"
-	    currentHours = currentHours == 0 ? 12 : currentHours;
-	    // Compose the string for display
-	    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
-
-	    $("#time").html(currentTimeString);
-	  },
-
-	  updateDate: function updateDate() {
-	    // the format function is part of antoher plugin, should think up
-	    // a better way for doing this
-	    //$("#date").html(new Date().format('l, M. jS'))
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    this.updateDate();
-	    setInterval(this.updateClock, 1000);
-	    $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places where text="NYC")&format=json', function (data) {
-	      if (data.query.results !== null) {
-	        console.log(data.query.results.channel);
-	        $('#weather').html('<i class="icon-' + data.query.results.channel.item.condition.code + '"></i> &nbsp; ' + data.query.results.channel.item.condition.text);
-	      }
-	    });
-	  },
+	  componentDidMount: function componentDidMount() {},
 
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(
-	        'span',
-	        { id: 'corner' },
-	        _react2.default.createElement(
-	          'span',
-	          { id: 'date' },
-	          'Wednesday, Dec. 21st'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'span',
-	          { id: 'time' },
-	          '8:00PM'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'span',
-	          { id: 'weather' },
-	          _react2.default.createElement('img', { src: '../media/images/loading.gif', width: '24px' })
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'widget video' },
-	        _react2.default.createElement('video', { src: '../media/videos/big_buck_bunny.mp4', controls: true, loop: true, autoPlay: true, muted: true })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'widget message' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'content' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'head' },
-	            _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'desc' },
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'title' },
-	                'Enya Brennan'
-	              ),
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'time' },
-	                '7:51 PM'
-	              )
-	            )
-	          ),
-	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'actions' },
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#', className: 'action' },
-	            'Cancel'
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#', className: 'action highlight' },
-	            'Reply'
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'widget dark message' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'content' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'head' },
-	            _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'desc' },
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'title' },
-	                'Enya Brennan'
-	              ),
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'time' },
-	                '7:51 PM'
-	              )
-	            )
-	          ),
-	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'actions' },
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#', className: 'action' },
-	            'Cancel'
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#', className: 'action highlight' },
-	            'Reply'
-	          )
-	        )
-	      )
+	      _react2.default.createElement(_forecast2.default, { widgetQueue: this.props.widgetQueue, elementId: '0001' }),
+	      _react2.default.createElement(_player2.default, { widgetQueue: this.props.widgetQueue, elementId: '0002', draggable: true }),
+	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0003', draggable: true }),
+	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0004', draggable: true })
 	    );
 	  }
 	});
 
 	exports.default = Home;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 285 */
@@ -36154,6 +36007,258 @@
 	}();
 
 	exports.default = Queue;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(102);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Message = _react2.default.createClass({
+	  displayName: 'Message',
+
+
+	  componentDidMount: function componentDidMount() {
+	    var _props = this.props,
+	        widgetQueue = _props.widgetQueue,
+	        elementId = _props.elementId,
+	        widgetId = _props.widgetId,
+	        draggable = _props.draggable;
+
+	    var widget = $("#" + elementId);
+
+	    widgetQueue.enqueue(widget);
+	    if (draggable) {
+	      $(widget).on('click', function (event) {
+	        widgetQueue.enqueue(widget);
+	        console.log(widgetQueue);
+	      }).draggable({
+	        start: function start(event, ui) {
+	          widgetQueue.enqueue(widget);
+	        }
+	      });
+	    }
+	  },
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'widget message', id: this.props.elementId },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'content' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'head' },
+	          _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'desc' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'title' },
+	              'Enya Brennan'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'time' },
+	              '7:51 PM'
+	            )
+	          )
+	        ),
+	        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'actions' },
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', className: 'action' },
+	          'Cancel'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', className: 'action highlight' },
+	          'Reply'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	exports.default = Message;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(102);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Forecast = _react2.default.createClass({
+	  displayName: 'Forecast',
+
+
+	  componentDidMount: function componentDidMount() {
+	    var _props = this.props,
+	        widgetQueue = _props.widgetQueue,
+	        elementId = _props.elementId,
+	        widgetId = _props.widgetId,
+	        draggable = _props.draggable;
+
+	    var widget = $("#" + elementId);
+
+	    widgetQueue.enqueue(widget);
+	    if (draggable) {
+	      $(widget).on('click', function (event) {
+	        widgetQueue.enqueue(widget);
+	        console.log(widgetQueue);
+	      }).draggable({
+	        start: function start(event, ui) {
+	          widgetQueue.enqueue(widget);
+	        }
+	      });
+	    }
+
+	    this.updateDate();
+	    setInterval(this.updateClock, 1000);
+	    $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places where text="NYC")&format=json', function (data) {
+	      if (data.query.results !== null) {
+	        console.log(data.query.results.channel);
+	        $('#weather').html('<i class="icon-' + data.query.results.channel.item.condition.code + '"></i> &nbsp; ' + data.query.results.channel.item.condition.text);
+	      }
+	    });
+	  },
+
+	  updateClock: function updateClock() {
+	    var currentTime = new Date();
+	    var currentHours = currentTime.getHours();
+	    var currentMinutes = currentTime.getMinutes();
+	    var currentSeconds = currentTime.getSeconds();
+
+	    // Pad the minutes and seconds with leading zeros, if required
+	    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+	    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+	    // Choose either "AM" or "PM" as appropriate
+	    var timeOfDay = currentHours < 12 ? "AM" : "PM";
+	    // Convert the hours component to 12-hour format if needed
+	    currentHours = currentHours > 12 ? currentHours - 12 : currentHours;
+	    // Convert an hours component of "0" to "12"
+	    currentHours = currentHours == 0 ? 12 : currentHours;
+	    // Compose the string for display
+	    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+
+	    $("#time").html(currentTimeString);
+	  },
+
+	  updateDate: function updateDate() {
+	    // the format function is part of antoher plugin, should think up
+	    // a better way for doing this
+	    //$("#date").html(new Date().format('l, M. jS'))
+	    console.log("Update date");
+	  },
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'span',
+	      { className: 'corner', id: this.props.elementId },
+	      _react2.default.createElement(
+	        'span',
+	        { id: 'date' },
+	        'Wednesday, Dec. 21st'
+	      ),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'span',
+	        { id: 'time' },
+	        '8:00PM'
+	      ),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'span',
+	        { id: 'weather' },
+	        _react2.default.createElement('img', { src: '../media/images/loading.gif', width: '24px' })
+	      )
+	    );
+	  }
+	});
+
+	exports.default = Forecast;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(102);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Player = _react2.default.createClass({
+	  displayName: 'Player',
+
+
+	  componentDidMount: function componentDidMount() {
+	    var _props = this.props,
+	        widgetQueue = _props.widgetQueue,
+	        elementId = _props.elementId,
+	        widgetId = _props.widgetId,
+	        draggable = _props.draggable;
+
+	    var widget = $("#" + elementId);
+
+	    widgetQueue.enqueue(widget);
+	    if (draggable) {
+	      $(widget).on('click', function (event) {
+	        widgetQueue.enqueue(widget);
+	        console.log(widgetQueue);
+	      }).draggable({
+	        start: function start(event, ui) {
+	          widgetQueue.enqueue(widget);
+	        }
+	      });
+	    }
+	  },
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'widget video', id: this.props.elementId },
+	      _react2.default.createElement('video', { src: '../media/videos/big_buck_bunny.mp4', controls: true, loop: true, autoPlay: true, muted: true })
+	    );
+	  }
+	});
+
+	exports.default = Player;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }

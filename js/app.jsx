@@ -19,20 +19,7 @@ const App = React.createClass({
   },
 
   componentDidMount: function(){
-    const widgets = document.getElementsByClassName('widget')
-    const widgetQueue = this.widgetQueue
-    Array.prototype.forEach.call(widgets, function(widget, index){
-      widgetQueue.enqueue(widget)
-      $(widget).on('click', function(event){
-        widgetQueue.enqueue(widget)
-        console.log(widgetQueue);
-      })
-      $(widget).draggable({
-        start: function(event, ui){
-          widgetQueue.enqueue(widget)
-        }
-      })
-    })
+
   },
 
   render: function(){
