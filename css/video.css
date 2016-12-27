@@ -4,7 +4,7 @@
 	top:30px;
 	left:100px;
 	overflow: hidden;
-	background-image: url(http://codeworksmedia.com/wp-content/uploads/2016/10/placeholder-vid.png);
+	background-image: url('../media/images/placeholder-vid.png');
 	background-size: cover;
 	background-position: top;
 }

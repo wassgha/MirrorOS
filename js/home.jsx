@@ -42,7 +42,7 @@ const Home = React.createClass({
     })
   },
 
-  render: () => {
+  render: function(){
     return (
       <div>
         <span id="corner">
@@ -50,17 +50,17 @@ const Home = React.createClass({
           <br/>
           <span id="time">8:00PM</span>
           <br/>
-          <span id="weather"><img src="https://www.limkokwing.net/graphics/loading.gif" width="24px"/></span>
+          <span id="weather"><img src="../media/images/loading.gif" width="24px"/></span>
         </span>
 
         <div className="widget video">
-          <video src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_10mb.mp4" loop autoPlay></video>
+          <video src="../media/videos/big_buck_bunny.mp4" controls loop autoPlay muted></video>
         </div>
 
         <div className="widget message">
           <div className="content">
             <div className="head">
-              <img src="https://images.arcadis.com/media/9/4/6/%7B946E8B91-0816-4091-B620-620A24B2BD96%7DMOORE,%20KERRI_CV.jpg?width=240&height=240&mode=crop&anchor=top"/>
+              <img src="../media/images/bulk-profile-image-01.jpg"/>
               <div className="desc"><span className="title">Enya Brennan</span>
               <span className="time">7:51 PM</span></div>
             </div>
@@ -75,7 +75,7 @@ const Home = React.createClass({
         <div className="widget dark message">
           <div className="content">
             <div className="head">
-              <img src="https://images.arcadis.com/media/9/4/6/%7B946E8B91-0816-4091-B620-620A24B2BD96%7DMOORE,%20KERRI_CV.jpg?width=240&height=240&mode=crop&anchor=top"/>
+              <img src="../media/images/bulk-profile-image-01.jpg"/>
               <div className="desc"><span className="title">Enya Brennan</span>
               <span className="time">7:51 PM</span></div>
             </div>

@@ -1,28 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from './home.jsx'
+
+import Queue from './helpers/queue'
+import Home from './home'
 
 import 'jquery-ui/ui/core'
 import 'jquery-ui/ui/widgets/draggable'
 
 
-
 const App = React.createClass({
-  componentDidMount: () => {
-    // should clean and load with each widget instead of taking list
-    // and adding to each at the same time
-    let currentZIndex = 3
-    $('.widget').draggable({
-      start: function(event, ui) {
-		     $(this).css("z-index", currentZIndex++);
-		  }
+
+  getInitialState: function(){
+    this.widgetQueue = new Queue()
+
+    return ({
+      widgetQueue: this.widgetQueue
     })
   },
 
-  render: () => {
+  componentDidMount: function(){
+    const widgets = document.getElementsByClassName('widget')
+    const widgetQueue = this.widgetQueue
+    Array.prototype.forEach.call(widgets, function(widget, index){
+      widgetQueue.enqueue(widget)
+      $(widget).on('click', function(event){
+        widgetQueue.enqueue(widget)
+        console.log(widgetQueue);
+      })
+      $(widget).draggable({
+        start: function(event, ui){
+          widgetQueue.enqueue(widget)
+        }
+      })
+    })
+  },
+
+  render: function(){
     return (
     	<div className="app-container">
-    		<Home />
+    		<Home widgetQueue={this.widgetQueue}/>
       </div>
     )
   }

@@ -62,6 +62,10 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _queue = __webpack_require__(297);
+
+	var _queue2 = _interopRequireDefault(_queue);
+
 	var _home = __webpack_require__(284);
 
 	var _home2 = _interopRequireDefault(_home);
@@ -75,14 +79,29 @@
 	var App = _react2.default.createClass({
 	  displayName: 'App',
 
+
+	  getInitialState: function getInitialState() {
+	    this.widgetQueue = new _queue2.default();
+
+	    return {
+	      widgetQueue: this.widgetQueue
+	    };
+	  },
+
 	  componentDidMount: function componentDidMount() {
-	    // should clean and load with each widget instead of taking list
-	    // and adding to each at the same time
-	    var currentZIndex = 3;
-	    $('.widget').draggable({
-	      start: function start(event, ui) {
-	        $(this).css("z-index", currentZIndex++);
-	      }
+	    var widgets = document.getElementsByClassName('widget');
+	    var widgetQueue = this.widgetQueue;
+	    Array.prototype.forEach.call(widgets, function (widget, index) {
+	      widgetQueue.enqueue(widget);
+	      $(widget).on('click', function (event) {
+	        widgetQueue.enqueue(widget);
+	        console.log(widgetQueue);
+	      });
+	      $(widget).draggable({
+	        start: function start(event, ui) {
+	          widgetQueue.enqueue(widget);
+	        }
+	      });
 	    });
 	  },
 
@@ -90,7 +109,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'app-container' },
-	      _react2.default.createElement(_home2.default, null)
+	      _react2.default.createElement(_home2.default, { widgetQueue: this.widgetQueue })
 	    );
 	  }
 	});
@@ -33468,13 +33487,13 @@
 	        _react2.default.createElement(
 	          'span',
 	          { id: 'weather' },
-	          _react2.default.createElement('img', { src: 'https://www.limkokwing.net/graphics/loading.gif', width: '24px' })
+	          _react2.default.createElement('img', { src: '../media/images/loading.gif', width: '24px' })
 	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'widget video' },
-	        _react2.default.createElement('video', { src: 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_10mb.mp4', loop: true, autoPlay: true })
+	        _react2.default.createElement('video', { src: '../media/videos/big_buck_bunny.mp4', controls: true, loop: true, autoPlay: true, muted: true })
 	      ),
 	      _react2.default.createElement(
 	        'div',
@@ -33485,7 +33504,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'head' },
-	            _react2.default.createElement('img', { src: 'https://images.arcadis.com/media/9/4/6/%7B946E8B91-0816-4091-B620-620A24B2BD96%7DMOORE,%20KERRI_CV.jpg?width=240&height=240&mode=crop&anchor=top' }),
+	            _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'desc' },
@@ -33527,7 +33546,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'head' },
-	            _react2.default.createElement('img', { src: 'https://images.arcadis.com/media/9/4/6/%7B946E8B91-0816-4091-B620-620A24B2BD96%7DMOORE,%20KERRI_CV.jpg?width=240&height=240&mode=crop&anchor=top' }),
+	            _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'desc' },
@@ -36089,6 +36108,53 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Queue = function () {
+	  function Queue() {
+	    _classCallCheck(this, Queue);
+
+	    this.sequence = [];
+	  }
+
+	  _createClass(Queue, [{
+	    key: "enqueue",
+	    value: function enqueue(widget) {
+	      var index = this.sequence.indexOf(widget);
+	      if (index !== -1) {
+	        this.sequence.splice(index, 1);
+	      }
+	      this.sequence.unshift(widget);
+	      this.correctZ();
+	    }
+	  }, {
+	    key: "correctZ",
+	    value: function correctZ() {
+	      var size = this.sequence.length;
+	      this.sequence.forEach(function (widget, index) {
+	        $(widget).css("z-index", size - index);
+	      });
+	    }
+	  }]);
+
+	  return Queue;
+	}();
+
+	exports.default = Queue;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);
