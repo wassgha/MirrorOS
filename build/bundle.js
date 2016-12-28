@@ -78,18 +78,9 @@
 
 	var App = _react2.default.createClass({
 	  displayName: 'App',
-
-
-	  getInitialState: function getInitialState() {
+	  componentWillMount: function componentWillMount() {
 	    this.widgetQueue = new _queue2.default();
-
-	    return {
-	      widgetQueue: this.widgetQueue
-	    };
 	  },
-
-	  componentDidMount: function componentDidMount() {},
-
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -99,7 +90,7 @@
 	  }
 	});
 
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById("app"));
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -21808,7 +21799,7 @@
 /* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {"use strict";
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21818,6 +21809,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	/* globals $ */
 	var Queue = function () {
 	  function Queue() {
 	    _classCallCheck(this, Queue);
@@ -21826,7 +21818,7 @@
 	  }
 
 	  _createClass(Queue, [{
-	    key: "enqueue",
+	    key: 'enqueue',
 	    value: function enqueue(widget) {
 	      var index = this.sequence.indexOf(widget);
 	      if (index !== -1) {
@@ -21836,11 +21828,11 @@
 	      this.correctZ();
 	    }
 	  }, {
-	    key: "correctZ",
+	    key: 'correctZ',
 	    value: function correctZ() {
 	      var size = this.sequence.length;
 	      this.sequence.forEach(function (widget, index) {
-	        $(widget).css("z-index", size - index);
+	        $(widget).css('z-index', size - index);
 	      });
 	    }
 	  }]);
@@ -33448,10 +33440,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(33);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _message = __webpack_require__(286);
 
 	var _message2 = _interopRequireDefault(_message);
@@ -33469,15 +33457,24 @@
 	var Home = _react2.default.createClass({
 	  displayName: 'Home',
 
-
-	  componentDidMount: function componentDidMount() {},
+	  propTypes: {
+	    widgetQueue: _react2.default.PropTypes.object.isRequired
+	  },
 
 	  render: function render() {
+	    var playerConfig = {
+	      controls: true,
+	      loop: true,
+	      autoPlay: true,
+	      muted: true
+	    };
+
 	    return _react2.default.createElement(
 	      'div',
 	      null,
 	      _react2.default.createElement(_forecast2.default, { widgetQueue: this.props.widgetQueue, elementId: '0001' }),
-	      _react2.default.createElement(_player2.default, { widgetQueue: this.props.widgetQueue, elementId: '0002', draggable: true }),
+	      _react2.default.createElement(_player2.default, { widgetQueue: this.props.widgetQueue, elementId: '0002', src: '../media/videos/big_buck_bunny.mp4',
+	        config: playerConfig, draggable: true }),
 	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0003', draggable: true }),
 	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0004', draggable: true })
 	    );
@@ -33506,14 +33503,19 @@
 	  displayName: 'Message',
 
 
+	  propTypes: {
+	    widgetQueue: _react2.default.PropTypes.object.isRequired,
+	    elementId: _react2.default.PropTypes.string.isRequired,
+	    draggable: _react2.default.PropTypes.any
+	  },
+
 	  componentDidMount: function componentDidMount() {
 	    var _props = this.props,
 	        widgetQueue = _props.widgetQueue,
 	        elementId = _props.elementId,
-	        widgetId = _props.widgetId,
 	        draggable = _props.draggable;
 
-	    var widget = $("#" + elementId);
+	    var widget = $('#' + elementId);
 
 	    widgetQueue.enqueue(widget);
 	    if (draggable) {
@@ -33527,7 +33529,6 @@
 	      });
 	    }
 	  },
-
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -33572,7 +33573,7 @@
 	      )
 	    );
 	  }
-	});
+	}); /* globals $ */
 
 	exports.default = Message;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
@@ -33597,14 +33598,19 @@
 	  displayName: 'Forecast',
 
 
+	  propTypes: {
+	    widgetQueue: _react2.default.PropTypes.object.isRequired,
+	    elementId: _react2.default.PropTypes.string.isRequired,
+	    draggable: _react2.default.PropTypes.any
+	  },
+
 	  componentDidMount: function componentDidMount() {
 	    var _props = this.props,
 	        widgetQueue = _props.widgetQueue,
 	        elementId = _props.elementId,
-	        widgetId = _props.widgetId,
 	        draggable = _props.draggable;
 
-	    var widget = $("#" + elementId);
+	    var widget = $('#' + elementId);
 
 	    widgetQueue.enqueue(widget);
 	    if (draggable) {
@@ -33627,7 +33633,6 @@
 	      }
 	    });
 	  },
-
 	  updateClock: function updateClock() {
 	    var currentTime = new Date();
 	    var currentHours = currentTime.getHours();
@@ -33635,27 +33640,25 @@
 	    var currentSeconds = currentTime.getSeconds();
 
 	    // Pad the minutes and seconds with leading zeros, if required
-	    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-	    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+	    currentMinutes = (currentMinutes < 10 ? '0' : '') + currentMinutes;
+	    currentSeconds = (currentSeconds < 10 ? '0' : '') + currentSeconds;
 	    // Choose either "AM" or "PM" as appropriate
-	    var timeOfDay = currentHours < 12 ? "AM" : "PM";
+	    var timeOfDay = currentHours < 12 ? 'AM' : 'PM';
 	    // Convert the hours component to 12-hour format if needed
 	    currentHours = currentHours > 12 ? currentHours - 12 : currentHours;
 	    // Convert an hours component of "0" to "12"
-	    currentHours = currentHours == 0 ? 12 : currentHours;
+	    currentHours = currentHours === 0 ? 12 : currentHours;
 	    // Compose the string for display
-	    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+	    var currentTimeString = currentHours + ':' + currentMinutes + ':' + currentSeconds + ' ' + timeOfDay;
 
-	    $("#time").html(currentTimeString);
+	    $('#time').html(currentTimeString);
 	  },
-
 	  updateDate: function updateDate() {
 	    // the format function is part of antoher plugin, should think up
 	    // a better way for doing this
-	    //$("#date").html(new Date().format('l, M. jS'))
-	    console.log("Update date");
+	    // $("#date").html(new Date().format('l, M. jS'))
+	    console.log('Update date');
 	  },
-
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'span',
@@ -33679,7 +33682,7 @@
 	      )
 	    );
 	  }
-	});
+	}); /* globals $ */
 
 	exports.default = Forecast;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
@@ -33694,6 +33697,8 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* globals $ */
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -33704,14 +33709,21 @@
 	  displayName: 'Player',
 
 
+	  propTypes: {
+	    widgetQueue: _react2.default.PropTypes.object.isRequired,
+	    elementId: _react2.default.PropTypes.string.isRequired,
+	    draggable: _react2.default.PropTypes.any,
+	    src: _react2.default.PropTypes.string.isRequired,
+	    config: _react2.default.PropTypes.object
+	  },
+
 	  componentDidMount: function componentDidMount() {
 	    var _props = this.props,
 	        widgetQueue = _props.widgetQueue,
 	        elementId = _props.elementId,
-	        widgetId = _props.widgetId,
 	        draggable = _props.draggable;
 
-	    var widget = $("#" + elementId);
+	    var widget = $('#' + elementId);
 
 	    widgetQueue.enqueue(widget);
 	    if (draggable) {
@@ -33725,12 +33737,11 @@
 	      });
 	    }
 	  },
-
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'widget video', id: this.props.elementId },
-	      _react2.default.createElement('video', { src: '../media/videos/big_buck_bunny.mp4', controls: true, loop: true, autoPlay: true, muted: true })
+	      _react2.default.createElement('video', _extends({ src: this.props.src }, this.props.config))
 	    );
 	  }
 	});

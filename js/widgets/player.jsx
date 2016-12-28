@@ -1,33 +1,41 @@
+/* globals $ */
+
 import React from 'react'
 
 const Player = React.createClass({
 
-  componentDidMount: function(){
-    const {widgetQueue, elementId, widgetId, draggable} = this.props
-    const widget = $("#" + elementId)
+  propTypes: {
+    widgetQueue: React.PropTypes.object.isRequired,
+    elementId: React.PropTypes.string.isRequired,
+    draggable: React.PropTypes.any,
+    src: React.PropTypes.string.isRequired,
+    config: React.PropTypes.object
+  },
+
+  componentDidMount () {
+    const {widgetQueue, elementId, draggable} = this.props
+    const widget = $('#' + elementId)
 
     widgetQueue.enqueue(widget)
-    if(draggable){
-      $(widget).on('click', function(event){
+    if (draggable) {
+      $(widget).on('click', function (event) {
         widgetQueue.enqueue(widget)
-        console.log(widgetQueue);
+        console.log(widgetQueue)
       }).draggable({
-        start: function(event, ui){
+        start: function (event, ui) {
           widgetQueue.enqueue(widget)
         }
       })
     }
-
   },
 
-  render: function(){
+  render () {
     return (
-      <div className="widget video" id={this.props.elementId}>
-        <video src="../media/videos/big_buck_bunny.mp4" controls loop autoPlay muted></video>
+      <div className='widget video' id={this.props.elementId}>
+        <video src={this.props.src} {...this.props.config} />
       </div>
     )
   }
 })
-
 
 export default Player

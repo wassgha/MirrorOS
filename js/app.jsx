@@ -7,28 +7,19 @@ import Home from './home'
 import 'jquery-ui/ui/core'
 import 'jquery-ui/ui/widgets/draggable'
 
-
 const App = React.createClass({
 
-  getInitialState: function(){
+  componentWillMount () {
     this.widgetQueue = new Queue()
-
-    return ({
-      widgetQueue: this.widgetQueue
-    })
   },
 
-  componentDidMount: function(){
-
-  },
-
-  render: function(){
+  render () {
     return (
-    	<div className="app-container">
-    		<Home widgetQueue={this.widgetQueue}/>
+      <div className='app-container'>
+        <Home widgetQueue={this.widgetQueue} />
       </div>
     )
   }
 })
 
-ReactDOM.render(<App />, document.getElementById("app"))
+ReactDOM.render(<App />, document.getElementById('app'))

@@ -1,22 +1,23 @@
-class Queue{
+/* globals $ */
+class Queue {
 
-  constructor(){
+  constructor () {
     this.sequence = []
   }
 
-  enqueue(widget){
+  enqueue (widget) {
     const index = this.sequence.indexOf(widget)
-    if(index !== -1){
+    if (index !== -1) {
       this.sequence.splice(index, 1)
     }
     this.sequence.unshift(widget)
     this.correctZ()
   }
 
-  correctZ(){
+  correctZ () {
     const size = this.sequence.length
-    this.sequence.forEach(function(widget, index){
-      $(widget).css("z-index", size - index);
+    this.sequence.forEach(function (widget, index) {
+      $(widget).css('z-index', size - index)
     })
   }
 }
