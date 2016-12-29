@@ -1,6 +1,7 @@
 /* globals $ */
 
 import React from 'react'
+import Widget from '../helpers/widget'
 
 const Forecast = React.createClass({
 
@@ -11,20 +12,14 @@ const Forecast = React.createClass({
   },
 
   componentDidMount () {
-    const { widgetQueue, elementId, draggable } = this.props
-    const widget = $('#' + elementId)
+    const {widgetQueue, elementId, draggable} = this.props
+    const widgetElement = $('#' + elementId)
 
-    widgetQueue.enqueue(widget)
-    if (draggable) {
-      $(widget).on('click', function (event) {
-        widgetQueue.enqueue(widget)
-        console.log(widgetQueue)
-      }).draggable({
-        start: function (event, ui) {
-          widgetQueue.enqueue(widget)
-        }
-      })
-    }
+    const widget = new Widget(widgetElement, widgetQueue, {
+      draggable: draggable
+    })
+
+    widget.create()
 
     this.updateDate()
     setInterval(this.updateClock, 1000)
