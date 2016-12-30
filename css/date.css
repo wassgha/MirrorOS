@@ -1,4 +1,4 @@
-#corner {
+.corner {
 	color: white;
 	text-align: right;
 	font-family: "Lato", sans-serif !important;
@@ -9,14 +9,14 @@
 	right: 0px;
 	position: absolute;
 }
-#corner span {
+.corner span {
 	background: black;
 }
 
-#corner #date {
+.corner #date {
 	font-size: 48px;
 }
 
-#corner #time {
+.corner #time {
 	font-size: 42px;
 }

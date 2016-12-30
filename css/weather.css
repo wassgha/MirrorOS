@@ -1,10 +1,9 @@
 @font-face {
     font-family: 'weather';
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+    src: url('fonts/artill_clean_icons-webfont.eot');
+    src: url('fonts/artill_clean_icons-webfont.eot') format('embedded-opentype'),
+         url('fonts/artill_clean_icons-webfont.woff') format('woff'),
+         url('fonts/artill_clean_icons-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -58,16 +57,16 @@
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
 
-#corner #weather {
+.corner #weather {
 	font-size: 34px;
 }
 
-#corner #weather .material-icons {
+.corner #weather .material-icons {
 	font-size: 48px;
 	vertical-align: middle;
 }
 
-#corner #weather i {
+.corner #weather i {
 	font-size: 48px;
 	vertical-align: middle;
 	font-family: weather;
