@@ -1,4 +1,4 @@
-/* globals $ */
+/* global $ */
 
 class Widget {
   constructor (widgetElement, widgetQueue, config) {

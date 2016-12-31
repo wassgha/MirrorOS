@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Queue from './helpers/queue'
-import Home from './home'
+import Queue from './helpers/Queue'
+import Home from './Home'
 
 import 'jquery-ui/ui/core'
 import 'jquery-ui/ui/widgets/draggable'

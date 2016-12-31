@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(301);
+	module.exports = __webpack_require__(300);
 
 
 /***/ },
@@ -62,30 +62,30 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _queue = __webpack_require__(184);
+	var _Queue = __webpack_require__(184);
 
-	var _queue2 = _interopRequireDefault(_queue);
+	var _Queue2 = _interopRequireDefault(_Queue);
 
-	var _home = __webpack_require__(285);
+	var _Home = __webpack_require__(285);
 
-	var _home2 = _interopRequireDefault(_home);
+	var _Home2 = _interopRequireDefault(_Home);
+
+	__webpack_require__(289);
 
 	__webpack_require__(290);
-
-	__webpack_require__(291);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var App = _react2.default.createClass({
 	  displayName: 'App',
 	  componentWillMount: function componentWillMount() {
-	    this.widgetQueue = new _queue2.default();
+	    this.widgetQueue = new _Queue2.default();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'app-container' },
-	      _react2.default.createElement(_home2.default, { widgetQueue: this.widgetQueue })
+	      _react2.default.createElement(_Home2.default, { widgetQueue: this.widgetQueue })
 	    );
 	  }
 	});
@@ -21809,7 +21809,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	/* globals $ */
+	/* global $ */
 	var Queue = function () {
 	  function Queue() {
 	    _classCallCheck(this, Queue);
@@ -33440,17 +33440,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _message = __webpack_require__(286);
+	var _Mssage = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./widgets/Mssage\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _message2 = _interopRequireDefault(_message);
+	var _Mssage2 = _interopRequireDefault(_Mssage);
 
-	var _forecast = __webpack_require__(287);
+	var _Forecast = __webpack_require__(286);
 
-	var _forecast2 = _interopRequireDefault(_forecast);
+	var _Forecast2 = _interopRequireDefault(_Forecast);
 
-	var _player = __webpack_require__(288);
+	var _Player = __webpack_require__(288);
 
-	var _player2 = _interopRequireDefault(_player);
+	var _Player2 = _interopRequireDefault(_Player);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33472,11 +33472,11 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(_forecast2.default, { widgetQueue: this.props.widgetQueue, elementId: '0001' }),
-	      _react2.default.createElement(_player2.default, { widgetQueue: this.props.widgetQueue, elementId: '0002', src: '../media/videos/big_buck_bunny.mp4',
+	      _react2.default.createElement(_Forecast2.default, { widgetQueue: this.props.widgetQueue, elementId: '0001' }),
+	      _react2.default.createElement(_Player2.default, { widgetQueue: this.props.widgetQueue, elementId: '0002', src: '../media/videos/big_buck_bunny.mp4',
 	        config: playerConfig, draggable: true }),
-	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0003', draggable: true }),
-	      _react2.default.createElement(_message2.default, { widgetQueue: this.props.widgetQueue, elementId: '0004', draggable: true })
+	      _react2.default.createElement(_Mssage2.default, { widgetQueue: this.props.widgetQueue, elementId: '0003', draggable: true }),
+	      _react2.default.createElement(_Mssage2.default, { widgetQueue: this.props.widgetQueue, elementId: '0004', draggable: true })
 	    );
 	  }
 	});
@@ -33497,108 +33497,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _widget = __webpack_require__(289);
+	var _widget = __webpack_require__(287);
 
 	var _widget2 = _interopRequireDefault(_widget);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/* globals $ */
-
-	var Message = _react2.default.createClass({
-	  displayName: 'Message',
-
-
-	  propTypes: {
-	    widgetQueue: _react2.default.PropTypes.object.isRequired,
-	    elementId: _react2.default.PropTypes.string.isRequired,
-	    draggable: _react2.default.PropTypes.any
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    var _props = this.props,
-	        widgetQueue = _props.widgetQueue,
-	        elementId = _props.elementId,
-	        draggable = _props.draggable;
-
-	    var widgetElement = $('#' + elementId);
-
-	    var widget = new _widget2.default(widgetElement, widgetQueue, {
-	      draggable: draggable
-	    });
-
-	    widget.create();
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'widget message', id: this.props.elementId },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'content' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'head' },
-	          _react2.default.createElement('img', { src: '../media/images/bulk-profile-image-01.jpg' }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'desc' },
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'title' },
-	              'Enya Brennan'
-	            ),
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'time' },
-	              '7:51 PM'
-	            )
-	          )
-	        ),
-	        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'actions' },
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#', className: 'action' },
-	          'Cancel'
-	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#', className: 'action highlight' },
-	          'Reply'
-	        )
-	      )
-	    );
-	  }
-	});
-
-	exports.default = Message;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
-
-/***/ },
-/* 287 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _widget = __webpack_require__(289);
-
-	var _widget2 = _interopRequireDefault(_widget);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/* globals $ */
+	/* global $ */
 
 	var Forecast = _react2.default.createClass({
 	  displayName: 'Forecast',
@@ -33688,6 +33593,57 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
 
 /***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	/* global $ */
+
+	var Widget = function () {
+	  function Widget(widgetElement, widgetQueue, config) {
+	    _classCallCheck(this, Widget);
+
+	    this.widgetElement = widgetElement;
+	    this.widgetQueue = widgetQueue;
+	    this.config = config;
+	  }
+
+	  _createClass(Widget, [{
+	    key: 'create',
+	    value: function create() {
+	      var _this = this;
+
+	      this.widgetQueue.enqueue(this.widgetElement);
+	      if (this.config.draggable) {
+	        $(this.widgetElement).on('click', function (event) {
+	          _this.widgetQueue.enqueue(_this.widgetElement);
+	          console.log(_this.widgetQueue);
+	        }).draggable({
+	          start: function start(event, ui) {
+	            _this.widgetQueue.enqueue(_this.widgetElement);
+	          }
+	        });
+	      }
+	      return this;
+	    }
+	  }]);
+
+	  return Widget;
+	}();
+
+	exports.default = Widget;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
+
+/***/ },
 /* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33697,13 +33653,13 @@
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* globals $ */
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* global $ */
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _widget = __webpack_require__(289);
+	var _widget = __webpack_require__(287);
 
 	var _widget2 = _interopRequireDefault(_widget);
 
@@ -33751,57 +33707,6 @@
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	/* globals $ */
-
-	var Widget = function () {
-	  function Widget(widgetElement, widgetQueue, config) {
-	    _classCallCheck(this, Widget);
-
-	    this.widgetElement = widgetElement;
-	    this.widgetQueue = widgetQueue;
-	    this.config = config;
-	  }
-
-	  _createClass(Widget, [{
-	    key: 'create',
-	    value: function create() {
-	      var _this = this;
-
-	      this.widgetQueue.enqueue(this.widgetElement);
-	      if (this.config.draggable) {
-	        $(this.widgetElement).on('click', function (event) {
-	          _this.widgetQueue.enqueue(_this.widgetElement);
-	          console.log(_this.widgetQueue);
-	        }).draggable({
-	          start: function start(event, ui) {
-	            _this.widgetQueue.enqueue(_this.widgetElement);
-	          }
-	        });
-	      }
-	      return this;
-	    }
-	  }]);
-
-	  return Widget;
-	}();
-
-	exports.default = Widget;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)))
-
-/***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;// This file is deprecated in 1.12.0 to be removed in 1.13
 	( function() {
 	!(__WEBPACK_AMD_DEFINE_FACTORY__ = ([
@@ -33826,7 +33731,7 @@
 
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33851,14 +33756,14 @@
 			// AMD. Register as an anonymous module.
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 				__webpack_require__(185),
-				__webpack_require__(292),
+				__webpack_require__(291),
+				__webpack_require__(295),
 				__webpack_require__(296),
-				__webpack_require__(297),
-				__webpack_require__(300),
-				__webpack_require__(298),
 				__webpack_require__(299),
-				__webpack_require__(294),
-				__webpack_require__(295)
+				__webpack_require__(297),
+				__webpack_require__(298),
+				__webpack_require__(293),
+				__webpack_require__(294)
 			], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
@@ -35082,7 +34987,7 @@
 
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -35105,9 +35010,9 @@
 			// AMD. Register as an anonymous module.
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 				__webpack_require__(185),
+				__webpack_require__(292),
 				__webpack_require__(293),
-				__webpack_require__(294),
-				__webpack_require__(295)
+				__webpack_require__(294)
 			], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
@@ -35314,14 +35219,14 @@
 
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -35335,7 +35240,7 @@
 
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
@@ -35358,7 +35263,7 @@
 
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -35380,7 +35285,7 @@
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36097,7 +36002,7 @@
 
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -36118,7 +36023,7 @@
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36142,14 +36047,14 @@
 
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36192,14 +36097,14 @@
 
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36219,7 +36124,7 @@
 
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -36240,7 +36145,7 @@
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36270,14 +36175,14 @@
 
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
 		if ( true ) {
 
 			// AMD. Register as an anonymous module.
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(294) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(185), __webpack_require__(293) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 
 			// Browser globals
@@ -36316,7 +36221,7 @@
 
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

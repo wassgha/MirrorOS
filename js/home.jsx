@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Message from './widgets/message'
-import Forecast from './widgets/forecast'
-import Player from './widgets/player'
+import Message from './widgets/Mssage'
+import Forecast from './widgets/Forecast'
+import Player from './widgets/Player'
 
 const Home = React.createClass({
   propTypes: {

@@ -1,4 +1,4 @@
-/* globals $ */
+/* global $ */
 class Queue {
 
   constructor () {

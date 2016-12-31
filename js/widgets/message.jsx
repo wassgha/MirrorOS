@@ -1,4 +1,4 @@
-/* globals $ */
+/* global $ */
 
 import React from 'react'
 import Widget from '../helpers/widget'
