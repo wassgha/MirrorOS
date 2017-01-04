@@ -3,6 +3,7 @@
 import React from 'react'
 import Widget from '../helpers/Widget'
 import DateTime from '../helpers/DateTime'
+import Weather from '../helpers/Weather'
 
 const Forecast = React.createClass({
 
@@ -12,10 +13,13 @@ const Forecast = React.createClass({
     draggable: React.PropTypes.any
   },
 
-  getInitialState(){
+  getInitialState () {
     this.dateTime = new DateTime()
+    this.weather = new Weather()
+
     return {
-      dateAndTime: this.dateTime.toString(true)
+      dateAndTime: this.dateTime.toString(true),
+      currentWeather: this.weather.getWeather()
     }
   },
 
@@ -33,7 +37,6 @@ const Forecast = React.createClass({
     }.bind(this), 1000)
   },
 
-
   render () {
     const now = this.state.dateAndTime
     const timeStr = now.day + ' ' + now.hours + ':' + now.minutes + ' ' + now.ampm
@@ -45,7 +48,7 @@ const Forecast = React.createClass({
         <br />
         <span id='time'>{timeStr}</span>
         <br />
-        <span id='weather'><img src='../media/images/loading.gif' width='24px' /></span>
+        <span id='weather'>{this.state.currentWeather}</span>
       </span>
     )
   }
