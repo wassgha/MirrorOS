@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Message from './widgets/Mssage'
+import Message from './widgets/Message'
 import Forecast from './widgets/Forecast'
 import Player from './widgets/Player'
 
@@ -13,7 +13,6 @@ const Home = React.createClass({
     const playerConfig = {
       controls: true,
       loop: true,
-      autoPlay: true,
       muted: true
     }
 

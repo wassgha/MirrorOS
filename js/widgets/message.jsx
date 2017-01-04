@@ -1,7 +1,7 @@
 /* global $ */
 
 import React from 'react'
-import Widget from '../helpers/widget'
+import Widget from '../helpers/Widget'
 
 const Message = React.createClass({
 

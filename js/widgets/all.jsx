@@ -1,6 +1,6 @@
-import Forecast from './forecast'
-import Message from './message'
-import Player from './player'
+import Forecast from './Forecast'
+import Message from './Message'
+import Player from './Player'
 
 const widgetList = {
   Forecast: Forecast,
