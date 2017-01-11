@@ -1,15 +1,14 @@
 /* global $ */
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import React from 'react'
 import Widget from '../helpers/Widget'
 
-const Message = React.createClass({
+class Message extends Component {
 
-  propTypes: {
-    widgetQueue: React.PropTypes.object.isRequired,
-    elementId: React.PropTypes.string.isRequired,
-    draggable: React.PropTypes.any
-  },
+  constructor(props){
+    super(props)
+  }
 
   componentDidMount () {
     const {widgetQueue, elementId, draggable} = this.props
@@ -17,10 +16,9 @@ const Message = React.createClass({
 
     const widget = new Widget(widgetElement, widgetQueue, {
       draggable: draggable
-    })
+    }).create()
 
-    widget.create()
-  },
+  }
 
   render () {
     return (
@@ -42,6 +40,15 @@ const Message = React.createClass({
       </div>
     )
   }
-})
+}
 
-export default Message
+Message.propTypes = {
+  elementId: React.PropTypes.string.isRequired,
+  draggable: React.PropTypes.any
+}
+
+function mapStateToProps(state){
+  return { widgetQueue: state.widgetQueue.widgetQueue }
+}
+
+export default connect(mapStateToProps)(Message)

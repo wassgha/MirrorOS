@@ -1,27 +1,25 @@
 /* global $ */
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import React from 'react'
 import Widget from '../helpers/Widget'
 import DateTime from '../helpers/DateTime'
 import Weather from '../helpers/Weather'
 
-const Forecast = React.createClass({
+class Forecast extends Component{
 
-  propTypes: {
-    widgetQueue: React.PropTypes.object.isRequired,
-    elementId: React.PropTypes.string.isRequired,
-    draggable: React.PropTypes.any
-  },
+  constructor(props){
+    super(props)
 
-  getInitialState () {
     this.dateTime = new DateTime()
     this.weather = new Weather()
 
-    return {
+    this.state = {
       dateAndTime: this.dateTime.toString(true),
       currentWeather: this.weather.getWeather()
     }
-  },
+  }
+
 
   componentDidMount () {
     const {widgetQueue, elementId, draggable} = this.props
@@ -29,13 +27,12 @@ const Forecast = React.createClass({
 
     const widget = new Widget(widgetElement, widgetQueue, {
       draggable: draggable
-    })
+    }).create()
 
-    widget.create()
     setInterval(function () {
       this.setState({ dateAndTime: this.dateTime.toString(true) })
     }.bind(this), 1000)
-  },
+  }
 
   render () {
     const now = this.state.dateAndTime
@@ -52,6 +49,15 @@ const Forecast = React.createClass({
       </span>
     )
   }
-})
+}
 
-export default Forecast
+Forecast.propTypes = {
+  elementId: React.PropTypes.string.isRequired,
+  draggable: React.PropTypes.any
+}
+
+function mapStateToProps(state){
+  return { widgetQueue: state.widgetQueue.widgetQueue }
+}
+
+export default connect(mapStateToProps)(Forecast)

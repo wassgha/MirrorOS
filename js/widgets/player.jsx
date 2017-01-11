@@ -1,17 +1,14 @@
 /* global $ */
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import React from 'react'
 import Widget from '../helpers/Widget'
 
-const Player = React.createClass({
+class Player extends Component {
 
-  propTypes: {
-    widgetQueue: React.PropTypes.object.isRequired,
-    elementId: React.PropTypes.string.isRequired,
-    draggable: React.PropTypes.any,
-    src: React.PropTypes.string.isRequired,
-    config: React.PropTypes.object
-  },
+  constructor(props){
+    super(props)
+  }
 
   componentDidMount () {
     const {widgetQueue, elementId, draggable} = this.props
@@ -21,8 +18,7 @@ const Player = React.createClass({
       draggable: draggable
     }).create()
 
-    widget.create()
-  },
+  }
 
   render () {
     return (
@@ -31,6 +27,17 @@ const Player = React.createClass({
       </div>
     )
   }
-})
+}
 
-export default Player
+Player.propTypes = {
+  elementId: React.PropTypes.string.isRequired,
+  draggable: React.PropTypes.any,
+  src: React.PropTypes.string.isRequired,
+  config: React.PropTypes.object
+}
+
+function mapStateToProps(state){
+  return { widgetQueue: state.widgetQueue.widgetQueue }
+}
+
+export default connect(mapStateToProps)(Player)
