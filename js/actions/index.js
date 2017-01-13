@@ -1,36 +1,31 @@
 import axios from 'axios'
-import Queue from '../helpers/Queue'
-import Widget from '../helpers/Widget'
+import {applyWidgetFeatures} from '../helpers/Widget'
 
 import {
-        INITIALIZE_QUEUE, ADD_TO_QUEUE, REMOVE_FROM_QUEUE,
+        ADD_TO_QUEUE, REMOVE_FROM_QUEUE,
         CREATE_WIDGET, REMOVE_WIDGET, INITIALIZE_DATE_AND_TIME,
         UPDATE_DATE_AND_TIME
       } from '../constants/index'
 
 
-export function initializeQueue(){
-  const widgetQueue = new Queue()
-
-  return {
-    type: INITIALIZE_QUEUE,
-    payload: widgetQueue
-  }
-}
-
-export function addToQueue(){
-
+export function addToQueue(widget){
   return {
     type: ADD_TO_QUEUE,
-    payload: {}
+    payload: widget
   }
 }
 
-export function createWidget(props, params){
+export function createWidget(props, config){
   const {widgetQueue, elementId, draggable} = props
   const widgetElement = $('#' + elementId)
 
-  const widget = new Widget(widgetElement, widgetQueue, params).create()
+  const widget = {
+    widgetElement: widgetElement,
+    widgetQueue: widgetQueue,
+    config: config
+  }
+
+  applyWidgetFeatures(widget, props.addToQueue)
 
   return {
     type: CREATE_WIDGET,

@@ -1,12 +1,14 @@
-import { INITIALIZE_QUEUE, CREATE_WIDGET } from '../constants/index'
-const INITIAL_STATE = { widgets: [], widgetQueue: null}
+import {enqueue} from '../helpers/Queue'
+
+import { CREATE_WIDGET, ADD_TO_QUEUE } from '../constants/index'
+const INITIAL_STATE = { widgets: [], widgetQueue: []}
 
 export default function(state = INITIAL_STATE, action){
   switch(action.type){
-    case INITIALIZE_QUEUE:
-      return { ...state, widgetQueue: action.payload }
+    case ADD_TO_QUEUE:
+      const newState = enqueue(state, action)
+      return newState
     case CREATE_WIDGET:
-      console.log(state)
       return { ...state, widgets: [...state.widgets, action.payload] }
     default:
       return state

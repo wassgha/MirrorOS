@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {createWidget} from '../actions/index'
+import {createWidget, addToQueue} from '../actions/index'
 
 class Player extends Component {
 
@@ -34,4 +34,4 @@ function mapStateToProps(state){
   return { widgetQueue: state.widgets.widgetQueue}
 }
 
-export default connect(mapStateToProps, {createWidget})(Player)
+export default connect(mapStateToProps, {createWidget, addToQueue})(Player)

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {createWidget} from '../actions/index'
+import {createWidget, addToQueue} from '../actions/index'
 
 class Message extends Component {
 
@@ -45,4 +45,4 @@ function mapStateToProps(state){
   return { widgetQueue: state.widgets.widgetQueue}
 }
 
-export default connect(mapStateToProps, {createWidget})(Message)
+export default connect(mapStateToProps, {createWidget, addToQueue})(Message)

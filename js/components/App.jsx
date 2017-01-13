@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { initializeQueue } from '../actions/index'
 import Home from './Home'
 
 class App extends Component {
 
   constructor(props){
     super(props)
-
-    this.props.initializeQueue()
   }
 
   render () {
@@ -21,4 +18,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {initializeQueue})(App)
+export default connect()(App)

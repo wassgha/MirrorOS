@@ -1,25 +1,23 @@
 /* global $ */
-class Queue {
+export function enqueue (state, action) {
+  const widgetQueue = state.widgetQueue
+  const widget = action.payload
 
-  constructor () {
-    this.sequence = []
-  }
+  let newWidgetQueue = [...widgetQueue]
+  const index = newWidgetQueue.indexOf(widget)
 
-  enqueue (widget) {
-    const index = this.sequence.indexOf(widget)
-    if (index !== -1) {
-      this.sequence.splice(index, 1)
-    }
-    this.sequence.unshift(widget)
-    this.correctZ()
+  if (index !== -1) {
+    newWidgetQueue.splice(index, 1)
   }
+  newWidgetQueue.unshift(widget)
 
-  correctZ () {
-    const size = this.sequence.length
-    this.sequence.forEach(function (widget, index) {
-      $(widget).css('z-index', size - index)
-    })
-  }
+  correctZ(newWidgetQueue)
+  return { ...state, widgetQueue: newWidgetQueue}
 }
 
-export default Queue
+function correctZ(widgetQueue){
+  const size = widgetQueue.length
+  widgetQueue.forEach(function (widget, index) {
+    $(widget.widgetElement).css('z-index', size - index)
+  })
+}
