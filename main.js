@@ -17,11 +17,12 @@ const createWindow = () => {
     slashes: true
   }))
 
-  win.webContents.openDevTools()
-
   win.on('closed', () => {
     win = null
   })
+
+  win.webContents.openDevTools()
+  BrowserWindow.addDevToolsExtension('/Users/prosperi/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.12.2_0')
 }
 
 app.on('ready', createWindow)

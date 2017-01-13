@@ -31,7 +31,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(state){
-  return { widgetQueue: state.widgetQueue.widgetQueue }
+  return { widgetQueue: state.widgets.widgetQueue}
 }
 
 export default connect(mapStateToProps)(Home)

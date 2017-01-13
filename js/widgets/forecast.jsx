@@ -2,9 +2,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Widget from '../helpers/Widget'
 import DateTime from '../helpers/DateTime'
 import Weather from '../helpers/Weather'
+
+import {createWidget, initializeDateAndTime} from '../actions/index'
 
 class Forecast extends Component{
 
@@ -22,12 +23,7 @@ class Forecast extends Component{
 
 
   componentDidMount () {
-    const {widgetQueue, elementId, draggable} = this.props
-    const widgetElement = $('#' + elementId)
-
-    const widget = new Widget(widgetElement, widgetQueue, {
-      draggable: draggable
-    }).create()
+    this.props.createWidget(this.props, {})
 
     setInterval(function () {
       this.setState({ dateAndTime: this.dateTime.toString(true) })
@@ -57,7 +53,10 @@ Forecast.propTypes = {
 }
 
 function mapStateToProps(state){
-  return { widgetQueue: state.widgetQueue.widgetQueue }
+  return {
+    widgetQueue: state.widgets.widgetQueue,
+    dateAndTime: state.dateAndTime
+  }
 }
 
-export default connect(mapStateToProps)(Forecast)
+export default connect(mapStateToProps, {createWidget, initializeDateAndTime})(Forecast)

@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
-import WidgetQueue from './reducer_queue'
+
+import Widgets from './reducer_widgets'
+import DateAndTime from './reducer_date_time'
 
 const rootReducer = combineReducers({
-  widgetQueue: WidgetQueue
+  widgets: Widgets,
+  dateAndTime: DateAndTime
 })
 
 export default rootReducer

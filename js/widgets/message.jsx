@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Widget from '../helpers/Widget'
+import {createWidget} from '../actions/index'
 
 class Message extends Component {
 
@@ -11,13 +11,7 @@ class Message extends Component {
   }
 
   componentDidMount () {
-    const {widgetQueue, elementId, draggable} = this.props
-    const widgetElement = $('#' + elementId)
-
-    const widget = new Widget(widgetElement, widgetQueue, {
-      draggable: draggable
-    }).create()
-
+    this.props.createWidget(this.props, { draggable: true})
   }
 
   render () {
@@ -48,7 +42,7 @@ Message.propTypes = {
 }
 
 function mapStateToProps(state){
-  return { widgetQueue: state.widgetQueue.widgetQueue }
+  return { widgetQueue: state.widgets.widgetQueue}
 }
 
-export default connect(mapStateToProps)(Message)
+export default connect(mapStateToProps, {createWidget})(Message)
