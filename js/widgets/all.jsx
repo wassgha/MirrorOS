@@ -1,11 +1,11 @@
 import Forecast from './Forecast'
 import Message from './Message'
-import Player from './Player'
+import VideoPlayer from './VideoPlayer'
 
 const widgetList = {
   Forecast: Forecast,
   Message: Message,
-  Player: Player
+  VideoPlayer: VideoPlayer
 }
 
 export default widgetList

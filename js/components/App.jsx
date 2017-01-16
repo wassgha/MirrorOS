@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Home from './Home'
 import {updateDateAndTime, updateWeather} from '../actions/index'
 
 class App extends Component {
 
-  constructor(props){
-    super(props)
-  }
-
-  componentWillMount(){
+  componentWillMount () {
     this.props.updateDateAndTime()
     this.props.updateWeather()
 
-    setInterval( () => {
+    setInterval(() => {
       this.props.updateDateAndTime()
     }, 1000)
 
-    setInterval( () => {
+    setInterval(() => {
       this.props.updateWeather()
     }, 1800000)
   }

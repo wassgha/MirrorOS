@@ -12,10 +12,10 @@ export function enqueue (state, action) {
   newWidgetQueue.unshift(widget)
 
   correctZ(newWidgetQueue)
-  return { ...state, widgetQueue: newWidgetQueue}
+  return { ...state, widgetQueue: newWidgetQueue }
 }
 
-function correctZ(widgetQueue){
+function correctZ (widgetQueue) {
   const size = widgetQueue.length
   widgetQueue.forEach(function (widget, index) {
     $(widget.widgetElement).css('z-index', size - index)

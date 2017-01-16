@@ -1,24 +1,23 @@
+/* global $ */
 import axios from 'axios'
 import {applyWidgetFeatures} from '../helpers/Widget'
 import {nowToString} from '../helpers/DateTime'
 
 import {
-        ADD_TO_QUEUE, REMOVE_FROM_QUEUE,
-        CREATE_WIDGET, REMOVE_WIDGET,
+        ADD_TO_QUEUE, CREATE_WIDGET,
         UPDATE_DATE_AND_TIME, UPDATE_WEATHER,
         OPEN_WEATHER_MAP_ADDRESS, OPEN_WEATHER_MAP_KEY
       } from '../constants/index'
 
-
-export function addToQueue(widget){
+export function addToQueue (widget) {
   return {
     type: ADD_TO_QUEUE,
     payload: widget
   }
 }
 
-export function createWidget(props, config){
-  const {widgetQueue, elementId, draggable} = props
+export function createWidget (props, elementId, config) {
+  const { widgetQueue } = props
   const widgetElement = $('#' + elementId)
 
   const widget = {
@@ -35,7 +34,7 @@ export function createWidget(props, config){
   }
 }
 
-export function updateDateAndTime(){
+export function updateDateAndTime () {
   const now = nowToString(true)
 
   return {
@@ -44,7 +43,7 @@ export function updateDateAndTime(){
   }
 }
 
-export function updateWeather(){
+export function updateWeather () {
   const location = 'Tbilisi,ge'
 
   const request = axios.get(OPEN_WEATHER_MAP_ADDRESS, {

@@ -1,22 +1,24 @@
-/* global $ */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import {createWidget, addToQueue} from '../actions/index'
+import {generateElementId} from '../helpers/Widget'
 
 class Message extends Component {
 
-  constructor(props){
+  constructor (props) {
     super(props)
+
+    this.elementId = generateElementId()
   }
 
   componentDidMount () {
-    this.props.createWidget(this.props, { draggable: true})
+    this.props.createWidget(this.props, this.elementId, {draggable: true})
   }
 
   render () {
     return (
-      <div className='widget message' id={this.props.elementId}>
+      <div className='widget message' id={this.elementId}>
         <div className='content'>
           <div className='head'>
             <img src='../media/images/bulk-profile-image-01.jpg' />
@@ -37,12 +39,14 @@ class Message extends Component {
 }
 
 Message.propTypes = {
-  elementId: React.PropTypes.string.isRequired,
   draggable: React.PropTypes.any
 }
 
-function mapStateToProps(state){
-  return { widgetQueue: state.widgets.widgetQueue}
+function mapStateToProps (state) {
+  return {
+    widgetQueue: state.widgets.widgetQueue,
+    widgetList: state.widgets.widgetList
+  }
 }
 
 export default connect(mapStateToProps, {createWidget, addToQueue})(Message)

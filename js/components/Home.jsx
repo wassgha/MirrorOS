@@ -3,16 +3,19 @@ import { connect } from 'react-redux'
 
 import Message from '../widgets/Message'
 import Forecast from '../widgets/Forecast'
-import Player from '../widgets/Player'
+import VideoPlayer from '../widgets/VideoPlayer'
+import AudioPlayer from '../widgets/AudioPlayer'
 
 class Home extends Component {
 
-  constructor(props){
-    super(props)
-  }
-
   render () {
-    const playerConfig = {
+    const videoPlayerConfig = {
+      controls: true,
+      loop: true,
+      muted: true
+    }
+
+    const audioPlayerConfig = {
       controls: true,
       loop: true,
       muted: true
@@ -20,18 +23,21 @@ class Home extends Component {
 
     return (
       <div>
-        <Forecast elementId='0001' />
-        <Player elementId='0002' src='../media/videos/big_buck_bunny.mp4'
-          config={playerConfig} draggable />
-        <Message elementId='0003' draggable />
-        <Message elementId='0004' draggable />
+        <Forecast />
+        <VideoPlayer src='../media/video/big_buck_bunny.mp4'
+          config={videoPlayerConfig} draggable />
+        <AudioPlayer src='../media/audio/Find_Me.mp3'
+          config={audioPlayerConfig} draggable />
+        <Message draggable />
       </div>
     )
   }
 }
 
-function mapStateToProps(state){
-  return { widgetQueue: state.widgets.widgetQueue}
+function mapStateToProps (state) {
+  return {
+    widgetQueue: state.widgets.widgetQueue
+  }
 }
 
 export default connect(mapStateToProps)(Home)

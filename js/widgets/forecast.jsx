@@ -1,17 +1,19 @@
-/* global $ */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import {createWidget} from '../actions/index'
+import {generateElementId} from '../helpers/Widget'
 
-class Forecast extends Component{
+class Forecast extends Component {
 
-  constructor(props){
+  constructor (props) {
     super(props)
+
+    this.elementId = generateElementId()
   }
 
   componentDidMount () {
-    this.props.createWidget(this.props, {})
+    this.props.createWidget(this.props, this.elementId, {})
   }
 
   render () {
@@ -24,9 +26,8 @@ class Forecast extends Component{
     const country = weather.sys.country
     const celsius = weather.main.temp - 273.15
 
-
     return (
-      <span className='corner' id={this.props.elementId}>
+      <span className='corner' id={this.elementId}>
         <span id='date'>{dateStr}</span>
         <br />
         <span id='time'>{timeStr}</span>
@@ -38,15 +39,15 @@ class Forecast extends Component{
 }
 
 Forecast.propTypes = {
-  elementId: React.PropTypes.string.isRequired,
   draggable: React.PropTypes.any
 }
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return {
     widgetQueue: state.widgets.widgetQueue,
     dateAndTime: state.dateAndTime,
-    weather: state.weather.currentWeather
+    weather: state.weather.currentWeather,
+    widgetList: state.widgets.widgetList
   }
 }
 
