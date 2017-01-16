@@ -22,7 +22,6 @@ const createWindow = () => {
   })
 
   win.webContents.openDevTools()
-  BrowserWindow.addDevToolsExtension('/Users/prosperi/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.12.2_0')
 }
 
 app.on('ready', createWindow)

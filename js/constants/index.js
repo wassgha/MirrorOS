@@ -7,3 +7,7 @@ export const REMOVE_WIDGET = 'REMOVE_WIDGET'
 
 export const INITIALIZE_DATE_AND_TIME = 'INITIALIZE_DATE_AND_TIME'
 export const UPDATE_DATE_AND_TIME = 'UPDATE_DATE_AND_TIME'
+
+export const UPDATE_WEATHER = 'UPDATE_WEATHER'
+export const OPEN_WEATHER_MAP_KEY = '7f66f4d6e94b9ccafd4096de6f52a6a1'
+export const OPEN_WEATHER_MAP_ADDRESS = 'http://api.openweathermap.org/data/2.5/weather'

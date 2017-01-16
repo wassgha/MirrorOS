@@ -6,8 +6,7 @@ const INITIAL_STATE = { widgets: [], widgetQueue: []}
 export default function(state = INITIAL_STATE, action){
   switch(action.type){
     case ADD_TO_QUEUE:
-      const newState = enqueue(state, action)
-      return newState
+      return enqueue(state, action)
     case CREATE_WIDGET:
       return { ...state, widgets: [...state.widgets, action.payload] }
     default:

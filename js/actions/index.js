@@ -1,10 +1,12 @@
 import axios from 'axios'
 import {applyWidgetFeatures} from '../helpers/Widget'
+import {nowToString} from '../helpers/DateTime'
 
 import {
         ADD_TO_QUEUE, REMOVE_FROM_QUEUE,
-        CREATE_WIDGET, REMOVE_WIDGET, INITIALIZE_DATE_AND_TIME,
-        UPDATE_DATE_AND_TIME
+        CREATE_WIDGET, REMOVE_WIDGET,
+        UPDATE_DATE_AND_TIME, UPDATE_WEATHER,
+        OPEN_WEATHER_MAP_ADDRESS, OPEN_WEATHER_MAP_KEY
       } from '../constants/index'
 
 
@@ -33,20 +35,27 @@ export function createWidget(props, config){
   }
 }
 
-export function initializeDateAndTime(){
-  const dateAndTime = new DateTime()
-
-  return {
-    type: INITIALIZE_DATE_AND_TIME,
-    payload: dateAndTime
-  }
-}
-
 export function updateDateAndTime(){
-  const now = new Date()
+  const now = nowToString(true)
 
   return {
     type: UPDATE_DATE_AND_TIME,
     payload: now
+  }
+}
+
+export function updateWeather(){
+  const location = 'Tbilisi,ge'
+
+  const request = axios.get(OPEN_WEATHER_MAP_ADDRESS, {
+    params: {
+      q: location,
+      appid: OPEN_WEATHER_MAP_KEY
+    }
+  })
+
+  return {
+    type: UPDATE_WEATHER,
+    payload: request
   }
 }
