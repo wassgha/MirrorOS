@@ -3,12 +3,11 @@ const electron = require('electron')
 const path = require('path')
 const url = require('url')
 
-const {app, BrowserWindow, ipcMain} = electron
+const {app, BrowserWindow} = electron
 let win
 
-
 const createWindow = () => {
-	win = new BrowserWindow({
+  win = new BrowserWindow({
     fullscreen: true
   })
 
@@ -18,24 +17,23 @@ const createWindow = () => {
     slashes: true
   }))
 
-  win.webContents.openDevTools()
-
   win.on('closed', () => {
     win = null
   })
 
+  win.webContents.openDevTools()
 }
 
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
-  if(process.platform !== 'darwin'){
+  if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  if(win === null){
+  if (win === null) {
     createWindow()
   }
 })

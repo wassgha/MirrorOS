@@ -1,9 +1,9 @@
 const Login = Reac.createClass({
 
   componentDidMount: () => {
+    const localstream = null
     const done = false
     const video = $("#cam")
-    const localstream
 
     const handleVideo = (stream) => {
       localstream = stream
@@ -38,8 +38,7 @@ const Login = Reac.createClass({
   },
 
   render: () => {
-    return (
-      {/*<div>
+    return (/*<div>
         <div className="login widget" id="login-widget">
           <div id="cam-container">
             <video autoplay="true" id="cam"></video>
@@ -61,7 +60,7 @@ const Login = Reac.createClass({
         <div class="loader">
           <img src="images/wassim.jpg"/>
         </div>
-      </div>*/}
+      </div>*/
       <div>
         <button>Bring the action!</button>
       </div>
