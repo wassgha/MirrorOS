@@ -1,4 +1,4 @@
-import {UPDATE_WEATHER} from '../constants/index'
+import {LOAD_WEATHER} from '../constants/index'
 const INITIAL_STATE = {
   currentWeather: {
     sys: {},
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case UPDATE_WEATHER:
+    case LOAD_WEATHER:
       return { ...state, currentWeather: action.payload.data }
     default:
       return state

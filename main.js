@@ -3,6 +3,8 @@ const electron = require('electron')
 const path = require('path')
 const url = require('url')
 
+process.env.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8'
+
 const {app, BrowserWindow} = electron
 let win
 

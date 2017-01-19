@@ -3,11 +3,13 @@ import { combineReducers } from 'redux'
 import Widgets from './reducer_widgets'
 import DateAndTime from './reducer_date_time'
 import Weather from './reducer_weather'
+import Location from './reducer_location'
 
 const rootReducer = combineReducers({
   widgets: Widgets,
   dateAndTime: DateAndTime,
-  weather: Weather
+  weather: Weather,
+  location: Location
 })
 
 export default rootReducer

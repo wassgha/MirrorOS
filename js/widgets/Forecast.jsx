@@ -24,7 +24,7 @@ class Forecast extends Component {
     const weather = this.props.weather
     const town = weather.name
     const country = weather.sys.country
-    const celsius = weather.main.temp - 273.15
+    const celsius = (weather.main.temp - 273.15).toFixed(0)
 
     return (
       <span className='corner' id={this.elementId}>
@@ -32,7 +32,7 @@ class Forecast extends Component {
         <br />
         <span id='time'>{timeStr}</span>
         <br />
-        <span id='weather'>{celsius}° C / {town},{country}</span>
+        <span id='weather'>{celsius}° C / {this.props.formattedAddress}</span>
       </span>
     )
   }
@@ -47,7 +47,8 @@ function mapStateToProps (state) {
     widgetQueue: state.widgets.widgetQueue,
     dateAndTime: state.dateAndTime,
     weather: state.weather.currentWeather,
-    widgetList: state.widgets.widgetList
+    widgetList: state.widgets.widgetList,
+    formattedAddress: state.location.formattedAddress
   }
 }
 

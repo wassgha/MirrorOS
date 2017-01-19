@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {updateDateAndTime, updateWeather} from '../actions/index'
+import {updateDateAndTime, updateWeather, generateLocation} from '../actions/index'
 
 class App extends Component {
 
   componentWillMount () {
     this.props.updateDateAndTime()
-    this.props.updateWeather()
 
     setInterval(() => {
       this.props.updateDateAndTime()
@@ -16,6 +15,8 @@ class App extends Component {
     setInterval(() => {
       this.props.updateWeather()
     }, 1800000)
+
+    this.props.generateLocation()
   }
 
   render () {
@@ -27,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {updateDateAndTime, updateWeather})(App)
+export default connect(null, {updateDateAndTime, updateWeather, generateLocation})(App)
