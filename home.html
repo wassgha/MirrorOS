@@ -7,7 +7,7 @@
 </span>
 
 <div class="widget video">
-  <video src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_10mb.mp4" loop></video>
+  <video src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_10mb.mp4" loop autoplay></video>
 </div>
 
 <div class="widget message">
@@ -74,15 +74,6 @@
   }
 
 
-  var idleTime = 0;
-  function timerIncrement() {
-      idleTime = idleTime + 1;
-      if (idleTime > 5) { // 20 minutes
-          $('body').css('background-image', '');
-      }
-  }
-
-
   $(document).ready(function () {
     updateDate();
     setInterval('updateClock()', 1000);
@@ -91,19 +82,6 @@
         console.log(data.query.results.channel);
         $('#weather').html('<i class="icon-' + data.query.results.channel.item.condition.code + '"></i> &nbsp; ' + data.query.results.channel.item.condition.text);
       }
-    });
-
-    //Increment the idle time counter every second.
-    var idleInterval = setInterval(timerIncrement, 1000); // 1 second
-
-    //Zero the idle timer on mouse movement.
-    $(this).mousemove(function (e) {
-        $('body').css('background', 'url(images/dots.png) black');
-        idleTime = 0;
-    });
-    $(this).mousedown(function (e) {
-        $('body').css('background', 'url(images/dots.png) black');
-        idleTime = 0;
     });
   })
 </script>
