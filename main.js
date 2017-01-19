@@ -18,7 +18,7 @@ const createWindow = () => {
 
   win.webContents.openDevTools()
 
-  win.webContents.setMenu(null)
+  win.setMenu(null)
 
   win.on('closed', () => {
     win = null
@@ -39,3 +39,14 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+var PythonShell = require('python-shell');
+
+var options = {
+  args: ['runserver']
+}
+
+PythonShell.run('lib/FaceRecognitionAPI/manage.py', options, function (err) {
+  if (err) throw err;
+  console.log('Running Face Recognition Server');
+});
