@@ -13,7 +13,7 @@
 <div class="training widget">
     <h3>Train user model</h3>
     <select id="user">
-      
+
     </select>
     <button id="train">Train</button>
 </div>
@@ -29,7 +29,7 @@
   var video = document.querySelector(".login.widget #cam");
   var localstream;
    
-  if (navigator.getUserMedia) {       
+  if (navigator.getUserMedia) {      
       navigator.getUserMedia({video: true}, handleVideo, videoError);
   }
    
@@ -47,9 +47,9 @@
     $(".loader").fadeIn(1000, function() {
       setTimeout(function() {
         $(".notification").fadeIn(1000);
-        setTimeout(function() { 
+        setTimeout(function() {
           $(".loader").fadeOut();
-          setTimeout(function() { 
+          setTimeout(function() {
             $("#content").load("home.html", function () {
               $(".notification").fadeOut(1000);
               //localstream.getTracks()[0].stop();
@@ -129,4 +129,5 @@
   $("#train").click(function() {
     trainFace(parseInt($(".training.widget #user").val()));
   });
+  login();
 </script>

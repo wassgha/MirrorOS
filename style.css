@@ -1,7 +1,13 @@
 body {
-	font-family: "Montserrat", Helvetica, Arial, sans-serif;
-	background: url('images/dots.png') black;
-	cursor: none;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  background: black;
+  cursor: none;
+  opacity: 1.0;
+  -webkit-transition: background 1.5s linear;
+  -moz-transition: background 1.5s linear;
+  -o-transition: background 1.5s linear;
+  -ms-transition: background 1.5s linear;
+  transition: background 1.5s linear;
 }
 
 .widget {
@@ -10,6 +16,7 @@ body {
 	position: absolute;
 	cursor: move;
 	z-index: 0;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
 .widget.top {
@@ -158,6 +165,7 @@ body {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     width: 100%;
+    display: flex;
 }
 
 .message.widget .action {
@@ -167,11 +175,14 @@ body {
     font-size: 14px;
     padding: 20px;
     display: inline-block;
-    width: calc(50% - 43px);
+    width: 50%;
     text-align: center;
+    border-bottom-left-radius: 3px;
 }
 
 .message.widget .action.highlight {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 3px;
     border-left: 1px solid #dfe5ea;
     color: rgb(61, 180, 233);
 }
@@ -201,7 +212,8 @@ body {
 
 
 .message.widget.dark {
-	background: rgb(41, 41, 41);
+  background: black;
+  border: 1px solid #717171;
 	top: 60%;
 	left: 20%;
 }
@@ -211,17 +223,22 @@ body {
 }
 
 .message.widget.dark .actions {
-    background: #515151;
-    border-top: 1px solid #888888;
+    margin: 0px;
+    padding: 0px;
+    background: black;
+    border-top: 1px solid #717171;
 }
 
 .message.widget.dark .action {
+    border: 0px;
     color: #909090;
+    border-bottom-left-radius: 2px;
 }
 
 .message.widget.dark .action.highlight {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 2px;
     background: #717171;
-    border-left: 1px solid #888888;
     color: rgb(255, 255, 255);
 }
 
@@ -241,14 +258,18 @@ body {
 #corner {
 	color: white;
 	text-align: right;
-	font-family: "Lato", sans-serif !important;
-	font-weight: 300;
+	font-family: "Roboto Condensed", sans-serif !important;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
 	display: inline-block;
 	padding: 21px;
 	top: 0px;
 	right: 0px;
 	position: absolute;
 }
+
 #corner span {
 	background: black;
 }
@@ -259,6 +280,7 @@ body {
 
 #corner #time {
 	font-size: 42px;
+  font-weight: 300;
 }
 
 /*
