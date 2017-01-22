@@ -203,5 +203,5 @@ def _grab_image(path=None, base64_string=None, url=None):
 
 while True:
     # Sleep for x seconds
-    time.sleep(1)
+    time.sleep(0.5)
     recognize()

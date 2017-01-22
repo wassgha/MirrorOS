@@ -44,7 +44,6 @@ body {
 
 /*
 	Login Widget
-*/
 
 .login.widget {
 	top:50%;
@@ -83,8 +82,32 @@ body {
 
 .login.widget #canvas {
 	display: none;
+}*/
+
+/*
+
+  Login
+
+*/
+
+.login .material-icons {
+    font-size: 6em;
 }
 
+.login {
+    width: 100%;
+    height: 300px;
+    color: white;
+    font-size: 3em;
+    font-family: "Roboto Condensed";
+    font-weight: 300;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.login b {
+  font-weight: 400;
+}
 
 /*
 	Training Widget

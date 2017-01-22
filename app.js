@@ -2,6 +2,8 @@ const $ = jQuery = require('jquery')
 // require('jquery-ui')
 const ipc = require('electron').ipcRenderer
 
+var socket = io.connect('http://localhost:3000');
+
 var curZIndex = 3;
 
 $(document).ready(function () {

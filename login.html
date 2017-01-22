@@ -1,13 +1,6 @@
-<div class="login widget">
-    <div id="cam-container">
-        <video autoplay="true" id="cam">
-        </video>
-        <canvas id="canvas" width="640px" height="480px"></canvas>
-    </div>
-    <div id="text">
-      <i class="material-icons">sentiment_neutral</i><br>
-      <span id="instructions">I don't see you.</span>
-    </div>
+<div class="login">
+    <i class="material-icons">sentiment_neutral</i><br>
+    <span id="instructions">I don't see you.</span>
 </div>
 
 <div class="training widget">
@@ -23,27 +16,10 @@
     <img src="https://scontent.xx.fbcdn.net/v/t31.0-8/13220549_10201842920512018_7635250932852775285_o.jpg?oh=c8929dfff237201e72c3531e4c17278b&oe=58F5407B" />
 </div>
 
+
 <script type="text/javascript">
-  // Show camera feed in login widget
-  var done = false;
-  var video = document.querySelector(".login.widget #cam");
-  var localstream;
-   
-  if (navigator.getUserMedia) {      
-      navigator.getUserMedia({video: true}, handleVideo, videoError);
-  }
-   
-  function handleVideo(stream) {
-    localstream = stream;
-    video.src = window.URL.createObjectURL(stream);
-  }
-
-  function videoError(e) {
-      // do something
-  }
-
   function login() {
-    $(".login.widget").fadeOut(500);
+    $(".login").fadeOut(500);
     $(".loader").fadeIn(1000, function() {
       setTimeout(function() {
         $(".notification").fadeIn(1000);
@@ -62,37 +38,51 @@
     });
   }
 
-  function detectFace() {
-    if (done) return;
-    document.getElementById("canvas").getContext("2d").drawImage(video, 0, 0, 640, 480);
+  // function detectFace() {
+  //   if (done) return;
+  //   document.getElementById("canvas").getContext("2d").drawImage(video, 0, 0, 640, 480);
 
-    var formData = new FormData();
+  //   var formData = new FormData();
 
-    var image = document.getElementById("canvas").toDataURL("image/jpeg", 0.85);
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8000/face_detection/recognize/",
-        data: {
-          imageBase64 : image.split(',')[1]
-        },
-        success: function(data){
-          if (data.detected == false) {
-            $(".login.widget #text").html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
-          } else if (data.identity == 0) {
-            $(".login.widget #text").html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
-          } else {
-            $(".login.widget #text").html('<i class="material-icons">sentiment_very_satisfied</i><br>Hello ' + data.user.first_name + '. Smile to login!');
-            if (data.smiling) {
-              login();
-            }
-          }
-          console.log(data);
-        }
-      })
-        setTimeout(function() { detectFace(); }, 1000);
-  }
+  //   var image = document.getElementById("canvas").toDataURL("image/jpeg", 0.85);
+  //   $.ajax({
+  //       type: "POST",
+  //       url: "http://localhost:8000/face_detection/recognize/",
+  //       data: {
+  //         imageBase64 : image.split(',')[1]
+  //       },
+  //       success: function(data){
+  //         if (data.detected == false) {
+  //           $(".login.widget #text").html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
+  //         } else if (data.identity == 0) {
+  //           $(".login.widget #text").html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+  //         } else {
+  //           $(".login.widget #text").html('<i class="material-icons">sentiment_very_satisfied</i><br>Hello ' + data.user.first_name + '. Smile to login!');
+  //           if (data.smiling) {
+  //             login();
+  //           }
+  //         }
+  //         console.log(data);
+  //       }
+  //     })
+  //       setTimeout(function() { detectFace(); }, 1000);
+  // }
 
-  setTimeout(function() { detectFace(); }, 1000);
+  // setTimeout(function() { detectFace(); }, 1000);
+
+  socket.on('message',function(message){
+    if (message.detected == false) {
+      $(".login").html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
+    } else if (message.identity == 0) {
+      $(".login").html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+    } else {
+      $(".login").html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
+      if (message.smiling) {
+        login();
+      }
+    }
+  });
+
 
   function trainFace(id) {
     document.getElementById("canvas").getContext("2d").drawImage(video, 0, 0, 640, 480);

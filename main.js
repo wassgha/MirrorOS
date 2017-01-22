@@ -40,13 +40,30 @@ app.on('activate', () => {
   }
 })
 
+var server = require('http').createServer();
+var io = require('socket.io')(server);
+io.on('connection', function(client){
+  client.on('event', function(data){});
+  client.on('disconnect', function(){});
+});
+server.listen(3000);
+
+
 var PythonShell = require('python-shell');
 
-var options = {
-  args: ['runserver']
-}
+const pyshell = new PythonShell('lib/FaceRecognitionAPI/script.py');
 
-PythonShell.run('lib/FaceRecognitionAPI/manage.py', options, function (err) {
+pyshell.on('message', function (message) {
+  try {
+    message = JSON.parse(message);
+    //console.log(message);
+    io.emit('message',message);
+  } catch(e) {
+    // Not JSON, don't parse
+  }
+});
+
+pyshell.end(function (err) {
   if (err) throw err;
-  console.log('Running Face Recognition Server');
+  console.log("Server finished running...");
 });
