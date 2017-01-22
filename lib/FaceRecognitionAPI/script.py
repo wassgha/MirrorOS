@@ -12,6 +12,9 @@ import camera
 import sys
 import sqlite3
 
+#set debug mode
+DEBUG_MODE = False
+REFRESH_INTERVAL = 0.5
 
 # define the path to the face detector and smile detector
 FACE_DETECTOR_PATH = "{base_path}/cascades/haarcascade_frontalface_default.xml".format(
@@ -99,7 +102,17 @@ def recognize():
     minNeighbors=22,
     minSize=(25, 25),
     flags=0)
-    smiling = False if len(smile) == 0 else True
+    smiling = False if len(smile) != 1 else True
+
+    if DEBUG_MODE:
+      smiles = [(int(x1), int(y1), int(x1 + w1), int(y1 + h1)) for (x1, y1, w1, h1) in smile]
+      image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+      cv2.rectangle(image, (x, y), (w, h), (0, 255, 0), 2, 8, 0)
+      for (x1, y1, w1, h1) in smiles:
+        cv2.rectangle(image, (x1 + x , y1 + y), (w1 + x, h1 + y), (255, 0, 0), 2, 8, 0)
+      cv2.imshow('image', image)
+      cv2.waitKey(0)
+      cv2.destroyAllWindows()
 
     c.execute("SELECT * FROM users where id='%s'" % identity)
     u = c.fetchone()
@@ -115,13 +128,12 @@ def recognize():
       }
 
     # update the data dictionary with the faces detected
-    data.update({"detected": True, "identity": identity, "user": user, "box": rects, "smiling": smiling})
-  try:
-    print(json.dumps(data))
-  except Exception:
-    pass
-  # requirement for python_shell
-  sys.stdout.flush()
+    if DEBUG_MODE:
+      data.update({"detected": True, "identity": identity, "user": user, "smiles" : smiles, "box": rects, "smiling": smiling})
+    else :
+      data.update({"detected": True, "identity": identity, "user": user, "smiling": smiling})
+
+  return data
 
 def train(request):
   data = {"success" : True}
@@ -201,7 +213,17 @@ def _grab_image(path=None, base64_string=None, url=None):
   # return the image
   return image
 
+old_data = None
+new_data = None
 while True:
     # Sleep for x seconds
-    time.sleep(0.5)
-    recognize()
+    time.sleep(REFRESH_INTERVAL)
+    new_data = recognize()
+    if DEBUG_MODE or old_data == new_data:
+      try:
+        print(json.dumps(new_data))
+      except Exception:
+        pass
+    # requirement for python_shell
+    sys.stdout.flush()
+    old_data = new_data
