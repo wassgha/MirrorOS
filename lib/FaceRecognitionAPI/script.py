@@ -99,8 +99,8 @@ def recognize():
     smile = smiledetector.detectMultiScale(
     image[y:h, x:w],
     scaleFactor= 1.7,
-    minNeighbors=22,
-    minSize=(25, 25),
+    minNeighbors=30,
+    minSize=(30, 30),
     flags=0)
     smiling = False if len(smile) != 1 else True
 
