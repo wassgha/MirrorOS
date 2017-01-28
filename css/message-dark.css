@@ -1,0 +1,32 @@
+.message.widget.dark {
+	background: rgb(41, 41, 41);
+	top: 60%;
+	left: 20%;
+}
+
+.message.widget.dark .content {
+    color: #ffffff;
+}
+
+.message.widget.dark .actions {
+    background: #515151;
+    border-top: 1px solid #888888;
+}
+
+.message.widget.dark .action {
+    color: #909090;
+}
+
+.message.widget.dark .action.highlight {
+    background: #717171;
+    border-left: 1px solid #888888;
+    color: rgb(255, 255, 255);
+}
+
+.message.widget.dark .head .title {
+    color: #ffffff;
+}
+
+.message.widget.dark .head .time {
+    color: rgb(255, 255, 255);
+}

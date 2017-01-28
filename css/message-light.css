@@ -1,0 +1,65 @@
+.message.widget {
+	background: white;
+	width: 303px;
+	height: 270px;
+	top: 50%;
+	left: 50%;
+}
+
+.message.widget .head img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.message.widget .content {
+    padding: 25px;
+    color: #426a90;
+    font-size: 16px;
+}
+
+.message.widget .actions {
+    background: #f5f6f8;
+    border-top: 1px solid #dfe5ea;
+    bottom: 0px;
+    position: absolute;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    width: 100%;
+}
+
+.message.widget .action {
+    color: #cfd9e0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 20px;
+    display: inline-block;
+    width: calc(50% - 43px);
+    text-align: center;
+}
+
+.message.widget .action.highlight {
+    border-left: 1px solid #dfe5ea;
+    color: rgb(61, 180, 233);
+}
+
+.message.widget .head .title {
+    color: #3eb4e9;
+    display: block;
+}
+
+.message.widget .head .desc {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.message.widget .head .time {
+    color: rgb(61, 90, 121);
+}
+
+.message.widget .head {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,18 @@
+.notification {
+	font-size: 24px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	bottom: 30px;
+	display: none;
+}
+
+.notification #text {
+	padding: 10px;
+	background: rgb(52, 152, 219);
+	border-radius: 3px;
+	color:white;
+	text-align: center;
+	display: inline-block;
+}
