@@ -3,35 +3,21 @@
   "version": "0.1.0",
   "main": "main.js",
   "dependencies": {
-<<<<<<< HEAD
-    "devtron": "^1.4.0",
-    "jquery": "^3.1.1",
-    "jquery-ui": "^1.12.1",
-    "jsdom": "^9.8.3",
-    "electron": "1.4.13",
-    "python-shell": "*"
-  },
-  "devDependencies": {
-    "devtron": "^1.4.0"
-  },
-
-  "scripts": {
-    "electron": "electron .",
-    "start": "npm run electron"
-=======
     "axios": "0.15.3",
     "electron": "1.4.13",
     "jquery": "3.1.1",
     "jquery-ui": "1.12.1",
     "jsdom": "9.8.3",
     "lodash": "4.17.4",
+    "python-shell": "0.4.0",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "5.0.2",
     "react-router": "3.0.0",
     "redux": "3.6.0",
     "redux-promise": "0.5.3",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "socket.io": "1.7.2"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
@@ -70,6 +56,5 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "npm run build && npm run electron"
->>>>>>> prosperi
   }
 }

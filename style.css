@@ -41,53 +41,8 @@ body {
 	vertical-align: middle;
 }
 
-
 /*
-	Login Widget
-
-.login.widget {
-	top:50%;
-	left: 50%;
-	margin-top:-185px;
-	margin-left: -200px;
-	width: 400px;
-	background: rgb(52, 152, 219);
-}
-
-.login.widget #cam-container {
-	opacity: 0.5;
-	width: 100%;
-	height:250px;
-	overflow: hidden;
-}
-
-.login.widget #cam {
-	width: 100%;
-	height: 100%;
-	object-fit:cover;
-}
-
-.login.widget #text {
-	color: white;
-	text-align: center;
-	padding: 20px;
-	font-size: 22px;
-}
-
-.login.widget #text .material-icons {
-	color : rgb(52, 73, 94);
-	font-size: 40px !important;
-	margin-bottom: 10px;
-}
-
-.login.widget #canvas {
-	display: none;
-}*/
-
-/*
-
   Login
-
 */
 
 .login .material-icons {
@@ -110,7 +65,7 @@ body {
 }
 
 /*
-	Training Widget
+	Training Widget //z
 */
 
 .training.widget {

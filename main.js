@@ -3,6 +3,11 @@ const electron = require('electron')
 const path = require('path')
 const url = require('url')
 
+const server = require('http').createServer()
+const io = require('socket.io')(server)
+const PythonShell = require('python-shell')
+const pyshell = new PythonShell('lib/FaceRecognitionAPI/script.py')
+
 process.env.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8'
 
 const {app, BrowserWindow} = electron
@@ -19,13 +24,6 @@ const createWindow = () => {
     slashes: true
   }))
 
-<<<<<<< HEAD
-  win.webContents.openDevTools()
-
-  win.setMenu(null)
-
-=======
->>>>>>> prosperi
   win.on('closed', () => {
     win = null
   })
@@ -47,30 +45,23 @@ app.on('activate', () => {
   }
 })
 
-var server = require('http').createServer();
-var io = require('socket.io')(server);
-io.on('connection', function(client){
-  client.on('event', function(data){});
-  client.on('disconnect', function(){});
-});
-server.listen(3000);
+// Socket.io configuration
 
+io.on('connection', client => {
+  client.on('event', data => {})
+  client.on('disconnect', () => {})
+})
+server.listen(3000)
 
-var PythonShell = require('python-shell');
-
-const pyshell = new PythonShell('lib/FaceRecognitionAPI/script.py');
-
-pyshell.on('message', function (message) {
+pyshell.on('message', message => {
   try {
-    message = JSON.parse(message);
-    //console.log(message);
-    io.emit('message',message);
-  } catch(e) {
+    message = JSON.parse(message)
+    io.emit('message', message)
+  } catch (e) {
     // Not JSON, don't parse
   }
-});
+})
 
-pyshell.end(function (err) {
-  if (err) throw err;
-  console.log("Server finished running...");
-});
+pyshell.end(err => {
+  if (err) throw err
+})

@@ -4,6 +4,7 @@
 	position: absolute;
 	cursor: move;
 	z-index: 0;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
 .widget.top {
@@ -15,13 +16,13 @@
 }
 
 .tray {
-    bottom: 10px;
-    right: 10px;
-    position: absolute;
-    color: white;
-    background: black;
-    padding: 10px;
-    text-decoration: none
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  color: white;
+  background: black;
+  padding: 10px;
+  text-decoration: none
 }
 
 .tray i.material-icons {

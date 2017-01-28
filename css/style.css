@@ -5,10 +5,16 @@
 body {
   background: url('../media/images/dots.png') black;
   cursor: none;
+  opacity: 1.0;
+  -webkit-transition: background 1.5s linear;
+  -moz-transition: background 1.5s linear;
+  -o-transition: background 1.5s linear;
+  -ms-transition: background 1.5s linear;
+  transition: background 1.5s linear;
 }
 
 
-@import "alarm.css";
+@import 'alarm.css';
 @import 'date.css';
 @import 'dummy.css';
 @import 'login.css';
