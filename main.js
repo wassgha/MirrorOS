@@ -19,6 +19,13 @@ const createWindow = () => {
     slashes: true
   }))
 
+<<<<<<< HEAD
+  win.webContents.openDevTools()
+
+  win.setMenu(null)
+
+=======
+>>>>>>> prosperi
   win.on('closed', () => {
     win = null
   })
@@ -39,3 +46,31 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+var server = require('http').createServer();
+var io = require('socket.io')(server);
+io.on('connection', function(client){
+  client.on('event', function(data){});
+  client.on('disconnect', function(){});
+});
+server.listen(3000);
+
+
+var PythonShell = require('python-shell');
+
+const pyshell = new PythonShell('lib/FaceRecognitionAPI/script.py');
+
+pyshell.on('message', function (message) {
+  try {
+    message = JSON.parse(message);
+    //console.log(message);
+    io.emit('message',message);
+  } catch(e) {
+    // Not JSON, don't parse
+  }
+});
+
+pyshell.end(function (err) {
+  if (err) throw err;
+  console.log("Server finished running...");
+});

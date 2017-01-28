@@ -3,6 +3,22 @@
   "version": "0.1.0",
   "main": "main.js",
   "dependencies": {
+<<<<<<< HEAD
+    "devtron": "^1.4.0",
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "jsdom": "^9.8.3",
+    "electron": "1.4.13",
+    "python-shell": "*"
+  },
+  "devDependencies": {
+    "devtron": "^1.4.0"
+  },
+
+  "scripts": {
+    "electron": "electron .",
+    "start": "npm run electron"
+=======
     "axios": "0.15.3",
     "electron": "1.4.13",
     "jquery": "3.1.1",
@@ -54,5 +70,6 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "npm run build && npm run electron"
+>>>>>>> prosperi
   }
 }
