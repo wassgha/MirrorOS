@@ -38,7 +38,7 @@ smiledetector = cv2.CascadeClassifier(SMILE_DETECTOR_PATH)
 camera = camera.Camera()
 
 # Initialize database
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('../../db/database.db')
 
 c = conn.cursor()
 

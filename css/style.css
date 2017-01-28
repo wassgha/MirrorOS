@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url('../media/images/dots.png') black;
+  background-color: black;
   cursor: none;
   opacity: 1.0;
   -webkit-transition: background 1.5s linear;

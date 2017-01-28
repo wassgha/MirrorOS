@@ -1,18 +1,77 @@
 .login .material-icons {
-    font-size: 6em;
+  font-size: 6em;
 }
 
 .login {
-    width: 100%;
-    height: 300px;
-    color: white;
-    font-size: 3em;
-    font-family: "Roboto Condensed";
-    font-weight: 300;
-    margin-top: 150px;
-    text-align: center;
+  width: 100%;
+  height: 300px;
+  color: white;
+  font-size: 3em;
+  font-family: "Roboto Condensed";
+  font-weight: 300;
+  margin-top: 150px;
+  text-align: center;
 }
 
 .login b {
   font-weight: 400;
+}
+
+.loader {
+	display: none;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-top: -80px;
+	margin-left: -80px;
+}
+
+.loader img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.loader:before, .loader {
+	border-radius: 50%;
+	width: 160px;
+	height: 160px;
+	content: '';
+}
+
+.loader:before {
+	display: block;
+	margin: -1.1em;
+	font-size: 10px;
+	position: absolute;
+	border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-left: 1.1em solid #ffffff;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation: load8 1.1s infinite linear;
+	animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
 }
