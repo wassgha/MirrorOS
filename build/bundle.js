@@ -40853,10 +40853,8 @@
 
 	  switch (action.type) {
 	    case _index.LOAD_POSITION:
-	      console.log(action.payload);
 	      return _extends({}, state, { currentLocation: action.payload });
-	    case 'LOAD_FORMATTED_ADDRESS':
-	      console.log(action.payload);
+	    case _index.LOAD_FORMATTED_ADDRESS:
 	      return _extends({}, state, { formattedAddress: action.payload.data.results[0]['formatted_address'] });
 	    default:
 	      return state;
@@ -40967,6 +40965,13 @@
 	  return App;
 	}(_react.Component);
 
+	App.propTypes = {
+	  updateDateAndTime: _react2.default.PropTypes.func,
+	  updateWeather: _react2.default.PropTypes.func,
+	  generateLocation: _react2.default.PropTypes.func,
+	  children: _react2.default.PropTypes.array
+	};
+
 	exports.default = (0, _reactRedux.connect)(null, { updateDateAndTime: _index.updateDateAndTime, updateWeather: _index.updateWeather, generateLocation: _index.generateLocation })(App);
 
 /***/ },
@@ -41057,7 +41062,6 @@
 	}
 
 	function updateWeather() {
-
 	  return function (dispatch, getState) {
 	    var _getState = getState(),
 	        currentLocation = _getState.location.currentLocation;
@@ -41077,7 +41081,6 @@
 	}
 
 	function generateLocation() {
-
 	  return function (dispatch, getState) {
 	    new Promise(function (resolve, reject) {
 	      navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -42873,7 +42876,9 @@
 	}(_react.Component);
 
 	Message.propTypes = {
-	  draggable: _react2.default.PropTypes.any
+	  draggable: _react2.default.PropTypes.any,
+	  createWidget: _react2.default.PropTypes.func,
+	  addToQueue: _react2.default.PropTypes.func
 	};
 
 	function mapStateToProps(state) {
@@ -42940,8 +42945,6 @@
 	      var dateStr = now.date + ' ' + now.month + ' ' + now.year;
 
 	      var weather = this.props.weather;
-	      var town = weather.name;
-	      var country = weather.sys.country;
 	      var celsius = (weather.main.temp - 273.15).toFixed(0);
 
 	      return _react2.default.createElement(
@@ -42974,7 +42977,11 @@
 	}(_react.Component);
 
 	Forecast.propTypes = {
-	  draggable: _react2.default.PropTypes.any
+	  draggable: _react2.default.PropTypes.any,
+	  createWidget: _react2.default.PropTypes.func,
+	  dateAndTime: _react2.default.PropTypes.obj,
+	  weather: _react2.default.PropTypes.obj,
+	  formattedAddress: _react2.default.PropTypes.string
 	};
 
 	function mapStateToProps(state) {
@@ -43055,7 +43062,9 @@
 	VideoPlayer.propTypes = {
 	  draggable: _react2.default.PropTypes.any,
 	  src: _react2.default.PropTypes.string.isRequired,
-	  config: _react2.default.PropTypes.object
+	  config: _react2.default.PropTypes.object,
+	  createWidget: _react2.default.PropTypes.func,
+	  addToQueue: _react2.default.PropTypes.func
 	};
 
 	function mapStateToProps(state) {
@@ -43133,7 +43142,9 @@
 	AudioPlayer.propTypes = {
 	  draggable: _react2.default.PropTypes.any,
 	  src: _react2.default.PropTypes.string.isRequired,
-	  config: _react2.default.PropTypes.object
+	  config: _react2.default.PropTypes.object,
+	  createWidget: _react2.default.PropTypes.func,
+	  addToQueue: _react2.default.PropTypes.func
 	};
 
 	function mapStateToProps(state) {

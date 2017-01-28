@@ -39,7 +39,9 @@ class Message extends Component {
 }
 
 Message.propTypes = {
-  draggable: React.PropTypes.any
+  draggable: React.PropTypes.any,
+  createWidget: React.PropTypes.func,
+  addToQueue: React.PropTypes.func
 }
 
 function mapStateToProps (state) {

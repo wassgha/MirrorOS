@@ -28,4 +28,11 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  updateDateAndTime: React.PropTypes.func,
+  updateWeather: React.PropTypes.func,
+  generateLocation: React.PropTypes.func,
+  children: React.PropTypes.array
+}
+
 export default connect(null, {updateDateAndTime, updateWeather, generateLocation})(App)

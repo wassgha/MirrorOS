@@ -45,31 +45,29 @@ export function updateDateAndTime () {
   }
 }
 
-export function loadWeather(weather){
+export function loadWeather (weather) {
   return {
     type: LOAD_WEATHER,
     payload: weather
   }
 }
 
-export function loadPosition(position){
+export function loadPosition (position) {
   return {
     type: LOAD_POSITION,
     payload: position
   }
 }
 
-export function loadFormattedAddress(response){
+export function loadFormattedAddress (response) {
   return {
     type: LOAD_FORMATTED_ADDRESS,
     payload: response
   }
 }
 
-
 export function updateWeather () {
-
-  return function(dispatch, getState){
+  return function (dispatch, getState) {
     const { location: { currentLocation } } = getState()
 
     axios.get(OPEN_WEATHER_MAP_ADDRESS, {
@@ -80,16 +78,14 @@ export function updateWeather () {
       }
     }).then((weather) => dispatch(loadWeather(weather)), (error) => { console.log(error) })
   }
-
 }
 
-export function generateLocation(){
-
-  return function(dispatch, getState){
-    new Promise(function(resolve, reject){
+export function generateLocation () {
+  return function (dispatch, getState) {
+    new Promise(function (resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject)
     })
-    .then( (position) => {
+    .then((position) => {
       dispatch(loadPosition(position))
       axios.get(GOOGLE_GEOCODING_ADDRESS, {
         params: {
@@ -101,7 +97,6 @@ export function generateLocation(){
         dispatch(loadFormattedAddress(response))
         dispatch(updateWeather())
       }, (error) => { console.log(error) })
-    }, (error) =>  console.log(error) )
+    }, (error) => console.log(error))
   }
-
 }

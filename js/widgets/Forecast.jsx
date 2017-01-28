@@ -22,8 +22,6 @@ class Forecast extends Component {
     const dateStr = now.date + ' ' + now.month + ' ' + now.year
 
     const weather = this.props.weather
-    const town = weather.name
-    const country = weather.sys.country
     const celsius = (weather.main.temp - 273.15).toFixed(0)
 
     return (
@@ -39,7 +37,11 @@ class Forecast extends Component {
 }
 
 Forecast.propTypes = {
-  draggable: React.PropTypes.any
+  draggable: React.PropTypes.any,
+  createWidget: React.PropTypes.func,
+  dateAndTime: React.PropTypes.obj,
+  weather: React.PropTypes.obj,
+  formattedAddress: React.PropTypes.string
 }
 
 function mapStateToProps (state) {

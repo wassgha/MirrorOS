@@ -28,7 +28,9 @@ class AudioPlayer extends Component {
 AudioPlayer.propTypes = {
   draggable: React.PropTypes.any,
   src: React.PropTypes.string.isRequired,
-  config: React.PropTypes.object
+  config: React.PropTypes.object,
+  createWidget: React.PropTypes.func,
+  addToQueue: React.PropTypes.func
 }
 
 function mapStateToProps (state) {
