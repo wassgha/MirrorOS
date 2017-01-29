@@ -42917,7 +42917,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'widget message', id: this.elementId },
+	        { className: 'widget message dark', id: this.elementId },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'content' },
@@ -43037,7 +43037,7 @@
 
 	      return _react2.default.createElement(
 	        'span',
-	        { className: 'corner', id: this.elementId },
+	        { className: 'corner right', id: this.elementId },
 	        _react2.default.createElement(
 	          'span',
 	          { id: 'date' },

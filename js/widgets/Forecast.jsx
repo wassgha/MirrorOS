@@ -25,7 +25,7 @@ class Forecast extends Component {
     const celsius = (weather.main.temp - 273.15).toFixed(0)
 
     return (
-      <span className='corner' id={this.elementId}>
+      <span className='corner right' id={this.elementId}>
         <span id='date'>{dateStr}</span>
         <br />
         <span id='time'>{timeStr}</span>

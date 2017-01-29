@@ -18,7 +18,7 @@ class Message extends Component {
 
   render () {
     return (
-      <div className='widget message' id={this.elementId}>
+      <div className='widget message dark' id={this.elementId}>
         <div className='content'>
           <div className='head'>
             <img src='../media/images/bulk-profile-image-01.jpg' />
