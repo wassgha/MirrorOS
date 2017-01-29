@@ -1,69 +1,78 @@
-const Login = Reac.createClass({
+/* global $ */
 
-  componentDidMount: () => {
-    const localstream = null
-    const done = false
-    const video = $("#cam")
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-    const handleVideo = (stream) => {
-      localstream = stream
-      video.src = window.URL.createObjectURL(stream)
-    }
+class Login extends Component {
 
-    const videoError = (e) => {
-      // do something
-    }
+  componentDidMount () {
+    this.props.socket.on('message', message => {
+      if (message.detected === false) {
+        $('.login').html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you')
+      } else if (message.identity === 0) {
+        $('.login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you')
+      } else {
+        $('.login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!')
+        if (message.smiling) {
+          this.login()
+        }
+      }
+    })
 
-    const login = () => {
-      $("#login-widget").fadeOut(500)
-      $(".loader").fadeIn(1000, () => {
+    $('#add-user').click(() => {
+      this.login()
+    })
+  }
+
+  login () {
+    console.log('login')
+    $('.login').fadeOut(500)
+    $('.loader').fadeIn(1000, () => {
+      setTimeout(() => {
+        $('.notification').fadeIn(1000)
         setTimeout(() => {
-          $(".notification").fadeIn(1000)
+          $('.loader').fadeOut()
           setTimeout(() => {
-            $(".loader").fadeOut()
-            setTimeout(() => {
-              $("#content").load("home.html", () => {
-                $(".notification").fadeOut(1000);
-                done = true;
-              })
-            }, 500)
-          }, 1000)
-        }, 500)
-      })
-    }
+            this.context.router.push('/home')
+            $('.notification').fadeOut(1000)
+          }, 500)
+        }, 1000)
+      }, 500)
+    })
+  }
 
-    if(navigator.getUserMedia){
-      navigator.getUserMedia({video: true}, handleVideo, videoError)
-    }
-  },
-
-  render: () => {
-    return (/*<div>
-        <div className="login widget" id="login-widget">
-          <div id="cam-container">
-            <video autoplay="true" id="cam"></video>
-            <canvas id="canvas" width="640px" height="480px"></canvas>
-          </div>
-          <div id="text">
-            <i className="material-icons">sentiment_neutral</i><br/>
-            <span id="instructions">I don't see you.</span>
-          </div>
-        </div>
-
-        <div className="training widget">
-          <h3>Train user model</h3>
-          <select id="user"></select>
-          <button id="train">Train</button>
-        </div>
-
-        <a href="#" id="add-user" className="tray"> <i className="material-icons"> group_add </i> Add user </a>
-        <div class="loader">
-          <img src="images/wassim.jpg"/>
-        </div>
-      </div>*/
+  render () {
+    return (
       <div>
-        <button>Bring the action!</button>
+        <div className='login'>
+          <i className='material-icons'>sentiment_neutral</i>
+          <br />
+          <span id='instructions'>I don't see you.</span>
+        </div>
+        <div className='training widget'>
+          <h3>Train user model</h3>
+          <select id='user' />
+          <button id='train'>Train</button>
+        </div>
+        <a href='#' id='add-user' className='tray'>
+          <i className='material-icons'>group_add</i> Add user
+        </a>
+        <div className='loader'>
+          <img src='../media/images/wassim.jpg' />
+        </div>
       </div>
     )
   }
-})
+}
+
+Login.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+function mapStateToProps (state) {
+  return {
+    socket: state.socket
+  }
+}
+
+export default connect(mapStateToProps, {})(Login)

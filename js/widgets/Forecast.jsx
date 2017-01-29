@@ -39,8 +39,8 @@ class Forecast extends Component {
 Forecast.propTypes = {
   draggable: React.PropTypes.any,
   createWidget: React.PropTypes.func,
-  dateAndTime: React.PropTypes.obj,
-  weather: React.PropTypes.obj,
+  dateAndTime: React.PropTypes.any,
+  weather: React.PropTypes.any,
   formattedAddress: React.PropTypes.string
 }
 

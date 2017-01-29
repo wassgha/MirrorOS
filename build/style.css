@@ -425,11 +425,13 @@
 .tray i.material-icons {
 	vertical-align: middle;
 }
+
 * {
 	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
 body {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background-color: black;
   cursor: none;
   opacity: 1.0;

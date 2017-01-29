@@ -1,10 +1,11 @@
-/* global $ */
+/* global $, io */
+
 import axios from 'axios'
 import {applyWidgetFeatures} from '../helpers/Widget'
 import {nowToString} from '../helpers/DateTime'
 
 import {
-        ADD_TO_QUEUE, CREATE_WIDGET,
+        ADD_TO_QUEUE, CREATE_WIDGET, GENERATE_SOCKET,
         GOOGLE_GEOCODING_ADDRESS, GOOGLE_API_KEY,
         UPDATE_DATE_AND_TIME, LOAD_WEATHER,
         OPEN_WEATHER_MAP_ADDRESS, OPEN_WEATHER_MAP_KEY,
@@ -98,5 +99,14 @@ export function generateLocation () {
         dispatch(updateWeather())
       }, (error) => { console.log(error) })
     }, (error) => console.log(error))
+  }
+}
+
+export function generateSocket () {
+  const socket = io.connect('http://localhost:3000')
+
+  return {
+    type: GENERATE_SOCKET,
+    payload: socket
   }
 }
