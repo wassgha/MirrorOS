@@ -1,9 +1,9 @@
 .message.widget {
-	background: white;
-	width: 303px;
-	height: 270px;
-	top: 50%;
-	left: 50%;
+  background: white;
+  width: 303px;
+  height: 270px;
+  top: 50%;
+  left: 50%;
 }
 
 .message.widget .head img {
@@ -66,4 +66,43 @@
 
 .message.widget .head {
   margin-bottom: 15px;
+}
+
+.message.widget.dark {
+  background: black;
+  border: 1px solid #717171;
+  top: 60%;
+  left: 20%;
+}
+
+.message.widget.dark .content {
+  color: #ffffff;
+}
+
+.message.widget.dark .actions {
+  margin: 0px;
+  padding: 0px;
+  background: black;
+  border-top: 1px solid #717171;
+}
+
+.message.widget.dark .action {
+  border: 0px;
+  color: #909090;
+  border-bottom-left-radius: 2px;
+}
+
+.message.widget.dark .action.highlight {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 2px;
+  background: #717171;
+  color: rgb(255, 255, 255);
+}
+
+.message.widget.dark .head .title {
+  color: #ffffff;
+}
+
+.message.widget.dark .head .time {
+  color: rgb(255, 255, 255);
 }

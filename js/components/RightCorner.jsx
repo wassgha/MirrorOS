@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 
 import {createWidget} from '../actions/index'
 
-class Forecast extends Component {
+class RightCorner extends Component {
 
   render () {
     const now = this.props.dateAndTime.now
-    const timeStr = now.day + ' ' + now.hours + ':' + now.minutes + ' ' + now.ampm
-    const dateStr = now.date + ' ' + now.month + ' ' + now.year
+    const timeStr = now.hours + ':' + now.minutes + ' ' + now.ampm
+    const dateStr = now.day + ', ' + now.month + ' ' + now.date
 
-    const weather = this.props.weather
-    const celsius = (weather.main.temp - 273.15).toFixed(0)
+    const weatherObj = this.props.weather
+    const celsius = (weatherObj.main.temp - 273.15).toFixed(0)
+    const condition = weatherObj.weather.description
+    const icon = weatherObj.weather.icon
 
     return (
       <span className='corner right'>
@@ -19,13 +21,13 @@ class Forecast extends Component {
         <br />
         <span id='time'>{timeStr}</span>
         <br />
-        <span id='weather'>{celsius}° C / {this.props.formattedAddress}</span>
+        <span id='weather'>{condition} Icon : {icon}</span>
       </span>
     )
   }
 }
 
-Forecast.propTypes = {
+RightCorner.propTypes = {
   draggable: React.PropTypes.any,
   createWidget: React.PropTypes.func,
   dateAndTime: React.PropTypes.any,
@@ -43,4 +45,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, {createWidget})(Forecast)
+export default connect(mapStateToProps, {createWidget})(RightCorner)

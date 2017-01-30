@@ -26,16 +26,16 @@
   background: black;
 }
 
-.corner.right .date {
+.corner.right #date {
   font-size: 48px;
 }
 
-.corner.right .time {
+.corner.right #time {
   font-size: 42px;
   font-weight: 300;
 }
 
-.corner.left .text {
+.corner.left #text {
   float:left;
   display: block;
   line-height: 1.1em;

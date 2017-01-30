@@ -3,7 +3,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Forecast from '../components/Forecast'
+import LeftCorner from '../components/LeftCorner'
+import RightCorner from '../components/RightCorner'
 import Message from '../../widgets/Message'
 import VideoPlayer from '../../widgets/VideoPlayer'
 import AudioPlayer from '../../widgets/AudioPlayer'
@@ -15,7 +16,7 @@ class Home extends Component {
     setInterval(() => {
       idleTime++
       if (idleTime > 5) {
-        // $('body').hide()
+        $('body').hide()
       }
     }, 3000)
 
@@ -49,11 +50,12 @@ class Home extends Component {
 
     return (
       <div>
-        <Forecast />
+        <LeftCorner />
+        <RightCorner />
         <VideoPlayer src='../media/video/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
-        <AudioPlayer src='../media/audio/Find_Me.mp3'
-          config={audioPlayerConfig} draggable />
+        {/* <AudioPlayer src='../media/audio/Find_Me.mp3'
+          config={audioPlayerConfig} draggable /> */}
         <Message draggable />
       </div>
     )
