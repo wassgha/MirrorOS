@@ -2,19 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import {createWidget} from '../actions/index'
-import {generateElementId} from '../helpers/Widget'
 
 class Forecast extends Component {
-
-  constructor (props) {
-    super(props)
-
-    this.elementId = generateElementId()
-  }
-
-  componentDidMount () {
-    this.props.createWidget(this.props, this.elementId, {})
-  }
 
   render () {
     const now = this.props.dateAndTime.now
@@ -25,7 +14,7 @@ class Forecast extends Component {
     const celsius = (weather.main.temp - 273.15).toFixed(0)
 
     return (
-      <span className='corner right' id={this.elementId}>
+      <span className='corner right'>
         <span id='date'>{dateStr}</span>
         <br />
         <span id='time'>{timeStr}</span>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {createWidget, addToQueue} from '../actions/index'
-import {generateElementId} from '../helpers/Widget'
+import {createWidget, addToQueue} from '../../js/actions/index'
+import {generateElementId} from '../../js/helpers/Widget'
 
 class VideoPlayer extends Component {
 
