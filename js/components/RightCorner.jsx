@@ -9,7 +9,7 @@ class RightCorner extends Component {
 
   render () {
     const now = this.props.dateAndTime.now
-    const timeStr = now.hours + ':' + now.minutes + ' ' + now.ampm
+    const timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm
     const dateStr = now.day + ', ' + now.month + ' ' + now.date
 
     const weatherObj = this.props.weather

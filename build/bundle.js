@@ -42356,7 +42356,7 @@
 	  return {
 	    hours: str[0],
 	    minutes: str[1],
-	    seconds: str[2],
+	    seconds: now.getSeconds(),
 	    ampm: str[3]
 	  };
 	}
@@ -42608,7 +42608,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var now = this.props.dateAndTime.now;
-	      var timeStr = now.hours + ':' + now.minutes + ' ' + now.ampm;
+	      var timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm;
 	      var dateStr = now.day + ', ' + now.month + ' ' + now.date;
 
 	      var weatherObj = this.props.weather;

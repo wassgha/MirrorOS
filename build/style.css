@@ -55,7 +55,8 @@
 }
 
 .corner.right #weather i {
-  font-size: 48px;
+  font-size: 34px;
+  margin-right: 10px;
   vertical-align: middle;
   font-family: weathericons;
 }

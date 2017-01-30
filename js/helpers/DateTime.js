@@ -26,7 +26,7 @@ export function timeString (now, ampm) {
   return {
     hours: str[0],
     minutes: str[1],
-    seconds: str[2],
+    seconds: now.getSeconds(),
     ampm: str[3]
   }
 }
