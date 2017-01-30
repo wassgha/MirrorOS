@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import {createWidget} from '../actions/index'
-
-var weatherIcons = require('../constants/weather-icons')
+import weatherIcons from '../constants/weather-icons'
 
 class RightCorner extends Component {
 
   render () {
+    console.log(weatherIcons)
     const now = this.props.dateAndTime.now
     const timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm
     const dateStr = now.day + ', ' + now.month + ' ' + now.date
@@ -15,17 +15,18 @@ class RightCorner extends Component {
     const weatherObj = this.props.weather
     const celsius = (weatherObj.main.temp - 273.15).toFixed(0)
     const condition = weatherObj.weather[0].description
-    const prefix = 'wi wi-';
+    const prefix = 'wi wi-'
     const code = weatherObj.weather[0].id
-    var icon = weatherIcons[code].icon;
+    console.log(code, weatherObj)
+    let icon = code !== undefined ? weatherIcons[code].icon : ''
 
     // If we are not in the ranges mentioned above, add a day/night prefix.
     if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-      icon = 'day-' + icon;
+      icon = 'day-' + icon
     }
 
     // Finally tack on the prefix.
-    icon = prefix + icon;
+    icon = prefix + icon
 
     return (
       <span className='corner right'>
@@ -33,7 +34,9 @@ class RightCorner extends Component {
         <br />
         <span id='time'>{timeStr}</span>
         <br />
-        <span id='weather'><i className={icon}></i> {condition}</span>
+        <span id='weather'>
+          <i className={icon} />{condition}
+        </span>
       </span>
     )
   }

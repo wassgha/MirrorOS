@@ -42,20 +42,12 @@ class Home extends Component {
       muted: true
     }
 
-    const audioPlayerConfig = {
-      controls: true,
-      loop: true,
-      muted: true
-    }
-
     return (
       <div>
         <LeftCorner />
         <RightCorner />
         <VideoPlayer src='../media/video/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
-        {/* <AudioPlayer src='../media/audio/Find_Me.mp3'
-          config={audioPlayerConfig} draggable /> */}
         <Message draggable />
       </div>
     )
