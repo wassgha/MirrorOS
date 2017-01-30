@@ -2,7 +2,8 @@ import {LOAD_WEATHER} from '../constants/index'
 const INITIAL_STATE = {
   currentWeather: {
     sys: {},
-    main: {}
+    main: {},
+    weather: [{}]
   }
 }
 

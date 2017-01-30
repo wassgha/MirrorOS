@@ -12,7 +12,7 @@ class RightCorner extends Component {
 
     const weatherObj = this.props.weather
     const celsius = (weatherObj.main.temp - 273.15).toFixed(0)
-    const condition = weatherObj.weather.description
+    const condition = weatherObj.weather[0].description
     const icon = weatherObj.weather.icon
 
     return (
