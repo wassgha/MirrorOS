@@ -35,6 +35,19 @@
   font-weight: 300;
 }
 
+.corner.right #weather {
+  text-transform: capitalize;
+  font-size: 34px;
+}
+
+.corner.right #weather i {
+  font-size: 34px;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-family: weathericons;
+}
+
+
 .corner.left #text {
   float:left;
   display: block;
