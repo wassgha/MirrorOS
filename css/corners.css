@@ -90,3 +90,18 @@
 .corner.left .profile_pic .indicator.gray {
   background: #bdc3c7;
 }
+
+.app-launcher-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -25px;
+    background: transparent;
+    border: none;
+    color: white;
+    z-index: 0px;
+}
+
+.app-launcher-button i {
+    font-size:50px;
+}

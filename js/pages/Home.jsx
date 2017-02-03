@@ -1,10 +1,11 @@
 /* global $ */
 
-import React, { Component } from 'react'
+import React, { Component, Button } from 'react'
 import { connect } from 'react-redux'
 
 import LeftCorner from '../components/LeftCorner'
 import RightCorner from '../components/RightCorner'
+// import AppLauncher from '../components/AppLauncher'
 import Message from '../../widgets/Message'
 import VideoPlayer from '../../widgets/VideoPlayer'
 import AudioPlayer from '../../widgets/AudioPlayer'
@@ -46,6 +47,9 @@ class Home extends Component {
       <div>
         <LeftCorner />
         <RightCorner />
+        <button className='app-launcher-button'>
+          <i className='material-icons'>apps</i>
+        </button>
         <VideoPlayer src='../media/video/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
         <Message draggable />

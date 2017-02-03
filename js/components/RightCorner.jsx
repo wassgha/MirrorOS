@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {createWidget} from '../actions/index'
 import weatherIcons from '../constants/weather-icons'
 
 class RightCorner extends Component {
@@ -43,8 +42,6 @@ class RightCorner extends Component {
 }
 
 RightCorner.propTypes = {
-  draggable: React.PropTypes.any,
-  createWidget: React.PropTypes.func,
   dateAndTime: React.PropTypes.any,
   weather: React.PropTypes.any,
   formattedAddress: React.PropTypes.string
@@ -60,4 +57,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, {createWidget})(RightCorner)
+export default connect(mapStateToProps)(RightCorner)
