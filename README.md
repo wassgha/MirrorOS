@@ -1,6 +1,6 @@
 # MirrorOS
 
-[![Youtube demo](https://i.ytimg.com/vi/1FI0-PuNp8E/hqdefault.jpg "Youtube Demo of the Mirror Prototype")](https://www.youtube.com/watch?v=1FI0-PuNp8E)
+![App Launcher](http://i.imgur.com/tPPSvuS.jpg "Mirror OS App Tray")
 
 MirrorOS is a lightweight user interface designed specifically for Magic Mirrors and transparent glass touch screens. The UI is built on NodeJS, React and Electron.
 
@@ -26,6 +26,6 @@ To implement
   - Smart home widget (Nest & co integration)
   - OTA updates
 
+## Video Demo
 
-![App Launcher](http://i.imgur.com/tPPSvuS.jpg "Mirror OS App Tray")
-
+[![Youtube demo](https://i.ytimg.com/vi/1FI0-PuNp8E/hqdefault.jpg "Youtube Demo of the Mirror Prototype")](https://www.youtube.com/watch?v=1FI0-PuNp8E)
