@@ -9,7 +9,7 @@ import {
         GOOGLE_GEOCODING_ADDRESS, GOOGLE_API_KEY,
         UPDATE_DATE_AND_TIME, LOAD_WEATHER,
         OPEN_WEATHER_MAP_ADDRESS, OPEN_WEATHER_MAP_KEY,
-        LOAD_POSITION, LOAD_FORMATTED_ADDRESS
+        LOAD_POSITION, LOAD_FORMATTED_ADDRESS, GENERATE_USER_INFO
       } from '../constants/index'
 
 export function addToQueue (widget) {
@@ -108,5 +108,12 @@ export function generateSocket () {
   return {
     type: GENERATE_SOCKET,
     payload: socket
+  }
+}
+
+export function generateUserInfo (user) {
+  return {
+    type: GENERATE_SOCKET,
+    payload: user
   }
 }

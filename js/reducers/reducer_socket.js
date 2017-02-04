@@ -1,4 +1,4 @@
-import { GENERATE_SOCKET } from '../constants/index'
+import { GENERATE_SOCKET } from '../constants'
 const INITIAL_STATE = null
 
 export default function (state = INITIAL_STATE, action) {

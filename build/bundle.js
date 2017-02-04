@@ -29081,6 +29081,10 @@
 
 	var _reducer_socket2 = _interopRequireDefault(_reducer_socket);
 
+	var _reducer_user = __webpack_require__(437);
+
+	var _reducer_user2 = _interopRequireDefault(_reducer_user);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
@@ -29088,7 +29092,8 @@
 	  dateAndTime: _reducer_date_time2.default,
 	  weather: _reducer_weather2.default,
 	  location: _reducer_location2.default,
-	  socket: _reducer_socket2.default
+	  socket: _reducer_socket2.default,
+	  user: _reducer_user2.default
 	});
 
 	exports.default = rootReducer;
@@ -40780,6 +40785,7 @@
 	var GOOGLE_API_KEY = exports.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8';
 
 	var GENERATE_SOCKET = exports.GENERATE_SOCKET = 'GENERATE_SOCKET';
+	var GENERATE_USER_INFO = exports.GENERATE_USER_INFO = 'GENERATE_USER_INFO';
 
 /***/ },
 /* 383 */
@@ -40888,14 +40894,14 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _index.GENERATE_SOCKET:
+	    case _constants.GENERATE_SOCKET:
 	      return action.payload;
 	    default:
 	      return state;
 	  }
 	};
 
-	var _index = __webpack_require__(382);
+	var _constants = __webpack_require__(382);
 
 	var INITIAL_STATE = null;
 
@@ -40986,7 +40992,7 @@
 
 	      setInterval(function () {
 	        _this2.props.updateWeather();
-	      }, 1800000);
+	      }, 3600);
 
 	      this.props.generateLocation();
 	      this.props.generateSocket();
@@ -41000,7 +41006,7 @@
 	        this.props.children,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'notification' },
+	          { className: 'notification', id: 'notification' },
 	          _react2.default.createElement(
 	            'span',
 	            { id: 'text' },
@@ -41042,6 +41048,7 @@
 	exports.updateWeather = updateWeather;
 	exports.generateLocation = generateLocation;
 	exports.generateSocket = generateSocket;
+	exports.generateUserInfo = generateUserInfo;
 
 	var _axios = __webpack_require__(390);
 
@@ -41162,6 +41169,13 @@
 	  return {
 	    type: _index.GENERATE_SOCKET,
 	    payload: socket
+	  };
+	}
+
+	function generateUserInfo(user) {
+	  return {
+	    type: _index.GENERATE_SOCKET,
+	    payload: user
 	  };
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
@@ -42984,7 +42998,6 @@
 	  _createClass(RightCorner, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log(_weatherIcons2.default);
 	      var now = this.props.dateAndTime.now;
 	      var timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm;
 	      var dateStr = now.day + ', ' + now.month + ' ' + now.date;
@@ -42994,7 +43007,6 @@
 	      var condition = weatherObj.weather[0].description;
 	      var prefix = 'wi wi-';
 	      var code = weatherObj.weather[0].id;
-	      console.log(code, weatherObj);
 	      var icon = code !== undefined ? _weatherIcons2.default[code].icon : '';
 
 	      // If we are not in the ranges mentioned above, add a day/night prefix.
@@ -43643,6 +43655,8 @@
 
 	var _reactRedux = __webpack_require__(240);
 
+	var _actions = __webpack_require__(389);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43654,10 +43668,20 @@
 	var Login = function (_Component) {
 	  _inherits(Login, _Component);
 
-	  function Login() {
+	  function Login(props) {
 	    _classCallCheck(this, Login);
 
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+	    _this.login = _this.login.bind(_this);
+	    _this.htmlTemplates = {
+	      detected: '<i class="material-icons">sentiment_neutral</i><br>I don\'t see you',
+	      identity: '<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you',
+	      worked: function worked(name) {
+	        return '<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + name + '.</b> Smile to login!';
+	      }
+	    };
+	    return _this;
 	  }
 
 	  _createClass(Login, [{
@@ -43667,11 +43691,12 @@
 
 	      this.props.socket.on('message', function (message) {
 	        if (message.detected === false) {
-	          $('.login').html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
+	          $('#login').html(_this2.detected);
 	        } else if (message.identity === 0) {
-	          $('.login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+	          $('#login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
 	        } else {
-	          $('.login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
+	          // this.props.generateUserInfo(message.user)
+	          $('#login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
 	          if (message.smiling) {
 	            _this2.login();
 	          }
@@ -43679,6 +43704,7 @@
 	      });
 
 	      $('#add-user').click(function () {
+	        _this2.props.generateUserInfo({ name: 'Zura' });
 	        _this2.login();
 	      });
 	    }
@@ -43687,16 +43713,15 @@
 	    value: function login() {
 	      var _this3 = this;
 
-	      console.log('login');
-	      $('.login').fadeOut(500);
-	      $('.loader').fadeIn(1000, function () {
+	      $('#login').fadeOut(500);
+	      $('#loader').fadeIn(1000, function () {
 	        setTimeout(function () {
-	          $('.notification').fadeIn(1000);
+	          $('#notification').fadeIn(1000);
 	          setTimeout(function () {
-	            $('.loader').fadeOut();
+	            $('#loader').fadeOut();
 	            setTimeout(function () {
 	              _this3.context.router.push('/home');
-	              $('.notification').fadeOut(1000);
+	              $('#notification').fadeOut(1000);
 	            }, 500);
 	          }, 1000);
 	        }, 500);
@@ -43710,7 +43735,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'login' },
+	          { className: 'login', id: 'login' },
 	          _react2.default.createElement(
 	            'i',
 	            { className: 'material-icons' },
@@ -43750,7 +43775,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'loader' },
+	          { className: 'loader', id: 'loader' },
 	          _react2.default.createElement('img', { src: '../media/images/wassim.jpg' })
 	        )
 	      );
@@ -43770,7 +43795,7 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, {})(Login);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { generateUserInfo: _actions.generateUserInfo })(Login);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
 
 /***/ },
@@ -46295,6 +46320,32 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 437 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _constants.GENERATE_USER_INFO:
+	      return action.payload;
+	    default:
+	      return state;
+	  }
+	};
+
+	var _constants = __webpack_require__(382);
+
+	var INITIAL_STATE = {};
 
 /***/ }
 /******/ ]);
