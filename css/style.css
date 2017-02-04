@@ -1,3 +1,7 @@
+* {
+  outline: none;
+}
+
 html {
   cursor: none;
 }
@@ -15,7 +19,7 @@ body {
 
 
 @import 'alarm.css';
-@import 'corners.css';
+@import 'home.css';
 @import 'dummy.css';
 @import 'login.css';
 @import 'message.css';

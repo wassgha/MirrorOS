@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import LeftCorner from '../components/LeftCorner'
 import RightCorner from '../components/RightCorner'
-// import AppLauncher from '../components/AppLauncher'
+import AppLauncher from '../components/AppLauncher'
 import Message from '../../widgets/Message'
 import VideoPlayer from '../../widgets/VideoPlayer'
 import AudioPlayer from '../../widgets/AudioPlayer'
@@ -17,7 +17,7 @@ class Home extends Component {
     setInterval(() => {
       idleTime++
       if (idleTime > 5) {
-        $('body').hide()
+        //$('body').hide()
       }
     }, 3000)
 
@@ -36,9 +36,13 @@ class Home extends Component {
     })
   }
 
+  displayAppLauncher() {
+    $('.app-launcher').fadeIn();
+  }
+
   render () {
     const videoPlayerConfig = {
-      controls: true,
+      controls: false,
       loop: true,
       muted: true
     }
@@ -48,8 +52,9 @@ class Home extends Component {
         <LeftCorner />
         <RightCorner />
         <button className='app-launcher-button'>
-          <i className='material-icons'>apps</i>
+          <i className='material-icons' onClick={this.displayAppLauncher}>apps</i>
         </button>
+        <AppLauncher />
         <VideoPlayer src='../media/video/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
         <Message draggable />

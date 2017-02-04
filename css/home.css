@@ -11,6 +11,10 @@
   position: absolute;
 }
 
+/*
+ Corner Right
+*/
+
 .corner.right {
   right: 0px;
   text-align: right;
@@ -47,6 +51,9 @@
   font-family: weathericons;
 }
 
+/*
+ Corner Left
+*/
 
 .corner.left #text {
   float:left;
@@ -91,17 +98,87 @@
   background: #bdc3c7;
 }
 
+/*
+ App Launcher
+*/
+
+
 .app-launcher-button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    margin-left: -25px;
-    background: transparent;
-    border: none;
-    color: white;
-    z-index: 0px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -25px;
+  background: transparent;
+  border: none;
+  color: white;
+  z-index: 0px;
 }
 
 .app-launcher-button i {
     font-size:50px;
+}
+
+.app-launcher-back-button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.app-launcher-back-button i {
+    font-size:50px;
+}
+
+.app-launcher {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  top: 0px;
+  left: 0px;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  color: white;
+  display: none;
+}
+
+.app-launcher-section {
+  max-width: 90%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.app-launcher-section-icons {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.app-launcher-app {
+  display: inline-block;
+  height: 150px;
+  min-width: 250px;
+  max-width: 250px;
+  background: red;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  flex: 1;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.app-launcher-app img {
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.app-launcher-app i {
+  font-size: 85px;
+  line-height: 150px;
+}
+
+.app-launcher-section-title {
+  font-size: 24px;
+  margin-bottom: 25px;
+  display: block;
 }
