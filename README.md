@@ -10,7 +10,7 @@ Current features
   - Home UI almost done, with clock, date and weather
   - Draggable placeholder widgets
   - Almost ready app launcher
-  - Leap Motion Support to substitute touch screens (using ![Leap Motion Touch Screen](https://github.com/wassgha/LeapMotionTouchScreen))
+  - Leap Motion Support to substitute touch screens (using [Leap Motion Touch Screen](https://github.com/wassgha/LeapMotionTouchScreen))
 
 To implement
   - Support for apps, widgets and extentions
