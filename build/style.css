@@ -12,6 +12,40 @@
 #am-pm{
 	cursor: pointer;
 }
+.border {
+  background: white;
+  position: absolute;
+  z-index: 2;
+}
+
+.border.bottom {
+  width: 0%;
+  height: 5px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.border.top {
+  width: 0%;
+  height: 5px;
+  right: 0px;
+  top: 0px;
+}
+
+.border.left {
+  width: 5px;
+  height: 0%;
+  left: 0px;
+  top: 0px;
+}
+
+.border.right {
+  width: 5px;
+  height: 0%;
+  right: 0px;
+  bottom: 0px;
+}
+
 .corner {
   color: white;
   font-family: "Roboto Condensed", sans-serif !important;
@@ -20,7 +54,7 @@
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
-  padding: 21px;
+  padding: 35px;
   top: 0px;
   position: absolute;
 }
@@ -30,11 +64,13 @@
 */
 
 .corner.right {
+  display: none;
   right: 0px;
   text-align: right;
 }
 
 .corner.left {
+  display: none;
   left: 0px;
   text-align: left;
   font-size: 1.5em;
@@ -118,8 +154,9 @@
 
 
 .app-launcher-button {
+  display: none;
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   margin-left: -25px;
   background: transparent;
@@ -2312,7 +2349,7 @@
 }
 .widget {
 	border-radius: 3px;
-	display: block;
+  display: none;
 	position: absolute;
 	cursor: move;
 	z-index: 0;

@@ -42429,6 +42429,19 @@
 	  _createClass(Home, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      $('.border.top').animate({ "width": "100%" }, 200, function () {
+	        $('.border.left').animate({ "height": "100%" }, 200, function () {
+	          $('.border.bottom').animate({ "width": "100%" }, 200, function () {
+	            $('.border.right').animate({ "height": "100%" }, 200, function () {
+	              $('.corner.left').slideDown(1200);
+	              $('.corner.right').slideDown(1200);
+	              $('.app-launcher-button').slideDown(1200);
+	              $('.widget').fadeIn(1200);
+	              $('.notification').fadeOut(1000);
+	            });
+	          });
+	        });
+	      });
 	      var idleTime = 0;
 	      setInterval(function () {
 	        idleTime++;
@@ -42468,6 +42481,10 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement('div', { className: 'border top' }),
+	        _react2.default.createElement('div', { className: 'border left' }),
+	        _react2.default.createElement('div', { className: 'border bottom' }),
+	        _react2.default.createElement('div', { className: 'border right' }),
 	        _react2.default.createElement(_LeftCorner2.default, null),
 	        _react2.default.createElement(_RightCorner2.default, null),
 	        _react2.default.createElement(
@@ -43444,7 +43461,6 @@
 	            $('.loader').fadeOut();
 	            setTimeout(function () {
 	              _this3.context.router.push('/home');
-	              $('.notification').fadeOut(1000);
 	            }, 500);
 	          }, 1000);
 	        }, 500);

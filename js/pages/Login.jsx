@@ -34,7 +34,6 @@ class Login extends Component {
           $('.loader').fadeOut()
           setTimeout(() => {
             this.context.router.push('/home')
-            $('.notification').fadeOut(1000)
           }, 500)
         }, 1000)
       }, 500)
