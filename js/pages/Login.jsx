@@ -29,11 +29,13 @@ class Login extends Component {
     $('.login').fadeOut(500)
     $('.loader').fadeIn(1000, () => {
       setTimeout(() => {
-        $('.notification').fadeIn(1000)
+        $('.notification').slideDown(500)
         setTimeout(() => {
           $('.loader').fadeOut()
           setTimeout(() => {
-            this.context.router.push('/home')
+            $('.notification').slideUp(500, () => {
+              this.context.router.push('/home')
+            })
           }, 500)
         }, 1000)
       }, 500)

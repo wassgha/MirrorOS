@@ -42435,9 +42435,9 @@
 	            $('.border.right').animate({ "height": "100%" }, 200, function () {
 	              $('.corner.left').slideDown(1200);
 	              $('.corner.right').slideDown(1200);
-	              $('.app-launcher-button').slideDown(1200);
-	              $('.widget').fadeIn(1200);
-	              $('.notification').fadeOut(1000);
+	              $('.app-launcher-button').slideDown(1200, function () {
+	                $('.widget').fadeIn(1200);
+	              });
 	            });
 	          });
 	        });
@@ -43456,11 +43456,13 @@
 	      $('.login').fadeOut(500);
 	      $('.loader').fadeIn(1000, function () {
 	        setTimeout(function () {
-	          $('.notification').fadeIn(1000);
+	          $('.notification').slideDown(500);
 	          setTimeout(function () {
 	            $('.loader').fadeOut();
 	            setTimeout(function () {
-	              _this3.context.router.push('/home');
+	              $('.notification').slideUp(500, function () {
+	                _this3.context.router.push('/home');
+	              });
 	            }, 500);
 	          }, 1000);
 	        }, 500);

@@ -13,19 +13,19 @@ import AudioPlayer from '../../widgets/AudioPlayer'
 class Home extends Component {
 
   componentDidMount () {
-    $('.border.top').animate({"width":"100%"}, 200, function () {
-      $('.border.left').animate({"height":"100%"}, 200, function () {
-        $('.border.bottom').animate({"width":"100%"}, 200, function () {
-          $('.border.right').animate({"height":"100%"}, 200, function () {
-            $('.corner.left').slideDown(1200);
-            $('.corner.right').slideDown(1200);
-            $('.app-launcher-button').slideDown(1200);
-            $('.widget').fadeIn(1200);
-            $('.notification').fadeOut(1000)
-          });
-        });
-      });
-    });
+    $('.border.top').animate({"width":"100%"}, 200, () => {
+      $('.border.left').animate({"height":"100%"}, 200, () => {
+        $('.border.bottom').animate({"width":"100%"}, 200, () => {
+          $('.border.right').animate({"height":"100%"}, 200, () => {
+            $('.corner.left').slideDown(1200)
+            $('.corner.right').slideDown(1200)
+            $('.app-launcher-button').slideDown(1200, () => {
+              $('.widget').fadeIn(1200)
+            })
+          })
+        })
+      })
+    })
     let idleTime = 0
     setInterval(() => {
       idleTime++
