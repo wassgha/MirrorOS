@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class AppLauncherApp extends Component {
+  openWidget() {
+    $('.app-launcher').fadeOut();
+  }
 
   render () {
     return (
-      <div className='app-launcher-app' style={{backgroundColor: this.props.bgColor, color: this.props.color}}>
+      <div onClick={this.openWidget} className='app-launcher-app' style={{backgroundColor: this.props.bgColor, color: this.props.color}}>
       {this.props.logo ?
         <img src={this.props.logo} />
         :

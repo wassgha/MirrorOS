@@ -1,7 +1,7 @@
 .border {
   background: white;
   position: absolute;
-  z-index: 2;
+  z-index: 1001;
 }
 
 .border.bottom {
