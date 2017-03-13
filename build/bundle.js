@@ -43034,11 +43034,16 @@
 	  }
 
 	  _createClass(AppLauncherApp, [{
+	    key: 'openWidget',
+	    value: function openWidget() {
+	      $('.app-launcher').fadeOut();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'app-launcher-app', style: { backgroundColor: this.props.bgColor, color: this.props.color } },
+	        { onClick: this.openWidget, className: 'app-launcher-app', style: { backgroundColor: this.props.bgColor, color: this.props.color } },
 	        this.props.logo ? _react2.default.createElement('img', { src: this.props.logo }) : _react2.default.createElement(
 	          'i',
 	          { className: 'material-icons' },
