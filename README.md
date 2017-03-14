@@ -4,6 +4,12 @@
 
 MirrorOS is a lightweight user interface designed specifically for Magic Mirrors and transparent glass touch screens. The UI is built on NodeJS, React and Electron.
 
+## Installation
+
+Please be aware that MirrorOS is currently at the "proof of concept" stage. Almost all features are broken/in an early stage. If you still wan to try the software, please follow this tutorial [How to Install on a Raspberry Pi](https://github.com/wassgha/MirrorOS/wiki/%5BHow-To%5D-Install-MirrorOS-on-a-Raspberry-Pi)
+
+## Features
+
 Current features
   - Face Recognition and Smile detection for logging-in to the Mirror
   - Constant monitoring of user presence through face detection
