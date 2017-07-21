@@ -34,4 +34,4 @@ To implement
 
 ## Video Demo
 
-[![Youtube demo](http://images.ibb.co/emsW0Q/ezgif_com_video_to_gif_11.gif)](https://www.youtube.com/watch?v=1FI0-PuNp8E)
+[![Youtube demo](http://image.ibb.co/iGwDEk/ezgif_com_video_to_gif_11.gif)](https://www.youtube.com/watch?v=1FI0-PuNp8E)
