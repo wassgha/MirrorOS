@@ -34,4 +34,4 @@ To implement
 
 ## Video Demo
 
-[![Youtube demo](https://i.ytimg.com/vi/1FI0-PuNp8E/hqdefault.jpg "Youtube Demo of the Mirror Prototype")](https://www.youtube.com/watch?v=1FI0-PuNp8E)
+[![Youtube demo](https://media.giphy.com/media/l3JDvPl6616MGZIYg/giphy.gif "Youtube Demo of the Mirror Prototype")](https://www.youtube.com/watch?v=1FI0-PuNp8E)
