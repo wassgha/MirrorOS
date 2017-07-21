@@ -33,5 +33,5 @@ To implement
   - OTA updates
 
 ## Video Demo
-
-[![Youtube demo](https://image.ibb.co/iGwDEk/ezgif_com_video_to_gif_11.gif)](https://www.youtube.com/watch?v=1FI0-PuNp8E)
+[![ezgif](https://user-images.githubusercontent.com/591655/28448184-b7124a1a-6d8a-11e7-93f0-cf18a663dd2c.gif)
+](https://www.youtube.com/watch?v=1FI0-PuNp8E)
