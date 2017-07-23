@@ -21,6 +21,7 @@
   "devDependencies": {
     "babel-cli": "6.18.0",
     "babel-core": "6.21.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "6.2.10",
     "babel-preset-es2015": "6.18.0",
     "babel-preset-react": "6.16.0",
@@ -45,6 +46,7 @@
     "redux-devtools-extension": "1.0.0",
     "remote-redux-devtools": "0.5.7",
     "standard": "8.6.0",
+    "standard-react": "^4.0.0",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
@@ -54,8 +56,8 @@
     "babel": "babel --presets es2015 ./main.js -o build/main.bundle.js",
     "electron": "electron .",
     "build": "webpack",
-    "start": "npm run build && npm run electron",
     "watch": "webpack --watch",
+    "start": "npm run build && npm run electron",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run watch\""
   }
 }
