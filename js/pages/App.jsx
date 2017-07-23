@@ -14,7 +14,7 @@ class App extends Component {
 
     setInterval(() => {
       this.props.updateWeather()
-    }, 1800000)
+    }, 3600)
 
     this.props.generateLocation()
     this.props.generateSocket()
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className='app-container'>
         {this.props.children}
-        <div className='notification'>
+        <div className='notification' id='notification'>
           <span id='text'>Good Morning, Wassim.</span>
         </div>
       </div>

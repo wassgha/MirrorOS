@@ -18,3 +18,4 @@ export const GOOGLE_GEOCODING_ADDRESS = 'https://maps.googleapis.com/maps/api/ge
 export const GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8'
 
 export const GENERATE_SOCKET = 'GENERATE_SOCKET'
+export const GENERATE_USER_INFO = 'GENERATE_USER_INFO'

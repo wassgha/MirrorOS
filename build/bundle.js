@@ -688,7 +688,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -817,7 +817,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 	'use strict';
 
@@ -1267,7 +1267,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -1376,7 +1376,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	function makeEmptyFunction(arg) {
@@ -1417,7 +1417,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -1448,7 +1448,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -1653,7 +1653,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -1698,7 +1698,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2778,7 +2778,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -3215,7 +3215,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -3646,7 +3646,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -4485,7 +4485,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 	'use strict';
 
@@ -5744,7 +5744,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -6235,7 +6235,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -6317,7 +6317,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -6380,7 +6380,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -6554,7 +6554,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -7655,7 +7655,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -7779,7 +7779,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -7978,7 +7978,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8071,7 +8071,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8170,7 +8170,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8199,7 +8199,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8565,7 +8565,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8607,7 +8607,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -8710,7 +8710,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -9043,7 +9043,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -12477,7 +12477,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 * @typechecks static-only
 	 */
 
@@ -13670,7 +13670,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -14638,7 +14638,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -15930,7 +15930,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16067,7 +16067,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16098,7 +16098,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	/*eslint-disable no-self-compare */
@@ -16330,7 +16330,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16355,7 +16355,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16599,7 +16599,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16623,7 +16623,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16668,7 +16668,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16844,7 +16844,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18988,7 +18988,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	var isTextNode = __webpack_require__(151);
@@ -19626,7 +19626,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -21080,7 +21080,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -27114,7 +27114,7 @@
 	  selectorFactory, which has the signature:
 
 	    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-	  
+
 	  connect passes its args to connectAdvanced as options, which will in turn pass them to
 	  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -28327,7 +28327,7 @@
 	// dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 	// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 	// whether mapToProps needs to be invoked when props have changed.
-	// 
+	//
 	// A length of one signals that mapToProps does not depend on props from the parent component.
 	// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 	// therefore not reporting its length accurately..
@@ -28337,16 +28337,16 @@
 
 	// Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 	// this function wraps mapToProps in a proxy function which does several things:
-	// 
+	//
 	//  * Detects whether the mapToProps function being called depends on props, which
 	//    is used by selectorFactory to decide if it should reinvoke on props changes.
-	//    
+	//
 	//  * On first call, handles mapToProps if returns another function, and treats that
 	//    new function as the true mapToProps for subsequent calls.
-	//    
+	//
 	//  * On first call, verifies the first result is a plain object, in order to warn
 	//    the developer that their mapToProps function is not returning a valid result.
-	//    
+	//
 	function wrapMapToPropsFunc(mapToProps, methodName) {
 	  return function initProxySelector(dispatch, _ref) {
 	    var displayName = _ref.displayName;
@@ -28700,6 +28700,10 @@
 
 	var _reducer_socket2 = _interopRequireDefault(_reducer_socket);
 
+	var _reducer_user = __webpack_require__(437);
+
+	var _reducer_user2 = _interopRequireDefault(_reducer_user);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
@@ -28707,7 +28711,8 @@
 	  dateAndTime: _reducer_date_time2.default,
 	  weather: _reducer_weather2.default,
 	  location: _reducer_location2.default,
-	  socket: _reducer_socket2.default
+	  socket: _reducer_socket2.default,
+	  user: _reducer_user2.default
 	});
 
 	exports.default = rootReducer;
@@ -40399,6 +40404,7 @@
 	var GOOGLE_API_KEY = exports.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8';
 
 	var GENERATE_SOCKET = exports.GENERATE_SOCKET = 'GENERATE_SOCKET';
+	var GENERATE_USER_INFO = exports.GENERATE_USER_INFO = 'GENERATE_USER_INFO';
 
 /***/ },
 /* 375 */
@@ -40507,14 +40513,14 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _index.GENERATE_SOCKET:
+	    case _constants.GENERATE_SOCKET:
 	      return action.payload;
 	    default:
 	      return state;
 	  }
 	};
 
-	var _index = __webpack_require__(374);
+	var _constants = __webpack_require__(382);
 
 	var INITIAL_STATE = null;
 
@@ -40605,7 +40611,7 @@
 
 	      setInterval(function () {
 	        _this2.props.updateWeather();
-	      }, 1800000);
+	      }, 3600);
 
 	      this.props.generateLocation();
 	      this.props.generateSocket();
@@ -40619,7 +40625,7 @@
 	        this.props.children,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'notification' },
+	          { className: 'notification', id: 'notification' },
 	          _react2.default.createElement(
 	            'span',
 	            { id: 'text' },
@@ -40661,6 +40667,7 @@
 	exports.updateWeather = updateWeather;
 	exports.generateLocation = generateLocation;
 	exports.generateSocket = generateSocket;
+	exports.generateUserInfo = generateUserInfo;
 
 	var _axios = __webpack_require__(382);
 
@@ -40783,7 +40790,14 @@
 	    payload: socket
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(274)))
+
+	function generateUserInfo(user) {
+	  return {
+	    type: _index.GENERATE_SOCKET,
+	    payload: user
+	  };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
 
 /***/ },
 /* 382 */
@@ -43412,6 +43426,8 @@
 
 	var _reactRedux = __webpack_require__(234);
 
+	var _actions = __webpack_require__(389);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43423,10 +43439,20 @@
 	var Login = function (_Component) {
 	  _inherits(Login, _Component);
 
-	  function Login() {
+	  function Login(props) {
 	    _classCallCheck(this, Login);
 
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+	    _this.login = _this.login.bind(_this);
+	    _this.htmlTemplates = {
+	      detected: '<i class="material-icons">sentiment_neutral</i><br>I don\'t see you',
+	      identity: '<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you',
+	      worked: function worked(name) {
+	        return '<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + name + '.</b> Smile to login!';
+	      }
+	    };
+	    return _this;
 	  }
 
 	  _createClass(Login, [{
@@ -43436,11 +43462,12 @@
 
 	      this.props.socket.on('message', function (message) {
 	        if (message.detected === false) {
-	          $('.login').html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
+	          $('#login').html(_this2.detected);
 	        } else if (message.identity === 0) {
-	          $('.login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+	          $('#login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
 	        } else {
-	          $('.login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
+	          // this.props.generateUserInfo(message.user)
+	          $('#login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
 	          if (message.smiling) {
 	            _this2.login();
 	          }
@@ -43448,6 +43475,7 @@
 	      });
 
 	      $('#add-user').click(function () {
+	        _this2.props.generateUserInfo({ name: 'Zura' });
 	        _this2.login();
 	      });
 	    }
@@ -43456,16 +43484,15 @@
 	    value: function login() {
 	      var _this3 = this;
 
-	      $('.login').fadeOut(500);
-	      $('.loader').fadeIn(1000, function () {
+	      $('#login').fadeOut(500);
+	      $('#loader').fadeIn(1000, function () {
 	        setTimeout(function () {
-	          $('.notification').slideDown(500);
+	          $('#notification').fadeIn(1000);
 	          setTimeout(function () {
-	            $('.loader').fadeOut();
+	            $('#loader').fadeOut();
 	            setTimeout(function () {
-	              $('.notification').slideUp(500, function () {
-	                _this3.context.router.push('/home');
-	              });
+	              _this3.context.router.push('/home');
+	              $('#notification').fadeOut(1000);
 	            }, 500);
 	          }, 1000);
 	        }, 500);
@@ -43479,7 +43506,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'login' },
+	          { className: 'login', id: 'login' },
 	          _react2.default.createElement(
 	            'i',
 	            { className: 'material-icons' },
@@ -43519,7 +43546,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'loader' },
+	          { className: 'loader', id: 'loader' },
 	          _react2.default.createElement('img', { src: '../media/images/wassim.jpg' })
 	        )
 	      );
@@ -43539,8 +43566,8 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, {})(Login);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(274)))
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { generateUserInfo: _actions.generateUserInfo })(Login);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
 
 /***/ },
 /* 418 */
@@ -46064,6 +46091,32 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 437 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _constants.GENERATE_USER_INFO:
+	      return action.payload;
+	    default:
+	      return state;
+	  }
+	};
+
+	var _constants = __webpack_require__(382);
+
+	var INITIAL_STATE = {};
 
 /***/ }
 /******/ ]);
