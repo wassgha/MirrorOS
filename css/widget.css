@@ -1,6 +1,6 @@
 .widget {
 	border-radius: 3px;
-	display: block;
+  display: none;
 	position: absolute;
 	cursor: move;
 	z-index: 0;

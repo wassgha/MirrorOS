@@ -1,0 +1,221 @@
+.border {
+  background: white;
+  position: absolute;
+  z-index: 1001;
+}
+
+.border.bottom {
+  width: 0%;
+  height: 5px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.border.top {
+  width: 0%;
+  height: 5px;
+  right: 0px;
+  top: 0px;
+}
+
+.border.left {
+  width: 5px;
+  height: 0%;
+  left: 0px;
+  top: 0px;
+}
+
+.border.right {
+  width: 5px;
+  height: 0%;
+  right: 0px;
+  bottom: 0px;
+}
+
+.corner {
+  color: white;
+  font-family: "Roboto Condensed", sans-serif !important;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  padding: 35px;
+  top: 0px;
+  position: absolute;
+}
+
+/*
+ Corner Right
+*/
+
+.corner.right {
+  display: none;
+  right: 0px;
+  text-align: right;
+}
+
+.corner.left {
+  display: none;
+  left: 0px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.corner span {
+  background: black;
+}
+
+.corner.right #date {
+  font-size: 48px;
+}
+
+.corner.right #time {
+  font-size: 42px;
+  font-weight: 300;
+}
+
+.corner.right #weather {
+  text-transform: capitalize;
+  font-size: 34px;
+}
+
+.corner.right #weather i {
+  font-size: 34px;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-family: weathericons;
+}
+
+/*
+ Corner Left
+*/
+
+.corner.left #text {
+  float:left;
+  display: block;
+  line-height: 1.1em;
+  padding-left: 15px;
+}
+
+.corner.left .profile_pic {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.corner.left .profile_pic img {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.corner.left .profile_pic .indicator {
+  background: #00ce00;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: block;
+}
+
+.corner.left .profile_pic .indicator.green {
+  background: #2ecc71;
+}
+
+.corner.left .profile_pic .indicator.orange {
+  background: #f39c12;
+}
+
+.corner.left .profile_pic .indicator.gray {
+  background: #bdc3c7;
+}
+
+/*
+ App Launcher
+*/
+
+
+.app-launcher-button {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -25px;
+  background: transparent;
+  border: none;
+  color: white;
+  z-index: 0px;
+}
+
+.app-launcher-button i {
+    font-size:50px;
+}
+
+.app-launcher-back-button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.app-launcher-back-button i {
+    font-size:50px;
+}
+
+.app-launcher {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  top: 0px;
+  left: 0px;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  color: white;
+  display: none;
+}
+
+.app-launcher-section {
+  max-width: 90%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.app-launcher-section-icons {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.app-launcher-app {
+  display: inline-block;
+  height: 150px;
+  min-width: 250px;
+  max-width: 250px;
+  background: red;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  flex: 1;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.app-launcher-app img {
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.app-launcher-app i {
+  font-size: 85px;
+  line-height: 150px;
+}
+
+.app-launcher-section-title {
+  font-size: 24px;
+  margin-bottom: 25px;
+  display: block;
+}

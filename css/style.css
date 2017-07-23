@@ -1,7 +1,14 @@
+* {
+  outline: none;
+}
+
+html {
+  cursor: none;
+}
+
 body {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background-color: black;
-  cursor: none;
   opacity: 1.0;
   -webkit-transition: background 1.5s linear;
   -moz-transition: background 1.5s linear;
@@ -12,12 +19,10 @@ body {
 
 
 @import 'alarm.css';
-@import 'corners.css';
+@import 'home.css';
 @import 'dummy.css';
 @import 'login.css';
-@import 'message.css';
 @import 'notification.css';
 @import 'training.css';
-@import 'video.css';
 @import 'weather.css';
 @import 'widget.css';

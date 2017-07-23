@@ -5,10 +5,6 @@ const url = require('url')
 
 const server = require('http').createServer()
 const io = require('socket.io')(server)
-const PythonShell = require('python-shell')
-const pyshell = new PythonShell('lib/FaceRecognitionAPI/script.py')
-
-process.env.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8'
 
 const {app, BrowserWindow} = electron
 let win
@@ -52,16 +48,3 @@ io.on('connection', client => {
   client.on('disconnect', () => {})
 })
 server.listen(3000)
-
-pyshell.on('message', message => {
-  try {
-    message = JSON.parse(message)
-    io.emit('message', message)
-  } catch (e) {
-    // Not JSON, don't parse
-  }
-})
-
-pyshell.end(err => {
-  if (err) throw err
-})

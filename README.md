@@ -1,19 +1,37 @@
 # MirrorOS
 
-![alt text](http://up.sur-la-toile.com/i1hRy "Touch Based Gestures Using Leap Motion")
+![App Launcher](http://i.imgur.com/tPPSvuS.jpg "Mirror OS App Tray")
 
-MirrorOS is a lightweight user interface designed specifically for Magic Mirrors and transparent glass touch screens. The UI is built entirely on web development languages and is meant to be ran inside a headless web browser. MirrorOS supports LeapMotion as a touch input.
-In the future, MirrorOS will move to using Electron.
+MirrorOS is a lightweight user interface designed specifically for Magic Mirrors and transparent glass touch screens. The UI is built on NodeJS, React and Electron.
+
+## Installation
+
+Please be aware that MirrorOS is currently at the "proof of concept" stage. Almost all features are broken/in an early stage. If you still wan to try the software, please follow this tutorial [How to Install on a Raspberry Pi](https://github.com/wassgha/MirrorOS/wiki/%5BHow-To%5D-Install-MirrorOS-on-a-Raspberry-Pi)
+
+## Features
 
 Current features
-  - Leap Motion Support to substitute touch screens
-  - Three-point calibration of the Leap Motion sensor to create a touch plane
+  - Face Recognition and Smile detection for logging-in to the Mirror
+  - Constant monitoring of user presence through face detection
+  - Home UI almost done, with clock, date and weather
   - Draggable placeholder widgets
+  - Almost ready app launcher
+  - Leap Motion Support to substitute touch screens (using [Leap Motion Touch Screen](https://github.com/wassgha/LeapMotionTouchScreen))
 
 To implement
   - Support for apps, widgets and extentions
   - Providing an API for developers to extend the UI
   - Communication with nearby devices (getting notification from phone, connecting to bluetooth speakers)
   - Support for Air Play and other video streaming platforms to display content on the Magic Mirror/Display
+  - Alexa integration
+  - User accounts and face training
+  - Live selfie filters app (filter overlay on mirror)
+  - Uber/Lyft integration
+  - News app
+  - Live TV widget
+  - Smart home widget (Nest & co integration)
+  - OTA updates
 
-![alt text](http://up.sur-la-toile.com/i1hRx "Calibration of the Leap Motion")
+## Video Demo
+[![ezgif](https://user-images.githubusercontent.com/591655/28448184-b7124a1a-6d8a-11e7-93f0-cf18a663dd2c.gif)
+](https://www.youtube.com/watch?v=1FI0-PuNp8E)

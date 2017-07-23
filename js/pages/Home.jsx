@@ -1,10 +1,11 @@
 /* global $ */
 
-import React, { Component } from 'react'
+import React, { Component, Button } from 'react'
 import { connect } from 'react-redux'
 
 import LeftCorner from '../components/LeftCorner'
 import RightCorner from '../components/RightCorner'
+import AppLauncher from '../components/AppLauncher'
 import Message from '../../widgets/Message'
 import VideoPlayer from '../../widgets/VideoPlayer'
 import AudioPlayer from '../../widgets/AudioPlayer'
@@ -12,11 +13,24 @@ import AudioPlayer from '../../widgets/AudioPlayer'
 class Home extends Component {
 
   componentDidMount () {
+    $('.border.top').animate({"width":"100%"}, 200, () => {
+      $('.border.left').animate({"height":"100%"}, 200, () => {
+        $('.border.bottom').animate({"width":"100%"}, 200, () => {
+          $('.border.right').animate({"height":"100%"}, 200, () => {
+            $('.corner.left').slideDown(1200)
+            $('.corner.right').slideDown(1200)
+            $('.app-launcher-button').slideDown(1200, () => {
+              $('.widget').fadeIn(1200)
+            })
+          })
+        })
+      })
+    })
     let idleTime = 0
     setInterval(() => {
       idleTime++
       if (idleTime > 5) {
-        $('body').hide()
+        //$('body').hide()
       }
     }, 3000)
 
@@ -35,18 +49,31 @@ class Home extends Component {
     })
   }
 
+  displayAppLauncher() {
+    $('.app-launcher').fadeIn();
+  }
+
   render () {
     const videoPlayerConfig = {
-      controls: true,
+      controls: false,
+      autoPlay: true,
       loop: true,
       muted: true
     }
 
     return (
       <div>
+        <div className='border top'></div>
+        <div className='border left'></div>
+        <div className='border bottom'></div>
+        <div className='border right'></div>
         <LeftCorner />
         <RightCorner />
-        <VideoPlayer src='../media/video/big_buck_bunny.mp4'
+        <button className='app-launcher-button'>
+          <i className='material-icons' onClick={this.displayAppLauncher}>apps</i>
+        </button>
+        <AppLauncher />
+        <VideoPlayer src='https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
         <Message draggable />
       </div>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {createWidget} from '../actions/index'
-
 class LeftCorner extends Component {
 
   render () {
@@ -22,8 +20,6 @@ class LeftCorner extends Component {
 }
 
 LeftCorner.propTypes = {
-  draggable: React.PropTypes.any,
-  createWidget: React.PropTypes.func,
 }
 
 function mapStateToProps (state) {
@@ -31,4 +27,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, {createWidget})(LeftCorner)
+export default connect(mapStateToProps)(LeftCorner)

@@ -1,0 +1,15 @@
+.video.widget {
+	height: 270px;
+	min-width: 400px;
+	top:150px;
+	left:100px;
+	overflow: hidden;
+	background-image: url('../media/images/placeholder-vid.png');
+	background-size: cover;
+	background-position: top;
+}
+
+.video.widget video {
+	height:100%;
+	object-fit:cover;
+}
