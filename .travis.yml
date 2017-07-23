@@ -1,0 +1,21 @@
+language: node_js
+sudo: required
+dist: trusty
+node_js:
+  - "5"
+script: node src/pr-check.js
+branches:
+  only:
+    - master
+    - release
+env:
+  global:
+    - NPM_CONFIG_PROGRESS="false"
+matrix:
+  include:
+    - env: BUILD_SHARD="build_and_unit_tests"
+cache:
+  directories:
+  - node_modules
+  - .gem
+  pip: true
