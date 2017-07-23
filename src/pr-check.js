@@ -4,7 +4,7 @@ const spawn = require('child_process').spawn;
 
 if (process.env.BUILD_SHARD == "build_and_unit_tests") {
   // Make a full build
-  const child = spawn('npm build');
+  const child = spawn('npm', ['run', 'build']);
 
   // Run unit tests
 
