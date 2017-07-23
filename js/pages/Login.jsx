@@ -25,7 +25,6 @@ class Login extends Component {
   }
 
   login () {
-    console.log('login')
     $('.login').fadeOut(500)
     $('.loader').fadeIn(1000, () => {
       setTimeout(() => {

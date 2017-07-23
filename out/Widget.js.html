@@ -19,11 +19,11 @@
 
     <h1 class="page-title">Source: Widget.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/* global $ */
@@ -55,7 +55,6 @@ class Widget {
     if (this.config.draggable) {
       $(this.widgetElement).on('click', (event) => {
         this.widgetQueue.enqueue(this.widgetElement)
-        console.log(this.widgetQueue)
       }).draggable({
         start: (event, ui) => {
           this.widgetQueue.enqueue(this.widgetElement)

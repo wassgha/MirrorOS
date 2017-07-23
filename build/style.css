@@ -360,114 +360,6 @@
 		transform: rotate(360deg);
 	}
 }
-.message.widget {
-  background: white;
-  width: 303px;
-  height: 270px;
-  top: 50%;
-  left: 50%;
-}
-
-.message.widget .head img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-
-.message.widget .content {
-  padding: 25px;
-  color: #426a90;
-  font-size: 16px;
-}
-
-.message.widget .actions {
-  background: #f5f6f8;
-  border-top: 1px solid #dfe5ea;
-  bottom: 0px;
-  position: absolute;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  width: 100%;
-  display: flex;
-}
-
-.message.widget .action {
-  color: #cfd9e0;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 20px;
-  display: inline-block;
-  width: 50%;
-  text-align: center;
-  border-bottom-left-radius: 3px;
-}
-
-.message.widget .action.highlight {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 3px;
-  border-left: 1px solid #dfe5ea;
-  color: rgb(61, 180, 233);
-}
-
-.message.widget .head .title {
-  color: #3eb4e9;
-  display: block;
-}
-
-.message.widget .head .desc {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 15px;
-}
-
-.message.widget .head .time {
-  color: rgb(61, 90, 121);
-}
-
-.message.widget .head {
-  margin-bottom: 15px;
-}
-
-.message.widget.dark {
-  background: black;
-  border: 1px solid #717171;
-  top: 60%;
-  left: 20%;
-}
-
-.message.widget.dark .content {
-  color: #ffffff;
-}
-
-.message.widget.dark .actions {
-  margin: 0px;
-  padding: 0px;
-  background: black;
-  border-top: 1px solid #717171;
-}
-
-.message.widget.dark .action {
-  border: 0px;
-  color: #909090;
-  border-bottom-left-radius: 2px;
-}
-
-.message.widget.dark .action.highlight {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 2px;
-  background: #717171;
-  color: rgb(255, 255, 255);
-}
-
-.message.widget.dark .head .title {
-  color: #ffffff;
-}
-
-.message.widget.dark .head .time {
-  color: rgb(255, 255, 255);
-}
 .notification {
 	font-size: 24px;
 	position: fixed;
@@ -493,21 +385,6 @@
 	background: white;
 	padding: 10px;
 	display: none;
-}
-.video.widget {
-	height: 270px;
-	min-width: 400px;
-	top:150px;
-	left:100px;
-	overflow: hidden;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAk4AAAFKCAMAAADc/iBMAAAA8FBMVEVlwd3t9PVtxN6Ay+Kb1efS6fDl8PSN0OSl2eid1ueV0+at3Op3yODo8vXr8/Vuxd9nwt3N6PDn8fTd7vKCzOLa7PKr2+rV6/Gk2Ojb7fLY7PKKz+R1x+DU6vF8yeHK5u+y3uvL5++44Ox4yOCS0uWp2unq8vWq2ul6yeF+yuKT0uW94u1yxt+a1ebg7/OLz+TH5e6JzuODzOLA4+2w3epqw96e1ueZ1OaFzePP6PCu3Opowt613+ui2Oi64OzI5u/f7vOQ0eWO0OS03ut9yuGg1+jX6/FzxuC74ezk8PTQ6fCgzVXmiUUfjXDwg4aeaq+BomNBAAAEnklEQVR4XuzSOQEAIAAAIfv59W/jZoVbIANjJnZiJU7iJnT6dNJJJ5100kknnXTSSSeddNJJp8cOHJAAAIAwABPsYRr7ZzKGcLaKBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA9oupOBx799HcKBAEUHjHBqGAECgGS1Zwzjlnb238/z9oL0LFlG9Ll6fcvH63nut3bKH9ZNs4mnqyCQBd1YzT6QJAU4FxPAEAFJW45pQAQE9x5JpTFANATSvG+awAAE5wIjiRWHAiOBGc4ASngZ9Oyxj5Wn46A/Wc4NQLM/v1gTSmwXoGwEZPOSc4ta2HNWlOaxaAtm5OcKp/eBDso5q6ak5wKn0up5I+TgQnghPBCU5wqh94OWdagtMiOJXzi702cIKT2OltIM+J4AQnOO3DieQ4VeFE/8PJNKyHUJpTaC0bRjcnOE2th2dpTs/WcqqcE5zMad9Lpzwx0pzMpOyl0z81yjnByU6Qk5JrTIITwYngBCeCE8GJ4AQnOHlwIjlOFTgRnAhOpInTbMtLZ8eX5+TveOlsJdo5wenRejiQ5nRgLR+LyIl7pwr3TiR3jVnhGpPgRC6CE8GJ4AQnOJXhRHAiB8GJ4ERwghNf7pXhxJd7+a64HKciflccTr1RZr/RkebU2cjsRj31nDif61j/ySLMif9k4RrTlLnGJDgRnEg7pxqcCE4EJ/riwYngRHCCE5y+5+dUhdMiODWrqzlnbVhETnCq77SXBm4vt43wRJe3S2LntbpyTnDyrIe+NKe+BcDTzQlO0YP1cCjN6dAC8BAp4ET8FzDBidwHJ4ITwQlOBCeCE7kPTgQnghOc4BTF1kNDmlPDAnAVqeYEJ7NpPRxJczqyAGwa3ZzgVLoZLddhpSnNqVkJlwBGN6UicuJ87vgkL9i9O87nFsFpml/svktOxE8PCE5wIjgRnAhOcIJTF07E58JIIjgRnEgjp59+Oh1pTvZ3pofqOcFpHGb2u0NpTp3dzC4cK+cEpz3r4Uya05m13PsCnIi/+CH+gIx0BCeCE8EJTnDqw4nkOFXgRHAiieBEcCJ1nJqfy6mpmhOcTMN6CKU5hdby0OjmBKd5dh9fSHO6iLPLuXJOcDJ3XS+d2thIczLjmpdO968pIieuMStcYxKcCE6kndMRnEiOUxVOBCeCExWTE5wITgQnghOc4PRy7aXzNJPnNHvy0vnxop0TnO6th7k0p7m1vC8WJ+6dpDmF1rJRRE4c91Y57iU5Tm9wIjlOAZxIjtN7fk7vcFoEp8mvvJqufsMJTsuHnp9v/hhFnIj/Aib54ERwIjjBCU71T+UUb6vmBCfTth5OpDmdWADOjW5OcBruZvarLWlOrdUMgPWhek6cz7366RwbI9+xn86r2vM5OLkJTnCCE8GJ4ETugxPBiZQUR641RTEA9JS45pQAQFGBa04BADTVdatpCwC6eps1XVkqTYJ/7cABCQAAAMIw+6c2x2FbCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcEf24wvnqsnqAAAAAElFTkSuQmCC);
-	background-size: cover;
-	background-position: top;
-}
-
-.video.widget video {
-	height:100%;
-	object-fit:cover;
 }
 /*!
  *  Weather Icons 2.0.8

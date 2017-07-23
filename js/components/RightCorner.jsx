@@ -6,7 +6,6 @@ import weatherIcons from '../constants/weather-icons'
 class RightCorner extends Component {
 
   render () {
-    console.log(weatherIcons)
     const now = this.props.dateAndTime.now
     const timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm
     const dateStr = now.day + ', ' + now.month + ' ' + now.date
@@ -16,7 +15,6 @@ class RightCorner extends Component {
     const condition = weatherObj.weather[0].description
     const prefix = 'wi wi-'
     const code = weatherObj.weather[0].id
-    console.log(code, weatherObj)
     let icon = code !== undefined ? weatherIcons[code].icon : ''
 
     // If we are not in the ranges mentioned above, add a day/night prefix.

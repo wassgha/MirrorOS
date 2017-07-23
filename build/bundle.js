@@ -42474,6 +42474,7 @@
 	    value: function render() {
 	      var videoPlayerConfig = {
 	        controls: false,
+	        autoPlay: true,
 	        loop: true,
 	        muted: true
 	      };
@@ -42497,7 +42498,7 @@
 	          )
 	        ),
 	        _react2.default.createElement(_AppLauncher2.default, null),
-	        _react2.default.createElement(_VideoPlayer2.default, { src: '../media/video/big_buck_bunny.mp4',
+	        _react2.default.createElement(_VideoPlayer2.default, { src: 'https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4',
 	          config: videoPlayerConfig, draggable: true }),
 	        _react2.default.createElement(_Message2.default, { draggable: true })
 	      );
@@ -42632,7 +42633,6 @@
 	  _createClass(RightCorner, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log(_weatherIcons2.default);
 	      var now = this.props.dateAndTime.now;
 	      var timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm;
 	      var dateStr = now.day + ', ' + now.month + ' ' + now.date;
@@ -42642,7 +42642,6 @@
 	      var condition = weatherObj.weather[0].description;
 	      var prefix = 'wi wi-';
 	      var code = weatherObj.weather[0].id;
-	      console.log(code, weatherObj);
 	      var icon = code !== undefined ? _weatherIcons2.default[code].icon : '';
 
 	      // If we are not in the ranges mentioned above, add a day/night prefix.
@@ -43096,7 +43095,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'app-launcher-section-icons' },
-	            _react2.default.createElement(AppLauncherApp, { bgColor: 'red', logo: 'https://www.youtube.com/yt/brand/media/image/YouTube-logo-light.png' }),
+	            _react2.default.createElement(AppLauncherApp, { bgColor: 'red', logo: 'http://s.ytimg.com/yt/img/logos/youtube_logo_onecolor_againstblack-vflAZNyvx.png' }),
 	            _react2.default.createElement(AppLauncherApp, { bgColor: '#3498db', icon: 'wb_sunny' }),
 	            _react2.default.createElement(AppLauncherApp, { bgColor: '#262626', logo: 'http://techfaster.com/wp-content/uploads/2014/07/Uber-Logo.png' }),
 	            _react2.default.createElement(AppLauncherApp, { bgColor: '#ecf0f1', icon: 'settings', color: '#7f8c8d' }),
@@ -43457,7 +43456,6 @@
 	    value: function login() {
 	      var _this3 = this;
 
-	      console.log('login');
 	      $('.login').fadeOut(500);
 	      $('.loader').fadeIn(1000, function () {
 	        setTimeout(function () {

@@ -34,7 +34,7 @@ class AppLauncher extends Component {
           </button>
           <span className='app-launcher-section-title'>Apps</span>
           <div className='app-launcher-section-icons'>
-            <AppLauncherApp bgColor='red' logo='https://www.youtube.com/yt/brand/media/image/YouTube-logo-light.png' />
+            <AppLauncherApp bgColor='red' logo='http://s.ytimg.com/yt/img/logos/youtube_logo_onecolor_againstblack-vflAZNyvx.png' />
             <AppLauncherApp bgColor='#3498db' icon='wb_sunny' />
             <AppLauncherApp bgColor='#262626' logo='http://techfaster.com/wp-content/uploads/2014/07/Uber-Logo.png' />
             <AppLauncherApp bgColor='#ecf0f1' icon='settings' color='#7f8c8d' />

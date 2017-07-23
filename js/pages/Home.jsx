@@ -56,6 +56,7 @@ class Home extends Component {
   render () {
     const videoPlayerConfig = {
       controls: false,
+      autoPlay: true,
       loop: true,
       muted: true
     }
@@ -72,7 +73,7 @@ class Home extends Component {
           <i className='material-icons' onClick={this.displayAppLauncher}>apps</i>
         </button>
         <AppLauncher />
-        <VideoPlayer src='../media/video/big_buck_bunny.mp4'
+        <VideoPlayer src='https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
         <Message draggable />
       </div>
