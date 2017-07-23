@@ -14,7 +14,7 @@ class App extends Component {
 
     setInterval(() => {
       this.props.updateWeather()
-    }, 1800000)
+    }, 18000)
 
     this.props.generateLocation()
     this.props.generateSocket()

@@ -58,7 +58,7 @@ class Login extends Component {
           <i className='material-icons'>group_add</i> Add user
         </a>
         <div className='loader'>
-          <img src='../media/images/wassim.jpg' />
+          <img src='../src/media/images/wassim.jpg' />
         </div>
       </div>
     )

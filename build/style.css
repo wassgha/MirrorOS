@@ -218,7 +218,7 @@
 }
 
 .app-launcher-app img {
-  height: 100%;
+  object-fit: cover;
   display: block;
   margin: auto;
 }

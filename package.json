@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "0.15.3",
     "electron": "1.4.13",
-    "jquery": "3.1.1",
+    "jquery": "^3.1.1",
     "jquery-ui": "1.12.1",
     "jsdom": "9.8.3",
     "lodash": "4.17.4",
@@ -38,7 +38,7 @@
     "eslint-plugin-promise": "3.4.0",
     "eslint-plugin-react": "6.8.0",
     "eslint-plugin-standard": "2.0.1",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "~3.0.0",
     "file-loader": "0.9.0",
     "jsdoc": "3.4.3",
     "jshint": "2.9.4",
@@ -50,7 +50,7 @@
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
-    "webpack-dev-server": "1.16.2"
+    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
     "babel": "babel --presets es2015 ./main.js -o build/main.bundle.js",

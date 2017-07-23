@@ -8,7 +8,7 @@ import RightCorner from '../components/RightCorner'
 import AppLauncher from '../components/AppLauncher'
 import Message from '../../widgets/Message'
 import VideoPlayer from '../../widgets/VideoPlayer'
-import AudioPlayer from '../../widgets/AudioPlayer'
+// import AudioPlayer from '../../widgets/AudioPlayer'
 
 class Home extends Component {
 
@@ -57,7 +57,8 @@ class Home extends Component {
     const videoPlayerConfig = {
       controls: false,
       loop: true,
-      muted: true
+      muted: true,
+      autoplay: true,
     }
 
     return (
@@ -72,7 +73,7 @@ class Home extends Component {
           <i className='material-icons' onClick={this.displayAppLauncher}>apps</i>
         </button>
         <AppLauncher />
-        <VideoPlayer src='../media/video/big_buck_bunny.mp4'
+        <VideoPlayer src='http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4'
           config={videoPlayerConfig} draggable />
         <Message draggable />
       </div>

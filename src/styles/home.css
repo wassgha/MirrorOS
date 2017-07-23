@@ -66,21 +66,22 @@
   background: black;
 }
 
-.corner.right #date {
+.corner.right > #date {
+  color: red;
   font-size: 48px;
 }
 
-.corner.right #time {
+.corner.right > #time {
   font-size: 42px;
   font-weight: 300;
 }
 
-.corner.right #weather {
+.corner.right > #weather {
   text-transform: capitalize;
   font-size: 34px;
 }
 
-.corner.right #weather i {
+.corner.right > #weather i {
   font-size: 34px;
   margin-right: 10px;
   vertical-align: middle;
@@ -204,7 +205,7 @@
 }
 
 .app-launcher-app img {
-  height: 100%;
+  object-fit: cover;
   display: block;
   margin: auto;
 }

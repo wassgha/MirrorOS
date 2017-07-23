@@ -7,7 +7,7 @@ class LeftCorner extends Component {
     return (
       <span className='corner left'>
         <span className='profile_pic'>
-          <img src='../media/images/wassim.jpg' />
+          <img src='../src/media/images/wassim.jpg' />
           <span className='indicator'></span>
         </span>
         <span className='text'>

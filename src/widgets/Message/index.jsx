@@ -21,7 +21,7 @@ class Message extends Component {
       <div className='widget message dark' id={this.elementId}>
         <div className='content'>
           <div className='head'>
-            <img src='../media/images/bulk-profile-image-01.jpg' />
+            <img src='../src/media/images/bulk-profile-image-01.jpg' />
             <div className='desc'>
               <span className='title'>Enya Brennan</span>
               <span className='time'>7:51 PM</span>
