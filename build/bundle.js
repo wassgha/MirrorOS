@@ -86,7 +86,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default), window.defToolsExtension ? window.devToolsExtension() : function (f) {
+	var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	  return f;
 	}));
 
@@ -373,6 +373,10 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -688,7 +692,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -817,7 +821,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 	'use strict';
 
@@ -1267,7 +1271,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1376,7 +1380,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	function makeEmptyFunction(arg) {
@@ -1417,7 +1421,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1448,7 +1452,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1653,7 +1657,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1698,7 +1702,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -2778,7 +2782,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -3215,7 +3219,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -3646,7 +3650,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -4485,7 +4489,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 	'use strict';
 
@@ -5744,7 +5748,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6235,7 +6239,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6317,7 +6321,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6380,7 +6384,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6554,7 +6558,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7655,7 +7659,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7779,7 +7783,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7978,7 +7982,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8071,7 +8075,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8170,7 +8174,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8199,7 +8203,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8565,7 +8569,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8607,7 +8611,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8710,7 +8714,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -9043,7 +9047,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -12477,7 +12481,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 * @typechecks static-only
 	 */
 
@@ -13670,7 +13674,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -14638,7 +14642,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -15930,7 +15934,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16067,7 +16071,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16098,7 +16102,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @typechecks
-	 *
+	 * 
 	 */
 
 	/*eslint-disable no-self-compare */
@@ -16330,7 +16334,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16355,7 +16359,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16599,7 +16603,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16623,7 +16627,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16668,7 +16672,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16844,7 +16848,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -18317,10 +18321,10 @@
 	 */
 
 	function getUnboundedScrollPosition(scrollable) {
-	  if (scrollable === window) {
+	  if (scrollable.Window && scrollable instanceof scrollable.Window) {
 	    return {
-	      x: window.pageXOffset || document.documentElement.scrollLeft,
-	      y: window.pageYOffset || document.documentElement.scrollTop
+	      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
+	      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
 	    };
 	  }
 	  return {
@@ -18988,7 +18992,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	var isTextNode = __webpack_require__(151);
@@ -19069,7 +19073,9 @@
 	 * @return {boolean} Whether or not the object is a DOM node.
 	 */
 	function isNode(object) {
-	  return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+	  var doc = object ? object.ownerDocument || object : document;
+	  var defaultView = doc.defaultView || window;
+	  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 	}
 
 	module.exports = isNode;
@@ -19099,15 +19105,19 @@
 	 *
 	 * The activeElement will be null only if the document or document body is not
 	 * yet defined.
+	 *
+	 * @param {?DOMDocument} doc Defaults to current document.
+	 * @return {?DOMElement}
 	 */
-	function getActiveElement() /*?DOMElement*/{
-	  if (typeof document === 'undefined') {
+	function getActiveElement(doc) /*?DOMElement*/{
+	  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+	  if (typeof doc === 'undefined') {
 	    return null;
 	  }
 	  try {
-	    return document.activeElement || document.body;
+	    return doc.activeElement || doc.body;
 	  } catch (e) {
-	    return document.body;
+	    return doc.body;
 	  }
 	}
 
@@ -19626,7 +19636,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -21080,7 +21090,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -24637,11 +24647,11 @@
 	 */
 	var useQueries = function useQueries(createHistory) {
 	  return function () {
-	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	    var history = createHistory(options);
-	    var stringifyQuery = options.stringifyQuery;
-	    var parseQueryString = options.parseQueryString;
+	    var stringifyQuery = options.stringifyQuery,
+	        parseQueryString = options.parseQueryString;
 
 
 	    if (typeof stringifyQuery !== 'function') stringifyQuery = defaultStringifyQuery;
@@ -24781,9 +24791,9 @@
 		switch (opts.arrayFormat) {
 			case 'index':
 				return function (key, value, accumulator) {
-					result = /\[(\d*)]$/.exec(key);
+					result = /\[(\d*)\]$/.exec(key);
 
-					key = key.replace(/\[\d*]$/, '');
+					key = key.replace(/\[\d*\]$/, '');
 
 					if (!result) {
 						accumulator[key] = value;
@@ -24799,12 +24809,14 @@
 
 			case 'bracket':
 				return function (key, value, accumulator) {
-					result = /(\[])$/.exec(key);
+					result = /(\[\])$/.exec(key);
+					key = key.replace(/\[\]$/, '');
 
-					key = key.replace(/\[]$/, '');
-
-					if (!result || accumulator[key] === undefined) {
+					if (!result) {
 						accumulator[key] = value;
+						return;
+					} else if (accumulator[key] === undefined) {
+						accumulator[key] = [value];
 						return;
 					}
 
@@ -24988,7 +25000,7 @@
 	exports.__esModule = true;
 	exports.locationsAreEqual = exports.statesAreEqual = exports.createLocation = exports.createQuery = undefined;
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -25011,9 +25023,9 @@
 	};
 
 	var createLocation = exports.createLocation = function createLocation() {
-	  var input = arguments.length <= 0 || arguments[0] === undefined ? '/' : arguments[0];
-	  var action = arguments.length <= 1 || arguments[1] === undefined ? _Actions.POP : arguments[1];
-	  var key = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+	  var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '/';
+	  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _Actions.POP;
+	  var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
 	  var object = typeof input === 'string' ? (0, _PathUtils.parsePath)(input) : input;
 
@@ -25093,12 +25105,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var addQueryStringValueToPath = exports.addQueryStringValueToPath = function addQueryStringValueToPath(path, key, value) {
-	  var _parsePath = parsePath(path);
-
-	  var pathname = _parsePath.pathname;
-	  var search = _parsePath.search;
-	  var hash = _parsePath.hash;
-
+	  var _parsePath = parsePath(path),
+	      pathname = _parsePath.pathname,
+	      search = _parsePath.search,
+	      hash = _parsePath.hash;
 
 	  return createPath({
 	    pathname: pathname,
@@ -25108,12 +25118,10 @@
 	};
 
 	var stripQueryStringValueFromPath = exports.stripQueryStringValueFromPath = function stripQueryStringValueFromPath(path, key) {
-	  var _parsePath2 = parsePath(path);
-
-	  var pathname = _parsePath2.pathname;
-	  var search = _parsePath2.search;
-	  var hash = _parsePath2.hash;
-
+	  var _parsePath2 = parsePath(path),
+	      pathname = _parsePath2.pathname,
+	      search = _parsePath2.search,
+	      hash = _parsePath2.hash;
 
 	  return createPath({
 	    pathname: pathname,
@@ -25125,9 +25133,8 @@
 	};
 
 	var getQueryStringValueFromPath = exports.getQueryStringValueFromPath = function getQueryStringValueFromPath(path, key) {
-	  var _parsePath3 = parsePath(path);
-
-	  var search = _parsePath3.search;
+	  var _parsePath3 = parsePath(path),
+	      search = _parsePath3.search;
 
 	  var match = search.match(new RegExp('[?&]' + key + '=([a-zA-Z0-9]+)'));
 	  return match && match[1];
@@ -25169,10 +25176,10 @@
 	var createPath = exports.createPath = function createPath(location) {
 	  if (location == null || typeof location === 'string') return location;
 
-	  var basename = location.basename;
-	  var pathname = location.pathname;
-	  var search = location.search;
-	  var hash = location.hash;
+	  var basename = location.basename,
+	      pathname = location.pathname,
+	      search = location.search,
+	      hash = location.hash;
 
 	  var path = (basename || '') + pathname;
 
@@ -25204,7 +25211,7 @@
 
 	var useBasename = function useBasename(createHistory) {
 	  return function () {
-	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	    var history = createHistory(options);
 	    var basename = options.basename;
@@ -25214,7 +25221,7 @@
 	      if (!location) return location;
 
 	      if (basename && location.basename == null) {
-	        if (location.pathname.indexOf(basename) === 0) {
+	        if (location.pathname.toLowerCase().indexOf(basename.toLowerCase()) === 0) {
 	          location.pathname = location.pathname.substring(basename.length);
 	          location.basename = basename;
 
@@ -25338,7 +25345,7 @@
 	};
 
 	var createMemoryHistory = function createMemoryHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  if (Array.isArray(options)) {
 	    options = { entries: options };
@@ -25405,9 +25412,9 @@
 	    go: go
 	  }));
 
-	  var _options = options;
-	  var entries = _options.entries;
-	  var current = _options.current;
+	  var _options = options,
+	      entries = _options.entries,
+	      current = _options.current;
 
 
 	  if (typeof entries === 'string') {
@@ -25467,13 +25474,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var createHistory = function createHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  var getCurrentLocation = options.getCurrentLocation;
-	  var getUserConfirmation = options.getUserConfirmation;
-	  var pushLocation = options.pushLocation;
-	  var replaceLocation = options.replaceLocation;
-	  var go = options.go;
-	  var keyLength = options.keyLength;
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var getCurrentLocation = options.getCurrentLocation,
+	      getUserConfirmation = options.getUserConfirmation,
+	      pushLocation = options.pushLocation,
+	      replaceLocation = options.replaceLocation,
+	      go = options.go,
+	      keyLength = options.keyLength;
 
 
 	  var currentLocation = void 0;
@@ -25602,7 +25609,7 @@
 	  };
 
 	  var createLocation = function createLocation(location, action) {
-	    var key = arguments.length <= 2 || arguments[2] === undefined ? createKey() : arguments[2];
+	    var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : createKey();
 	    return (0, _LocationUtils.createLocation)(location, action, key);
 	  };
 
@@ -25842,18 +25849,18 @@
 	 * behavior using { forceRefresh: true } in options.
 	 */
 	var createBrowserHistory = function createBrowserHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Browser history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
 	  var useRefresh = options.forceRefresh || !(0, _DOMUtils.supportsHistory)();
 	  var Protocol = useRefresh ? RefreshProtocol : BrowserProtocol;
 
-	  var getUserConfirmation = Protocol.getUserConfirmation;
-	  var getCurrentLocation = Protocol.getCurrentLocation;
-	  var pushLocation = Protocol.pushLocation;
-	  var replaceLocation = Protocol.replaceLocation;
-	  var go = Protocol.go;
+	  var getUserConfirmation = Protocol.getUserConfirmation,
+	      getCurrentLocation = Protocol.getCurrentLocation,
+	      pushLocation = Protocol.pushLocation,
+	      replaceLocation = Protocol.replaceLocation,
+	      go = Protocol.go;
 
 
 	  var history = (0, _createHistory2.default)(_extends({
@@ -25959,8 +25966,9 @@
 
 	var startListener = exports.startListener = function startListener(listener) {
 	  var handlePopState = function handlePopState(event) {
-	    if (event.state !== undefined) // Ignore extraneous popstate events in WebKit
-	      listener(_createLocation(event.state));
+	    if ((0, _DOMUtils.isExtraneousPopstateEvent)(event)) // Ignore extraneous popstate events in WebKit
+	      return;
+	    listener(_createLocation(event.state));
 	  };
 
 	  (0, _DOMUtils.addEventListener)(window, PopStateEvent, handlePopState);
@@ -25983,8 +25991,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, updateState) {
-	  var state = location.state;
-	  var key = location.key;
+	  var state = location.state,
+	      key = location.key;
 
 
 	  if (state !== undefined) (0, _DOMStateStorage.saveState)(key, state);
@@ -26051,6 +26059,15 @@
 	 */
 	var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = function supportsPopstateOnHashchange() {
 	  return window.navigator.userAgent.indexOf('Trident') === -1;
+	};
+
+	/**
+	 * Returns true if a given popstate event is an extraneous WebKit event.
+	 * Accounts for the fact that Chrome on iOS fires real popstate events
+	 * containing undefined state when pressing the back button.
+	 */
+	var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
+	  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 	};
 
 /***/ },
@@ -26293,12 +26310,12 @@
 	};
 
 	var createHashHistory = function createHashHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Hash history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
-	  var queryKey = options.queryKey;
-	  var hashType = options.hashType;
+	  var queryKey = options.queryKey,
+	      hashType = options.hashType;
 
 
 	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(queryKey !== false, 'Using { queryKey: false } no longer works. Instead, just don\'t ' + 'use location state if you don\'t want a key in your URL query string') : void 0;
@@ -26493,8 +26510,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, pathCoder, queryKey, updateHash) {
-	  var state = location.state;
-	  var key = location.key;
+	  var state = location.state,
+	      key = location.key;
 
 
 	  var path = pathCoder.encodePath((0, _PathUtils.createPath)(location));
@@ -27114,7 +27131,7 @@
 	  selectorFactory, which has the signature:
 
 	    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-
+	  
 	  connect passes its args to connectAdvanced as options, which will in turn pass them to
 	  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -28327,7 +28344,7 @@
 	// dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 	// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 	// whether mapToProps needs to be invoked when props have changed.
-	//
+	// 
 	// A length of one signals that mapToProps does not depend on props from the parent component.
 	// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 	// therefore not reporting its length accurately..
@@ -28337,16 +28354,16 @@
 
 	// Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 	// this function wraps mapToProps in a proxy function which does several things:
-	//
+	// 
 	//  * Detects whether the mapToProps function being called depends on props, which
 	//    is used by selectorFactory to decide if it should reinvoke on props changes.
-	//
+	//    
 	//  * On first call, handles mapToProps if returns another function, and treats that
 	//    new function as the true mapToProps for subsequent calls.
-	//
+	//    
 	//  * On first call, verifies the first result is a plain object, in order to warn
 	//    the developer that their mapToProps function is not returning a valid result.
-	//
+	//    
 	function wrapMapToPropsFunc(mapToProps, methodName) {
 	  return function initProxySelector(dispatch, _ref) {
 	    var displayName = _ref.displayName;
@@ -28700,10 +28717,6 @@
 
 	var _reducer_socket2 = _interopRequireDefault(_reducer_socket);
 
-	var _reducer_user = __webpack_require__(437);
-
-	var _reducer_user2 = _interopRequireDefault(_reducer_user);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
@@ -28711,8 +28724,7 @@
 	  dateAndTime: _reducer_date_time2.default,
 	  weather: _reducer_weather2.default,
 	  location: _reducer_location2.default,
-	  socket: _reducer_socket2.default,
-	  user: _reducer_user2.default
+	  socket: _reducer_socket2.default
 	});
 
 	exports.default = rootReducer;
@@ -40404,7 +40416,6 @@
 	var GOOGLE_API_KEY = exports.GOOGLE_API_KEY = 'AIzaSyAxEd1c2fuK7zBlHV6ENZ1Ua2uqfP1Yfl8';
 
 	var GENERATE_SOCKET = exports.GENERATE_SOCKET = 'GENERATE_SOCKET';
-	var GENERATE_USER_INFO = exports.GENERATE_USER_INFO = 'GENERATE_USER_INFO';
 
 /***/ },
 /* 375 */
@@ -40513,14 +40524,14 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _constants.GENERATE_SOCKET:
+	    case _index.GENERATE_SOCKET:
 	      return action.payload;
 	    default:
 	      return state;
 	  }
 	};
 
-	var _constants = __webpack_require__(382);
+	var _index = __webpack_require__(374);
 
 	var INITIAL_STATE = null;
 
@@ -40611,7 +40622,7 @@
 
 	      setInterval(function () {
 	        _this2.props.updateWeather();
-	      }, 3600);
+	      }, 1800000);
 
 	      this.props.generateLocation();
 	      this.props.generateSocket();
@@ -40625,7 +40636,7 @@
 	        this.props.children,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'notification', id: 'notification' },
+	          { className: 'notification' },
 	          _react2.default.createElement(
 	            'span',
 	            { id: 'text' },
@@ -40667,7 +40678,6 @@
 	exports.updateWeather = updateWeather;
 	exports.generateLocation = generateLocation;
 	exports.generateSocket = generateSocket;
-	exports.generateUserInfo = generateUserInfo;
 
 	var _axios = __webpack_require__(382);
 
@@ -40790,14 +40800,7 @@
 	    payload: socket
 	  };
 	}
-
-	function generateUserInfo(user) {
-	  return {
-	    type: _index.GENERATE_SOCKET,
-	    payload: user
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(274)))
 
 /***/ },
 /* 382 */
@@ -42443,10 +42446,10 @@
 	  _createClass(Home, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      $('.border.top').animate({ "width": "100%" }, 200, function () {
-	        $('.border.left').animate({ "height": "100%" }, 200, function () {
-	          $('.border.bottom').animate({ "width": "100%" }, 200, function () {
-	            $('.border.right').animate({ "height": "100%" }, 200, function () {
+	      $('.border.top').animate({ 'width': '100%' }, 200, function () {
+	        $('.border.left').animate({ 'height': '100%' }, 200, function () {
+	          $('.border.bottom').animate({ 'width': '100%' }, 200, function () {
+	            $('.border.right').animate({ 'height': '100%' }, 200, function () {
 	              $('.corner.left').slideDown(1200);
 	              $('.corner.right').slideDown(1200);
 	              $('.app-launcher-button').slideDown(1200, function () {
@@ -42488,7 +42491,6 @@
 	    value: function render() {
 	      var videoPlayerConfig = {
 	        controls: false,
-	        autoPlay: true,
 	        loop: true,
 	        muted: true
 	      };
@@ -42512,7 +42514,7 @@
 	          )
 	        ),
 	        _react2.default.createElement(_AppLauncher2.default, null),
-	        _react2.default.createElement(_VideoPlayer2.default, { src: 'https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4',
+	        _react2.default.createElement(_VideoPlayer2.default, { src: '../media/video/big_buck_bunny.mp4',
 	          config: videoPlayerConfig, draggable: true }),
 	        _react2.default.createElement(_Message2.default, { draggable: true })
 	      );
@@ -43426,8 +43428,6 @@
 
 	var _reactRedux = __webpack_require__(234);
 
-	var _actions = __webpack_require__(389);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43439,20 +43439,10 @@
 	var Login = function (_Component) {
 	  _inherits(Login, _Component);
 
-	  function Login(props) {
+	  function Login() {
 	    _classCallCheck(this, Login);
 
-	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
-
-	    _this.login = _this.login.bind(_this);
-	    _this.htmlTemplates = {
-	      detected: '<i class="material-icons">sentiment_neutral</i><br>I don\'t see you',
-	      identity: '<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you',
-	      worked: function worked(name) {
-	        return '<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + name + '.</b> Smile to login!';
-	      }
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
 	  }
 
 	  _createClass(Login, [{
@@ -43462,12 +43452,11 @@
 
 	      this.props.socket.on('message', function (message) {
 	        if (message.detected === false) {
-	          $('#login').html(_this2.detected);
+	          $('.login').html('<i class="material-icons">sentiment_neutral</i><br>I don\'t see you');
 	        } else if (message.identity === 0) {
-	          $('#login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
+	          $('.login').html('<i class="material-icons">sentiment_dissatisfied</i><br>I don\'t know you');
 	        } else {
-	          // this.props.generateUserInfo(message.user)
-	          $('#login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
+	          $('.login').html('<i class="material-icons">sentiment_satisfied</i><br>Hello <b>' + message.user.first_name + '.</b> Smile to login!');
 	          if (message.smiling) {
 	            _this2.login();
 	          }
@@ -43475,7 +43464,6 @@
 	      });
 
 	      $('#add-user').click(function () {
-	        _this2.props.generateUserInfo({ name: 'Zura' });
 	        _this2.login();
 	      });
 	    }
@@ -43484,15 +43472,16 @@
 	    value: function login() {
 	      var _this3 = this;
 
-	      $('#login').fadeOut(500);
-	      $('#loader').fadeIn(1000, function () {
+	      $('.login').fadeOut(500);
+	      $('.loader').fadeIn(1000, function () {
 	        setTimeout(function () {
-	          $('#notification').fadeIn(1000);
+	          $('.notification').slideDown(500);
 	          setTimeout(function () {
-	            $('#loader').fadeOut();
+	            $('.loader').fadeOut();
 	            setTimeout(function () {
-	              _this3.context.router.push('/home');
-	              $('#notification').fadeOut(1000);
+	              $('.notification').slideUp(500, function () {
+	                _this3.context.router.push('/home');
+	              });
 	            }, 500);
 	          }, 1000);
 	        }, 500);
@@ -43506,7 +43495,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'login', id: 'login' },
+	          { className: 'login' },
 	          _react2.default.createElement(
 	            'i',
 	            { className: 'material-icons' },
@@ -43546,7 +43535,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'loader', id: 'loader' },
+	          { className: 'loader' },
 	          _react2.default.createElement('img', { src: '../media/images/wassim.jpg' })
 	        )
 	      );
@@ -43566,8 +43555,8 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { generateUserInfo: _actions.generateUserInfo })(Login);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)))
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, {})(Login);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(274)))
 
 /***/ },
 /* 418 */
@@ -46091,32 +46080,6 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 437 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _constants.GENERATE_USER_INFO:
-	      return action.payload;
-	    default:
-	      return state;
-	  }
-	};
-
-	var _constants = __webpack_require__(382);
-
-	var INITIAL_STATE = {};
 
 /***/ }
 /******/ ]);
