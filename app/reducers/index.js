@@ -17,9 +17,11 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 import location from './location_reducer';
+import managers from './managers_reducer';
 
 const rootReducer = combineReducers({
   location,
+  managers,
 });
 
 export default rootReducer;

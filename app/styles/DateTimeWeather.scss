@@ -15,7 +15,7 @@
 
 .dateTimeWeather {
   font-size: 1.5em;
-  background: black;
+  line-height: 0px;
 }
 
 .date {
@@ -30,6 +30,7 @@
 
 .weather {
   text-transform: capitalize;
+  font-weight: 300;
   font-size: 34px;
 }
 
@@ -59,8 +60,7 @@
  */
 @font-face {
  font-family: 'weathericons';
- src: url('~/../styles/fonts/weathericons-regular-webfont.eot');
- src: url('~/../styles/fonts/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('~/../styles/fonts/weathericons-regular-webfont.woff2') format('woff2'), url('~/../styles/fonts/weathericons-regular-webfont.woff') format('woff'), url('~/../styles/fonts/weathericons-regular-webfont.ttf') format('truetype'), url('~/../styles/fonts/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
+ src: url('./fonts/weathericons-regular-webfont.ttf') format('truetype');
  font-weight: normal;
  font-style: normal;
 }

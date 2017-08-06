@@ -130,3 +130,15 @@
   bottom: 0px;
   text-align: left;
 }
+
+// Widgets
+:global {
+  .widget {
+  	border-radius: 3px;
+    display: none;
+  	position: absolute;
+  	cursor: move;
+  	z-index: 0;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+  }
+}

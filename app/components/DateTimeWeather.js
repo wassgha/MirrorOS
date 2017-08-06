@@ -16,30 +16,86 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
 import styles from '../styles/DateTimeWeather.scss';
-import {generateLocation} from '../actions/location'
+import { generateLocation } from '../actions/location';
 
-import weatherIcons from '../const/weather-icons';
-import {OPEN_WEATHER_MAP_KEY,
-        OPEN_WEATHER_MAP_ADDRESS} from '../const';
+import weatherIcons from '../const/weather-icons.json';
+import { OPEN_WEATHER_MAP_KEY,
+         OPEN_WEATHER_MAP_ADDRESS } from '../const';
 
 @CSSModules(styles)
 
 class DateTimeWeather extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       date: new Date(),
       weather: {},
-      formattedAddress: "",
+      formattedAddress: '',
     };
   }
 
+  // Component methods
+
+  componentDidMount () {
+    // Update Date & Time Every Seconds
+    this.tickTimer_ = setInterval(() => {
+      this.tick()
+    }, 1000)
+    // Update Weather Every 5 Hours
+    this.props.generateLocation()
+    setInterval(() => {
+      this.updateWeather()
+    }, 18000000)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Update weather when location changes
+    const curLocation = this.props.location;
+    if(JSON.stringify(curLocation) !== JSON.stringify(nextProps.location))
+    {
+      this.updateWeather();
+    }
+  }
+
+
+  componentWillUnmount() {
+    clearInterval(this.tickTimer_);
+  }
+
+  render () {
+    const now = Object.assign({}, this.dateString(), this.timeString(true));
+    const timeStr = now.hrs + ':' + now.mins + ':' + now.secs + ' ' + now.ampm
+    const dateStr = now.day + ', ' + now.month + ' ' + now.date
+    const weather = this.getWeather()
+
+    return (
+      <span className={styles.dateTimeWeather}>
+        <span className={styles.date}>{dateStr}</span>
+        <br />
+        <span className={styles.time}>{timeStr}</span>
+        <br />
+        <span className={styles.weather}>
+        {
+          weather ? (
+            <span>
+              <i className={weather.icon} />{weather.condition}
+            </span>
+          ) : (
+            <span>
+              Loading Weather
+            </span>
+          )
+        }
+        </span>
+      </span>
+    )
+  }
   // Weather Methods
 
-  updateWeather () {
+  updateWeather() {
     if (!this.props.location.currentLocation
         || !this.props.location.currentLocation.coords) {
       return;
@@ -76,107 +132,50 @@ class DateTimeWeather extends Component {
     // Finally tack on the prefix.
     icon = prefix + icon
     return {
-      icon: icon,
-      condition: condition
-    }
+      icon,
+      condition
+    };
   }
 
   // Date & Time Methods
 
-  dateString () {
+  dateString() {
     // Split Date.toDateString and get following array:
     // [<day>, <month>, <date>, <year>]
-    let str = this.state.date.toDateString().split(' ')
+    const str = this.state.date.toDateString().split(' ');
     return {
       day: str[0],
       month: str[1],
       date: str[2],
       year: str[3]
-    }
+    };
   }
 
-  timeString (ampm) {
+  timeString(ampm) {
     // Splits Date.toTimeString and get following array:
     // [<hours>, <minutes>, <seconds>, <am/pm>]
     let str = this.state.date.toTimeString().split(':')
-    str[3] = 'AM'
+    str[3] = 'AM';
 
-    const hours = Number(str[0])
+    const hours = Number(str[0]);
     if (ampm && hours > 12) {
-      str[0] = (hours - 12 < 10) ? '0' + (hours - 12) : '' + (hours - 12)
-      str[3] = 'PM'
+      str[0] = (hours - 12 < 10) ? '0' + (hours - 12) : '' + (hours - 12);
+      str[3] = 'PM';
     }
 
     return {
       hrs: str[0],
       mins: str[1],
-      secs: this.state.date.getSeconds(),
+      secs: str[2].split(' ')[0],
       ampm: str[3]
-    }
+    };
   }
 
 
   tick() {
     this.setState({
       date: new Date()
-    })
-  }
-
-  // Component methods
-
-  componentDidMount () {
-    // Update Date & Time Every Seconds
-    this.tickTimer = setInterval(() => {
-      this.tick()
-    }, 1000)
-    // Update Weather Every 5 Hours
-    this.props.generateLocation()
-    setInterval(() => {
-      this.updateWeather()
-    }, 18000000)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // Update weather when location changes
-    const curLocation = this.props.location;
-    if(JSON.stringify(curLocation) !== JSON.stringify(nextProps.location))
-    {
-      this.updateWeather();
-    }
-  }
-
-
-  componentWillUnmount() {
-    clearInterval(this.tickTimer);
-  }
-
-  render () {
-    const now = Object.assign({}, this.dateString(), this.timeString(true));
-    const timeStr = now.hrs + ':' + now.mins + ':' + now.secs + ' ' + now.ampm
-    const dateStr = now.day + ', ' + now.month + ' ' + now.date
-    const weather = this.getWeather()
-
-    return (
-      <span className={styles.dateTimeWeather}>
-        <span className={styles.date}>{dateStr}</span>
-        <br />
-        <span className={styles.time}>{timeStr}</span>
-        <br />
-        <span className={styles.weather}>
-        {
-          weather ? (
-            <span>
-              <i className={weather.icon} />{weather.condition}
-            </span>
-          ) : (
-            <span>
-              Loading Weather
-            </span>
-          )
-        }
-        </span>
-      </span>
-    )
+    });
   }
 }
 
