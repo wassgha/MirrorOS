@@ -16,7 +16,8 @@
     "redux": "3.6.0",
     "redux-promise": "0.5.3",
     "redux-thunk": "2.2.0",
-    "socket.io": "2.0.0"
+    "socket.io": "2.0.2",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
@@ -58,6 +59,9 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "npm run build && npm run electron",
-    "dev": "concurrently --kill-others \"npm run start\" \"npm run watch\""
-  }
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run watch\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
