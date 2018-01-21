@@ -136,7 +136,7 @@ internal use of the MirrorOS runtime.
 ## Maintainers
 
 - [Wassim Gharbi](https://github.com/wassgha)
-- [Zurabi Mestiashvili](https://github.com/prosperi)
+- [Zura Mestiashvili](https://github.com/prosperi)
 
 ## License
 Non-commercial use only except by written authorization.
