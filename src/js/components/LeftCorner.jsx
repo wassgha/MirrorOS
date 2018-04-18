@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class LeftCorner extends Component {
-
-  render () {
+  render() {
     return (
-      <span className='corner left'>
-        <span className='profile_pic'>
-          <img src='../media/images/wassim.jpg' />
-          <span className='indicator'></span>
+      <span className="corner left">
+        <span className="profile_pic">
+          <img src="../media/images/wassim.jpg" />
+          <span className="indicator" />
         </span>
-        <span className='text'>
-          Logged in as<br/>
+        <span className="text">
+          Logged in as<br />
           <b>Wassim Gr</b>
         </span>
       </span>
@@ -19,12 +18,8 @@ class LeftCorner extends Component {
   }
 }
 
-LeftCorner.propTypes = {
-}
-
-function mapStateToProps (state) {
-  return {
-  }
+function mapStateToProps(state) {
+  return {}
 }
 
 export default connect(mapStateToProps)(LeftCorner)

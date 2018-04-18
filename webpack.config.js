@@ -3,10 +3,7 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: [
-    './src/index.js',
-    './src/styles/style.css'
-  ],
+  entry: ['./src/index.js', './src/styles/style.css'],
 
   output: {
     path: path.join(__dirname, 'build'),
@@ -14,14 +11,13 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
+    rules: [
       {
+        enforce: 'pre',
         test: /\.jsx?$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -38,7 +34,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader']
+        })
       },
       {
         test: /\.(png|gif|jpg|cur|pdf|woff|woff2|eot|ttf|svg)$/,
@@ -48,20 +47,18 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
-    }),
+    new ExtractTextPlugin({ filename: '[name].css' }),
     new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery',
+      $: 'jquery',
+      jQuery: 'jquery',
       'window.jQuery': 'jquery'
     })
   ],
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
     alias: {
-      'jquery': 'jquery/src/jquery'
+      jquery: 'jquery/src/jquery'
     }
   },
 

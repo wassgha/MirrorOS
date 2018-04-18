@@ -7,16 +7,15 @@ html {
 }
 
 body {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   background-color: black;
-  opacity: 1.0;
+  opacity: 1;
   -webkit-transition: background 1.5s linear;
   -moz-transition: background 1.5s linear;
   -o-transition: background 1.5s linear;
   -ms-transition: background 1.5s linear;
   transition: background 1.5s linear;
 }
-
 
 @import 'alarm.css';
 @import 'home.css';

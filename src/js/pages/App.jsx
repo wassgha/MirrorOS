@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {updateDateAndTime, updateWeather, generateLocation, generateSocket} from '../actions/index'
+import {
+  updateDateAndTime,
+  updateWeather,
+  generateLocation,
+  generateSocket
+} from '../actions/index'
 
 class App extends Component {
-
-  componentWillMount () {
+  componentWillMount() {
     this.props.updateDateAndTime()
 
     setInterval(() => {
@@ -20,24 +24,21 @@ class App extends Component {
     this.props.generateSocket()
   }
 
-  render () {
+  render() {
     return (
-      <div className='app-container'>
+      <div className="app-container">
         {this.props.children}
-        <div className='notification'>
-          <span id='text'>Good Morning, Wassim.</span>
+        <div className="notification">
+          <span id="text">Good Morning, Wassim.</span>
         </div>
       </div>
     )
   }
 }
 
-App.propTypes = {
-  updateDateAndTime: React.PropTypes.func,
-  updateWeather: React.PropTypes.func,
-  generateLocation: React.PropTypes.func,
-  generateSocket: React.PropTypes.func,
-  children: React.PropTypes.any
-}
-
-export default connect(null, {updateDateAndTime, updateWeather, generateLocation, generateSocket})(App)
+export default connect(null, {
+  updateDateAndTime,
+  updateWeather,
+  generateLocation,
+  generateSocket
+})(App)

@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import weatherIcons from '../constants/weather-icons'
 
 class RightCorner extends Component {
-
-  render () {
+  render() {
     const now = this.props.dateAndTime.now
-    const timeStr = now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm
+    const timeStr =
+      now.hours + ':' + now.minutes + ':' + now.seconds + ' ' + now.ampm
     const dateStr = now.day + ', ' + now.month + ' ' + now.date
 
     const weatherObj = this.props.weather
@@ -26,32 +26,27 @@ class RightCorner extends Component {
     icon = prefix + icon
 
     return (
-      <span className='corner right'>
-        <span id='date'>{dateStr}</span>
+      <span className="corner right">
+        <span id="date">{dateStr}</span>
         <br />
-        <span id='time'>{timeStr}</span>
+        <span id="time">{timeStr}</span>
         <br />
-        <span id='weather'>
-          <i className={icon} />{condition}
+        <span id="weather">
+          <i className={icon} />
+          {condition}
         </span>
       </span>
     )
   }
 }
 
-RightCorner.propTypes = {
-  dateAndTime: React.PropTypes.any,
-  weather: React.PropTypes.any,
-  formattedAddress: React.PropTypes.string
-}
-
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     widgetQueue: state.widgets.widgetQueue,
     dateAndTime: state.dateAndTime,
     weather: state.weather.currentWeather,
-    widgetList: state.widgets.widgetList,
-    formattedAddress: state.location.formattedAddress
+    widgetList: state.widgets.widgetList
+    // formattedAddress: state.location.formattedAddress
   }
 }
 
