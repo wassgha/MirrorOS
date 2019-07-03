@@ -5,31 +5,72 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%
+    );
+    mask-mode: luminance;
+
     .swiper {
-      width: 100%;
+      flex: 1;
+      position: relative;
       padding-bottom: 96px;
     }
   }
-  .controls {
+  .preview {
+    flex: 1;
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    left: 0;
+    padding: 16px;
+
+    .previewCardContainer {
+      width: 300px;
+      max-height: 460px;
+      mask-image: linear-gradient(black, transparent);
+      mask-mode: luminance;
+    }
+
+    .previewCardContent {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .topControls {
     display: flex;
     flex-direction: row;
     width: 100%;
     padding: 16px;
     box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bottomControls {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    padding-top: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+
     .button {
       margin-right: 8px;
       margin-left: 8px;
-    }
-    &.top {
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding-left: 8px;
-    }
-    &.bottom {
-      padding-top: 24px;
-      justify-content: center;
-      align-items: flex-start;
-      position: absolute;
     }
   }
 }

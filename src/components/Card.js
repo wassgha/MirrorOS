@@ -9,7 +9,8 @@ function App({
   icon = mdiEmail,
   app = 'App name',
   title = 'Card title',
-  children = 'There was an error rendering this app.'
+  children = 'There was an error rendering this app.',
+  noPadding = false
 }) {
   return (
     <div className="card">
@@ -20,7 +21,9 @@ function App({
         </span>
         <span className="title">{title}</span>
       </header>
-      <div className="body">{children}</div>
+      <div className="body" style={{ padding: noPadding ? 0 : 16 }}>
+        {children}
+      </div>
     </div>
   );
 }

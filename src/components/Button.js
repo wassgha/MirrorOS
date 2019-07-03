@@ -4,9 +4,14 @@ import { mdiEmail } from '@mdi/js';
 
 import Icon from '@mdi/react';
 
-function App({ color = '#333', icon = mdiEmail, text = 'Button' }) {
+function Button({
+  color = '#333',
+  icon = mdiEmail,
+  text = 'Button',
+  action = () => {}
+}) {
   return (
-    <div className="button">
+    <div className="button" onClick={action}>
       <Icon className="icon" path={icon} color={color} />
 
       <span className="text">{text}</span>
@@ -14,4 +19,4 @@ function App({ color = '#333', icon = mdiEmail, text = 'Button' }) {
   );
 }
 
-export default App;
+export default Button;

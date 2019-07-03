@@ -1,21 +1,21 @@
 import React from 'react';
-import '../styles/Space.scss';
+import '../styles/Home.scss';
 
 import Layer from '../components/Layer';
 import BasicInfo from '../components/BasicInfo';
 
-function Space({ active }) {
+function Home({ active }) {
   return (
-    <Layer className="space" active={active}>
+    <Layer className="home" active={active}>
       <div className="wallpaper" />
       <div className="mesh" />
       <div className="desktop">
-        <div className="top right">
-          <BasicInfo position="top right" />
+        <div className="center left">
+          <BasicInfo position="center" />
         </div>
       </div>
     </Layer>
   );
 }
 
-export default Space;
+export default Home;

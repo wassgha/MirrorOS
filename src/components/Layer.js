@@ -7,7 +7,7 @@ function Layer({ children, className, active = false }) {
       className={'layer ' + className}
       style={
         active
-          ? { background: 'rgba(210,210,210,0.4)' }
+          ? { background: 'rgba(220,220,220,0.4)' }
           : {
               filter: 'url(\'#blur\')',
               width: '120%',
@@ -19,7 +19,7 @@ function Layer({ children, className, active = false }) {
     >
       <svg className={'svgFilter'}>
         <filter id="blur">
-          <feGaussianBlur stdDeviation="35" />
+          <feGaussianBlur stdDeviation="200" />
         </filter>
       </svg>
       {children}

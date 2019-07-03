@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { view } from 'react-easy-state';
 import './styles/App.scss';
 
-import Recent from './screens/Recent';
-import Space from './screens/Space';
+import SpeechListener from './components/SpeechListener';
+
+import spaces from './stores/spaces';
 
 function App() {
-  const [activeScreen, setActiveScren] = useState('space');
   return (
     <div className="app">
-      <Space active={activeScreen == 'space'} />
-      <Recent active={activeScreen == 'recent'} />
+      {spaces.render}
+      <SpeechListener />
     </div>
   );
 }
 
-export default App;
+export default view(App);

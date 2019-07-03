@@ -1,0 +1,38 @@
+.cardPreview {
+  border-radius: 8px;
+  display: block;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #333;
+  margin-bottom: 8px;
+  background: white;
+  opacity: 0.3;
+  width: 100%;
+  box-sizing: border-box;
+
+  .appname {
+    font-weight: bold;
+    margin-right: 12px;
+  }
+
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+
+    .material-icons {
+      color: #333;
+    }
+  }
+}

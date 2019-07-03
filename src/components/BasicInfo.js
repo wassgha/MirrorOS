@@ -18,7 +18,7 @@ function BasicInfo({ position = 'top right' }) {
       .then(({ data }) => setWeather(data));
   }, []);
   return (
-    <div className="basicInfo">
+    <div className="basicInfo" style={{ textAlign: position }}>
       <span className="date">
         <Moment format="dddd, MMM. Do" />
       </span>
