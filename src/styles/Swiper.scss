@@ -1,0 +1,31 @@
+.carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.slot {
+  flex: 1 0 100%;
+}
+
+.slide-arrow {
+  color: #333;
+  cursor: pointer;
+  font-size: 2rem;
+  position: fixed;
+  top: 50%;
+}
+
+.slide-arrow.right {
+  right: 1rem;
+}
+
+.slide-arrow.left {
+  left: 1rem;
+}
