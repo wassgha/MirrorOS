@@ -7,8 +7,14 @@ function Layer({ children, className, active = false }) {
       className={'layer ' + className}
       style={
         active
-          ? { background: 'rgba(200,200,200,0.8)' }
-          : { filter: 'url(\'#blur\')' }
+          ? { background: 'rgba(210,210,210,0.4)' }
+          : {
+              filter: 'url(\'#blur\')',
+              width: '120%',
+              height: '120%',
+              marginTop: '-5%',
+              marginLeft: '-10%'
+            }
       }
     >
       <svg className={'svgFilter'}>

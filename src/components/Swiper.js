@@ -49,25 +49,9 @@ class Carousel extends Component {
             <div className="slot">{child}</div>
           ))}
         </div>
-        <Arrow
-          direction="left"
-          clickFunction={this.previousSlide}
-          glyph="&#9664;"
-        />
-        <Arrow
-          direction="right"
-          clickFunction={this.nextSlide}
-          glyph="&#9654;"
-        />
       </div>
     );
   }
 }
-
-const Arrow = ({ direction, clickFunction, glyph }) => (
-  <div className={`slide-arrow ${direction}`} onClick={clickFunction}>
-    {glyph}
-  </div>
-);
 
 export default Carousel;

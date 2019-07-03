@@ -1,0 +1,35 @@
+.recent {
+  .cards {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .swiper {
+      width: 100%;
+      padding-bottom: 96px;
+    }
+  }
+  .controls {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    .button {
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+    &.top {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-left: 8px;
+    }
+    &.bottom {
+      padding-top: 24px;
+      justify-content: center;
+      align-items: flex-start;
+      position: absolute;
+    }
+  }
+}
