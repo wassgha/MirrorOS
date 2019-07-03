@@ -5,7 +5,7 @@ import Recent from './screens/Recent';
 import Space from './screens/Space';
 
 function App() {
-  const [activeScreen, setActiveScren] = useState('recent');
+  const [activeScreen, setActiveScren] = useState('space');
   return (
     <div className="app">
       <Space active={activeScreen == 'space'} />

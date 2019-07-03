@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/Layer.scss';
 
-function Layer({ children, active = false }) {
+function Layer({ children, className, active = false }) {
   return (
     <div
-      className="layer"
+      className={'layer ' + className}
       style={
         active
           ? { background: 'rgba(200,200,200,0.8)' }
