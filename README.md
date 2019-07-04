@@ -130,4 +130,4 @@ internal use of the MirrorOS runtime.
 - [Zura Mestiashvili](https://github.com/prosperi)
 
 ## License
-Non-commercial use only except by written authorization.
+Non-commercial, private and educational use only except by written authorization.
