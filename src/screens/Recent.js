@@ -1,4 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, {
+  useRef,
+  useState,
+  useImperativeHandle,
+  forwardRef
+} from 'react';
 import '../styles/Recent.scss';
 import {
   mdiEmail,
@@ -48,6 +53,24 @@ const dummyCards = [
     )
   },
   {
+    title: 'Hello - Adele',
+    app: 'Youtube',
+    icon: mdiYoutube,
+    color: '#c4302b',
+    noPadding: true,
+    children: (
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/YQHsXMglC9A?controls=0"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Adele Hello"
+      />
+    )
+  },
+  {
     title: 'Now Playing',
     app: 'Spotify',
     icon: mdiSpotify,
@@ -69,24 +92,6 @@ const dummyCards = [
     children: <span>2</span>
   },
   {
-    title: 'Hello - Adele',
-    app: 'Youtube',
-    icon: mdiYoutube,
-    color: '#c4302b',
-    noPadding: true,
-    children: (
-      <iframe
-        width="100%"
-        height="315"
-        src="https://www.youtube.com/embed/YQHsXMglC9A?controls=0"
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Adele Hello"
-      />
-    )
-  },
-  {
     title: 'Stranger Things',
     app: 'Netflix',
     icon: mdiNetflix,
@@ -105,9 +110,23 @@ const BottomControls = posed.nav({
   exit: { y: '100%', opacity: 0 }
 });
 
-function Recent({ active, ...props }) {
+function Recent({ active, ...props }, ref) {
   const swiper = useRef({});
   const [current, setCurrent] = useState(0);
+  useImperativeHandle(ref, () => ({
+    handleCommand: (command, data) => {
+      switch (command) {
+        case 'next':
+          swiper.current.next();
+          return true;
+        case 'previous':
+          swiper.current.previous();
+          return true;
+        default:
+          return false;
+      }
+    }
+  }));
   return (
     <Layer className="recent" active={active} {...props}>
       <div className="cards">
@@ -147,8 +166,8 @@ function Recent({ active, ...props }) {
                 far={Math.abs(index - current)}
                 key={index}
                 {...card}
-                active={index === current}
                 {...props}
+                active={index === current}
               />
             ))}
           </div>
@@ -165,4 +184,4 @@ function Recent({ active, ...props }) {
   );
 }
 
-export default view(Recent);
+export default view(forwardRef(Recent));

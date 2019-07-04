@@ -6,7 +6,7 @@ import posed from 'react-pose';
 import Icon from '@mdi/react';
 
 const CardPreviewBox = posed.div({
-  enter: { opacity: 1 },
+  enter: { opacity: ({ active }) => (active ? 1 : 0.5) },
   exit: { opacity: 0 }
 });
 
@@ -15,17 +15,18 @@ function CardPreview({
   icon = mdiEmail,
   app = 'App name',
   title = 'Card title',
-  active = false,
   far = 0,
+  active = false,
   ...props
 }) {
   return (
     <CardPreviewBox
       className="cardPreview"
       style={{
-        opacity: active ? 1 : 0.8,
-        filter: 'blur(' + 0.75 * far + 'px)'
+        filter: 'blur(' + 0.75 * far + 'px)',
+        opacity: active ? 1 : 0.5
       }}
+      active={active}
       {...props}
     >
       <Icon className="icon" path={icon} color={color} />

@@ -24,12 +24,35 @@ class SpeechListener extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const finalTranscript_old = prevProps.finalTranscript;
-    const { finalTranscript, transcript } = this.props;
-    if (finalTranscript_old === finalTranscript) return;
-    const tentativeTranscript = _.upperFirst(
-      _.trim(transcript.replace(finalTranscript_old, ''))
-    );
+    // const finalTranscript_old = prevProps.finalTranscript;
+    // const { finalTranscript, transcript } = this.props;
+    // if (finalTranscript_old === finalTranscript) return;
+    // const tentativeTranscript = _.upperFirst(
+    //   _.trim(transcript.replace(finalTranscript_old, ''))
+    // );
+    // if (tentativeTranscript !== '') {
+    //   this.setState({
+    //     lastTranscript: tentativeTranscript
+    //   });
+    //   console.log('Sending speech', tentativeTranscript);
+    //   const sanitizedCommand = tentativeTranscript.toLowerCase().trim();
+    //   if (sanitizedCommand.startsWith('open')) {
+    //     spaces.open(sanitizedCommand.replace('open', '').trim());
+    //   } else if (
+    //     sanitizedCommand.startsWith('close') ||
+    //     sanitizedCommand.startsWith('quit')
+    //   ) {
+    //     spaces.close();
+    //   } else if (!spaces.forwardCommandToActiveSpace(sanitizedCommand)) {
+    //     // send to smart assistant
+    //     return;
+    //   }
+    // }
+
+    const interimTranscript_old = prevProps.interimTranscript;
+    const { interimTranscript } = this.props;
+    if (interimTranscript_old === interimTranscript) return;
+    const tentativeTranscript = _.upperFirst(_.trim(interimTranscript));
     if (tentativeTranscript !== '') {
       this.setState({
         lastTranscript: tentativeTranscript
@@ -38,8 +61,14 @@ class SpeechListener extends React.Component {
       const sanitizedCommand = tentativeTranscript.toLowerCase().trim();
       if (sanitizedCommand.startsWith('open')) {
         spaces.open(sanitizedCommand.replace('open', '').trim());
-      } else if (sanitizedCommand.startsWith('close')) {
+      } else if (
+        sanitizedCommand.startsWith('close') ||
+        sanitizedCommand.startsWith('quit')
+      ) {
         spaces.close();
+      } else if (!spaces.forwardCommandToActiveSpace(sanitizedCommand)) {
+        // send to smart assistant
+        return;
       }
     }
   }
