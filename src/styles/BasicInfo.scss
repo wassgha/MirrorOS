@@ -1,0 +1,22 @@
+.basicInfo {
+  padding: 16px;
+  color: white;
+  text-align: right;
+  .date {
+    font-size: 42px;
+    font-weight: 600;
+    display: block;
+  }
+  .time {
+    font-size: 42px;
+    display: block;
+  }
+  .weather {
+    font-size: 42px;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    .weather-desc {
+      margin-left: 8px;
+    }
+  }
+}

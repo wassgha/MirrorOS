@@ -1,0 +1,41 @@
+.speech {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  font-size: 48px;
+  .interim {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .final {
+    color: white;
+  }
+
+  .blinking-cursor {
+    font-weight: bold;
+    color: white;
+    animation: 1s blink step-end infinite;
+  }
+
+  @keyframes blink {
+    from,
+    to {
+      color: transparent;
+    }
+    50% {
+      color: white;
+    }
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+}

@@ -1,0 +1,47 @@
+.card {
+  background: white;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+  width: 460px;
+  max-height: 460px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+
+  .header {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #eee;
+    color: #333;
+
+    .appname {
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    .title {
+    }
+
+    .icon {
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
+
+      .material-icons {
+        color: #333;
+      }
+    }
+  }
+
+  .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+  }
+}

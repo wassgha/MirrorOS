@@ -1,0 +1,16 @@
+.layer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: filter 1s, background-color 1s;
+}
+
+.svgFilter {
+  display: none;
+}
