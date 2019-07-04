@@ -30,6 +30,7 @@
     flex-direction: column;
     left: 0;
     padding: 16px;
+    pointer-events: none;
 
     .previewCardContainer {
       width: 300px;

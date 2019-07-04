@@ -26,11 +26,11 @@ class SpeechListener extends React.Component {
   componentDidUpdate(prevProps) {
     const finalTranscript_old = prevProps.finalTranscript;
     const { finalTranscript, transcript } = this.props;
-    if (finalTranscript_old == finalTranscript) return;
+    if (finalTranscript_old === finalTranscript) return;
     const tentativeTranscript = _.upperFirst(
       _.trim(transcript.replace(finalTranscript_old, ''))
     );
-    if (tentativeTranscript != '') {
+    if (tentativeTranscript !== '') {
       this.setState({
         lastTranscript: tentativeTranscript
       });

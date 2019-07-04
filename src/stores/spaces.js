@@ -28,9 +28,15 @@ const spaces = store({
     return spaces.all.filter(space => !space.hidden);
   },
   get render() {
-    return spaces.all.map((Space, index) => (
-      <Space active={spaces.current == index} />
-    ));
+    return spaces.all.map((Space, index) => {
+      const AugmentedSpace = props => <Space {...props} />;
+      return (
+        <AugmentedSpace
+          active={spaces.current === index}
+          key={`space-${index}`}
+        />
+      );
+    });
   },
   open(app) {
     let Space;

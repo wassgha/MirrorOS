@@ -31,6 +31,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 8px;
+    box-sizing: border-box;
     .top {
       margin-bottom: auto;
     }
@@ -38,7 +40,7 @@
       margin-top: auto;
     }
     .left {
-      align-self: flex-end;
+      align-self: flex-start;
     }
     .center {
       align-self: center;

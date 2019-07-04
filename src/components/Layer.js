@@ -1,13 +1,21 @@
 import React from 'react';
+import posed from 'react-pose';
 import '../styles/Layer.scss';
 
-function Layer({ children, className, active = false }) {
+const Box = posed.div({
+  exit: { opacity: 0 },
+  enter: { opacity: 1 },
+  active: { backgroundColor: 'rgba(220,220,220,0.4)' }
+});
+
+function Layer({ children, className, active = false, ...props }) {
   return (
-    <div
+    <Box
       className={'layer ' + className}
+      pose={active ? 'active' : ''}
       style={
         active
-          ? { background: 'rgba(220,220,220,0.4)' }
+          ? {}
           : {
               filter: 'url(\'#blur\')',
               width: '120%',
@@ -16,6 +24,7 @@ function Layer({ children, className, active = false }) {
               marginLeft: '-10%'
             }
       }
+      {...props}
     >
       <svg className={'svgFilter'}>
         <filter id="blur">
@@ -23,7 +32,7 @@ function Layer({ children, className, active = false }) {
         </filter>
       </svg>
       {children}
-    </div>
+    </Box>
   );
 }
 

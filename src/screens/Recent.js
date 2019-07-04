@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import '../styles/Recent.scss';
 import {
   mdiEmail,
@@ -12,6 +12,10 @@ import {
   mdiGestureSwipeDown,
   mdiGesturePinch
 } from '@mdi/js';
+import { view } from 'react-easy-state';
+import posed from 'react-pose';
+
+import spaces from '../stores/spaces';
 
 import Layer from '../components/Layer';
 import Card from '../components/Card';
@@ -75,9 +79,10 @@ const dummyCards = [
         width="100%"
         height="315"
         src="https://www.youtube.com/embed/YQHsXMglC9A?controls=0"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
+        title="Adele Hello"
       />
     )
   },
@@ -90,23 +95,29 @@ const dummyCards = [
   }
 ];
 
-function Recent({ active }) {
+const PreviewList = posed.nav({
+  enter: { x: '0%', staggerChildren: 100 },
+  exit: { x: '-100%' }
+});
+
+const BottomControls = posed.nav({
+  enter: { y: '0%', opacity: 1, staggerChildren: 100 },
+  exit: { y: '100%', opacity: 0 }
+});
+
+function Recent({ active, ...props }) {
   const swiper = useRef({});
   const [current, setCurrent] = useState(0);
-  console.log(dummyCards.slice(current));
   return (
-    <Layer className="recent" active={active}>
-      <div className="topControls">
-        <Button icon={mdiGesturePinch} text="Quit" />
-      </div>
+    <Layer className="recent" active={active} {...props}>
       <div className="cards">
         <div className="swiper">
           <Swiper ref={swiper} onChange={setCurrent}>
             {dummyCards.map((card, index) => (
-              <Card key={index} {...card} />
+              <Card key={index} {...card} {...props} />
             ))}
           </Swiper>
-          <div className="bottomControls">
+          <BottomControls className="bottomControls" {...props}>
             <Button icon={mdiGestureSwipeUp} text="Mark as read" />
             <Button icon={mdiGestureSwipeDown} text="Reply" />
             <Button
@@ -119,11 +130,11 @@ function Recent({ active }) {
               text="Next"
               action={() => swiper.current.next()}
             />
-          </div>
+          </BottomControls>
         </div>
       </div>
       <div className="preview">
-        <div className="previewCardContainer">
+        <PreviewList className="previewCardContainer" {...props}>
           <div
             className="previewCardContent"
             style={{
@@ -136,14 +147,22 @@ function Recent({ active }) {
                 far={Math.abs(index - current)}
                 key={index}
                 {...card}
-                active={index == current}
+                active={index === current}
+                {...props}
               />
             ))}
           </div>
-        </div>
+        </PreviewList>
+      </div>
+      <div className="topControls">
+        <Button
+          icon={mdiGesturePinch}
+          text="Quit"
+          action={() => spaces.close()}
+        />
       </div>
     </Layer>
   );
 }
 
-export default Recent;
+export default view(Recent);

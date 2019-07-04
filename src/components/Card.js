@@ -1,8 +1,14 @@
 import React from 'react';
 import '../styles/Card.scss';
 import { mdiEmail } from '@mdi/js';
+import posed from 'react-pose';
 
 import Icon from '@mdi/react';
+
+const CardBox = posed.div({
+  enter: { scale: 1 },
+  exit: { scale: 0 }
+});
 
 function App({
   color = '#333',
@@ -10,10 +16,11 @@ function App({
   app = 'App name',
   title = 'Card title',
   children = 'There was an error rendering this app.',
-  noPadding = false
+  noPadding = false,
+  ...props
 }) {
   return (
-    <div className="card">
+    <CardBox className="card" {...props}>
       <header className="header">
         <Icon className="icon" path={icon} color={color} />
         <span className="appname" style={{ color: color }}>
@@ -24,7 +31,7 @@ function App({
       <div className="body" style={{ padding: noPadding ? 0 : 16 }}>
         {children}
       </div>
-    </div>
+    </CardBox>
   );
 }
 
