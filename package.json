@@ -2,15 +2,30 @@
   "name": "MirrorOS",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Wassim Gharbi",
+    "email": "wassgha@gmail.com",
+    "url": "https://gharbi.me"
+  },
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.10.17",
     "@mdi/js": "^3.7.95",
     "@mdi/react": "^1.1.1",
     "axios": "^0.19.0",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.1",
+    "electron-is-dev": "^1.1.0",
+    "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "makeconf": "^1.4.4",
     "material-icons-react": "^1.0.4",
     "moment": "^2.24.0",
+    "mongoose": "^5.6.4",
+    "mongoose-crudify": "^0.2.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "passport-local-mongoose": "^5.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-easy-state": "^6.1.3",
@@ -21,14 +36,46 @@
     "react-swipeable": "^5.3.0",
     "react-swipeable-views": "^0.13.3",
     "react-typist": "^2.0.5",
+    "shortid": "^2.2.14",
+    "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
+    "wait-on": "^3.2.0",
     "weather-icons": "^1.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start-client-for-electron": "rescripts start",
+    "build-client-for-electron": "rescripts build",
+    "test-client-for-electron": "rescripts test",
+    "start-client": "react-scripts start",
+    "build-client": "react-scripts build",
+    "test-client": "react-scripts test",
+    "start-api": "nodemon api/server.js",
+    "start-servers-for-electron": "concurrently --kill-others-on-fail \"yarn start-api\" \"yarn start-client-for-electron\"",
+    "start-servers": "concurrently --kill-others-on-fail \"yarn start-api\" \"yarn start-client\"",
+    "setup": "[ -f .env ] || makeconf",
+    "start-electron": "concurrently --kill-others-on-fail \"wait-on http-get://localhost:3000 && electron .\" \"BROWSER=none yarn start-servers-for-electron\"",
+    "start": "yarn start-servers",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build-client",
+    "electron-pack": "build -mw"
+  },
+  "proxy": "http://localhost:3001/",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "build": {
+    "appId": "com.mirror.os",
+    "productName": "MirrorOS",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,5 +91,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.11",
+    "@rescripts/rescript-env": "^0.0.10",
+    "electron": "^5.0.6",
+    "electron-builder": "^20.44.4",
+    "typescript": "^3.5.3"
   }
 }

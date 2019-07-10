@@ -8,13 +8,16 @@ import spaces from '../stores/spaces';
 import Button from '../components/Button';
 import Layer from '../components/Layer';
 import BasicInfo from '../components/BasicInfo';
+import { useTheme } from '../components/ThemeProvider';
 
 const appleBg = false;
 
 function Home({ active }) {
+  const { theme } = useTheme();
+  console.log('theme ', theme);
   return (
     <Layer className="home" active={active}>
-      {appleBg ? (
+      {theme.isApple ? (
         <video
           className="wallpaper"
           src={

@@ -2,10 +2,13 @@ import React from 'react';
 import posed from 'react-pose';
 import '../styles/Layer.scss';
 
+const light = '220,220,220';
+const dark = '0,0,0';
+
 const Box = posed.div({
   exit: { opacity: 0 },
   enter: { opacity: 1 },
-  active: { backgroundColor: 'rgba(220,220,220,0.4)' }
+  active: { backgroundColor: 'rgba(' + dark + ',0.4)' }
 });
 
 function Layer({ children, className, active = false, ...props }) {

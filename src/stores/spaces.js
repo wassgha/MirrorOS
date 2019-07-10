@@ -1,11 +1,10 @@
 import React, { forwardRef } from 'react';
 import { store } from 'react-easy-state';
 
-import Home from '../screens/Home';
 import Recent from '../screens/Recent';
 
 const spaces = store({
-  all: [Home],
+  all: [],
   current: 0,
   refs: [],
   get isEmpty() {
@@ -29,7 +28,9 @@ const spaces = store({
     return spaces.refs[spaces.current];
   },
   get render() {
+    console.log('spaces.all', spaces.all);
     return spaces.all.map((Space, index) => {
+      console.log('Space', Space);
       const AugmentedSpace = forwardRef((props, ref) => (
         <Space ref={ref} {...props} />
       ));
@@ -44,7 +45,7 @@ const spaces = store({
     });
   },
   forwardCommandToActiveSpace(command) {
-    console.log('refs', spaces.refs);
+    if (!spaces.active) return false;
     return spaces.active.current.handleCommand(command);
   },
   open(app) {

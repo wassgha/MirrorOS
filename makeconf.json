@@ -1,0 +1,16 @@
+{
+  "format": ".env",
+  "file": ".env",
+  "config": {
+    "MONGODB_URI": {
+      "description": "Your MongoDB URI (remote or local)",
+      "default": "mongodb://localhost/mirroros",
+      "required": true
+    },
+    "ENVIRON": {
+      "description": "Environment (DEV or ELECTRON)",
+      "default": "DEV",
+      "required": true
+    }
+  }
+}
