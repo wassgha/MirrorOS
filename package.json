@@ -6,7 +6,7 @@
     "@brainhubeu/react-carousel": "^1.10.17",
     "@mdi/js": "^3.7.95",
     "@mdi/react": "^1.1.1",
-    "axios": "^0.19.0",
+    "axios": "^1.6.3",
     "lodash": "^4.17.11",
     "material-icons-react": "^1.0.4",
     "moment": "^2.24.0",
